@@ -32,7 +32,7 @@ namespace Randomizer.SMZ3 {
             get { return weight ?? Region.Weight; }
         }
 
-        readonly Requirement canAccess;
+        Requirement canAccess;
         Verification alwaysAllow;
         Verification allow;
         int? weight;
@@ -57,6 +57,16 @@ namespace Randomizer.SMZ3 {
 
         public Location Weighted(int? weight) {
             this.weight = weight;
+            return this;
+        }
+
+        public Location CanAccess(Region region, Requirement access = null) {
+            Region = region;
+            return CanAccess(access);
+        }
+
+        public Location CanAccess(Requirement access = null) {
+            canAccess = access ?? (items => true);
             return this;
         }
 

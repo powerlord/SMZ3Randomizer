@@ -68,7 +68,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                 EnterLower(items) && items.Lamp && items.KeyTR >= 4;
         }
 
-        bool LaserBridge(Progression items) {
+        protected virtual bool LaserBridge(Progression items) {
             return (
                 EnterLower(items) ||
                 (EnterTop(items) || EnterMiddle(items)) && items.BigKeyTR && items.KeyTR >= 3 && items.Lamp && items.Somaria
@@ -77,7 +77,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                 (items.Cape || items.Byrna || items.CanBlockLasers);
         }
 
-        bool CanBeatBoss(Progression items) {
+        protected bool CanBeatBoss(Progression items) {
             return items.Firerod && items.Icerod && (
                 /*TemperedSword ||*/ items.Hammer ||
                 items.CanExtendMagic(2) && items.MasterSword ||
