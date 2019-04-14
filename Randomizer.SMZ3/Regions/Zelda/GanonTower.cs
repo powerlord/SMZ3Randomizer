@@ -1,6 +1,5 @@
-﻿using System;
+﻿using System.Linq;
 using System.Collections.Generic;
-using System.Linq;
 using static Randomizer.SMZ3.ItemType;
 using static Randomizer.SMZ3.RewardType;
 
@@ -96,67 +95,74 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                 new Location(this, 256+208, 0xEAD6, LocationType.Regular, "Ganon's Tower - Big Chest",
                     items => items.BigKeyGT && items.KeyGT >= 3 && (
                         items.Hammer && items.Hookshot ||
-                        items.Somaria && items.Firerod))
-                    .Allow((item, items) => item.Type != BigKeyGT),
+                        items.Somaria && items.Firerod)),
                 new Location(this, 256+209, 0xEAF1, LocationType.Regular, "Ganon's Tower - Big Key Chest", BigKeyRoom),
                 new Location(this, 256+210, 0xEAF4, LocationType.Regular, "Ganon's Tower - Big Key Room - Left", BigKeyRoom),
                 new Location(this, 256+211, 0xEAF7, LocationType.Regular, "Ganon's Tower - Big Key Room - Right", BigKeyRoom),
-                new Location(this, 256+212, 0xEAFD, LocationType.Regular, "Ganon's Tower - Mini Helmasaur Room - Left", TowerAscend)
-                    .Allow((item, items) => item.Type != BigKeyGT),
-                new Location(this, 256+213, 0xEB00, LocationType.Regular, "Ganon's Tower - Mini Helmasaur Room - Right", TowerAscend)
-                    .Allow((item, items) => item.Type != BigKeyGT),
-                new Location(this, 256+214, 0xEB03, LocationType.Regular, "Ganon's Tower - Pre-Moldorm Chest", TowerAscend)
-                    .Allow((item, items) => item.Type != BigKeyGT),
+                new Location(this, 256+212, 0xEAFD, LocationType.Regular, "Ganon's Tower - Mini Helmasaur Room - Left", TowerAscend),
+                new Location(this, 256+213, 0xEB00, LocationType.Regular, "Ganon's Tower - Mini Helmasaur Room - Right", TowerAscend),
+                new Location(this, 256+214, 0xEB03, LocationType.Regular, "Ganon's Tower - Pre-Moldorm Chest", TowerAscend),
                 new Location(this, 256+215, 0xEB06, LocationType.Regular, "Ganon's Tower - Moldorm Chest",
                     items => items.BigKeyGT && items.KeyGT >= 4 &&
                         items.Bow && items.CanLightTorches() &&
                         CanBeatMoldorm(items) && items.Hookshot)
+                    // Todo: remove this? access already require only big key and all small keys
                     .Allow((item, items) => new[] { KeyGT, BigKeyGT }.Contains(item.Type) == false),
             };
         }
 
-        private bool LeftSide(Progression items, IList<Location> locations) {
+        bool LeftSide(Progression items, IList<Location> locations) {
             return items.Hammer && items.Hookshot && items.KeyGT >= (locations.Any(l => l.ItemType == BigKeyGT) ? 3 : 4);
         }
 
-        private bool RightSide(Progression items, IList<Location> locations) {
+        bool RightSide(Progression items, IList<Location> locations) {
             return items.Somaria && items.Firerod && items.KeyGT >= (locations.Any(l => l.ItemType == BigKeyGT) ? 3 : 4);
         }
 
-        private bool BigKeyRoom(Progression items) {
-            return items.KeyGT >= 3 && CanBeatArmos(items) 
-                && (items.Hammer && items.Hookshot || items.Firerod && items.Somaria);
+        bool BigKeyRoom(Progression items) {
+            return items.KeyGT >= 3 && CanBeatArmos(items) &&
+                (items.Hammer && items.Hookshot || items.Firerod && items.Somaria);
         }
 
-        private bool TowerAscend(Progression items) {
+        bool TowerAscend(Progression items) {
             return items.BigKeyGT && items.KeyGT >= 3 && items.Bow && items.CanLightTorches();
-        }   
-            
-        private bool CanBeatArmos(Progression items) {
+        }
+
+        bool CanBeatArmos(Progression items) {
             return items.Sword || items.Hammer || items.Bow ||
                 items.CanExtendMagic(2) && (items.Somaria || items.Byrna) ||
                 items.CanExtendMagic(4) && (items.Firerod || items.Icerod);
         }
 
-        private bool CanBeatMoldorm(Progression items) {
+        bool CanBeatMoldorm(Progression items) {
             return items.Sword || items.Hammer;
         }
 
         public override bool CanEnter(Progression items) {
-            return items.MoonPearl && World.CanEnter<DarkWorldDeathMountainEast>(items) &&
-                World.CanAquireAll(items, new[] { CrystalBlue, CrystalRed, GoldenFourBoss });
+            return
+                Logic.OneFrameClipOw && (
+                    items.MoonPearl ||
+                    Logic.DungeonRevive ||
+                    Logic.OwYba && items.Bottle
+                ) || (
+                    items.MoonPearl ||
+                    Logic.OwYba && items.Bottle
+                ) && ((
+                        Logic.BootsClip && items.Boots ||
+                        Logic.SuperSpeed && items.Boots && items.Hookshot
+                    ) && World.CanEnter<DarkWorldDeathMountainWest>(items) ||
+                    World.CanAquireAll(items, CrystalBlue, CrystalRed, GoldenFourBoss) &&
+                        World.CanEnter<DarkWorldDeathMountainEast>(items)
+                );
         }
 
         public override bool CanFill(Item item) {
-            if (Config.Multiworld == true) {
-                /* Never cross-world fill GT */
-                if (item.World != World)
-                    return false;
-
-                /* TODO: Temporary fix, disallow progression items completely from GT */
-                if (item.Progression)
-                    return false;
-            }
+            /* Todo: Temporary multiworld adjustments
+             * 1. Never cross-world fill GT
+             * 2. Disallow progression items completely from GT
+             */
+            if (Config.Multiworld == true && (item.World != World || item.Progression))
+                return false;
 
             return base.CanFill(item);
         }

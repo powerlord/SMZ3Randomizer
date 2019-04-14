@@ -429,6 +429,7 @@ namespace Randomizer.SMZ3 {
         public bool Hammer { get; private set; }
         public bool Shovel { get; private set; }
         public bool Flute { get; private set; }
+        public bool Bugnet { get; private set; }
         public bool Book { get; private set; }
         public bool Bottle { get; private set; }
         public bool Somaria { get; private set; }
@@ -504,6 +505,7 @@ namespace Randomizer.SMZ3 {
                     ItemType.Hammer => Hammer = true,
                     ItemType.Shovel => Shovel = true,
                     ItemType.Flute => Flute = true,
+                    ItemType.Bugnet => Bugnet = true,
                     ItemType.Book => Book = true,
                     ItemType.Bottle => Bottle = true,
                     ItemType.Somaria => Somaria = true,
@@ -574,7 +576,7 @@ namespace Randomizer.SMZ3 {
             return items.Firerod || items.Lamp;
         }
 
-        public static bool CanMeltFreezors(this Progression items) {
+        public static bool CanMeltIceEnemies(this Progression items) {
             return items.Firerod || items.Bombos && items.Sword;
         }
 
@@ -585,6 +587,14 @@ namespace Randomizer.SMZ3 {
         public static bool CanKillManyEnemies(this Progression items) {
             return items.Sword || items.Hammer || items.Bow || items.Firerod ||
                 items.Somaria || items.Byrna && items.CanExtendMagic();
+        }
+
+        public static bool CanSpinSpeed(this Progression items) {
+            return items.Boots && (items.Sword || items.Hookshot);
+        }
+
+        public static bool CanBunnyRevive(this Progression items) {
+            return items.Bottle && items.Bugnet;
         }
 
         public static bool CanAccessDeathMountainPortal(this Progression items) {

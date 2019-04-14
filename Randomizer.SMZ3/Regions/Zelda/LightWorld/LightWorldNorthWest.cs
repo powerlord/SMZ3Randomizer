@@ -20,11 +20,27 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                 new Location(this, 256+18, 0xEB3F, LocationType.Regular, "Pegasus Rocks",
                     items => items.Boots),
                 new Location(this, 256+19, 0x180004, LocationType.Regular, "Graveyard Ledge",
-                    items => items.Mirror && items.MoonPearl && World.CanEnter<DarkWorldNorthWest>(items)),
+                    items =>
+                        Logic.OneFrameClipOw ||
+                        Logic.BootsClip && items.Boots ||
+                        Logic.SuperSpeed && items.CanSpinSpeed() ||
+                        items.Mirror && World.CanEnter<DarkWorldNorthWest>(items) && (
+                            items.MoonPearl ||
+                            Logic.OwYba && items.Bottle ||
+                            Logic.BunnyRevive && items.CanBunnyRevive()
+                        )),
                 new Location(this, 256+20, 0xE97A, LocationType.Regular, "King's Tomb",
                     items => items.Boots && (
+                        Logic.BootsClip ||
+                        Logic.OneFrameClipOw ||
+                        Logic.SuperSpeed && items.CanSpinSpeed() ||
                         items.CanLiftHeavy() ||
-                        items.Mirror && items.MoonPearl && World.CanEnter<DarkWorldNorthWest>(items))),
+                        items.Mirror && World.CanEnter<DarkWorldNorthWest>(items) && (
+                            items.MoonPearl ||
+                            Logic.OwYba && items.Bottle ||
+                            Logic.BunnyRevive && items.CanBunnyRevive()
+                        )
+                    )),
                 new Location(this, 256+21, 0xEA8E, LocationType.Regular, "Kakariko Well - Top").Weighted(sphereOne),
                 new Location(this, 256+22, 0xEA91, LocationType.Regular, "Kakariko Well - Left").Weighted(sphereOne),
                 new Location(this, 256+23, 0xEA94, LocationType.Regular, "Kakariko Well - Middle").Weighted(sphereOne),
@@ -41,7 +57,24 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                     items => items.Bottle),
                 new Location(this, 256+34, 0xE9CE, LocationType.Regular, "Kakariko Tavern").Weighted(sphereOne),
                 new Location(this, 256+35, 0x180015, LocationType.Regular, "Magic Bat",
-                    items => items.Powder && (items.Hammer || items.MoonPearl && items.Mirror && items.CanLiftHeavy())),
+                    items => items.Powder && (
+                        items.Hammer ||
+                        (Logic.FakeFlipper || items.Flippers) && (
+                            Logic.OneFrameClipOw ||
+                            Logic.BootsClip && items.Boots
+                        ) ||
+                        items.Mirror && ((
+                                items.MoonPearl ||
+                                Logic.OwYba && items.Bottle ||
+                                Logic.BunnyRevive && items.CanBunnyRevive()
+                            ) && (
+                                items.CanLiftHeavy() && World.CanEnter<DarkWorldNorthWest>(items) ||
+                                Logic.SuperSpeed && items.CanSpinSpeed() && (Logic.FakeFlipper || items.Flippers) &&
+                                    World.CanEnter<DarkWorldNorthEast>(items)
+                            ) ||
+                            Logic.MirrorWrap && World.CanEnter<DarkWorldNorthWest>(items)
+                        )
+                    )),
             };
         }
 

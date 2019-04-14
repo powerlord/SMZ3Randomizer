@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-using static System.Linq.Enumerable;
 using Randomizer.SMZ3.Regions.Zelda;
+using Randomizer.SMZ3.Text;
+using static System.Linq.Enumerable;
 using static Randomizer.SMZ3.ItemType;
 using static Randomizer.SMZ3.RewardType;
 using static Randomizer.SMZ3.DropPrize;
-using Randomizer.SMZ3.Text;
 
 namespace Randomizer.SMZ3 {
 
@@ -471,7 +471,7 @@ namespace Randomizer.SMZ3 {
 
         void WriteSeedData() {
             var configField =
-                ((int)myWorld.Config.Z3Logic << 10) |
+                (myWorld.Config.Z3Logic.Ordinal << 10) |
                 ((int)myWorld.Config.SMLogic << 8) |
                 (Randomizer.version.Major << 4) |
                 (Randomizer.version.Minor << 0);
@@ -486,17 +486,13 @@ namespace Randomizer.SMZ3 {
         }
 
         void WriteGameTitle() {
-            var z3Glitch = myWorld.Config.Z3Logic switch {
-                Z3Logic.Mg => "M",
-                Z3Logic.Owg => "G",
-                _ => "N",
-            };
+            var z3Logic = myWorld.Config.Z3Logic.Abbrevation;
             var smGlitch = myWorld.Config.SMLogic switch {
                 SMLogic.Advanced => "A",
                 SMLogic.Basic => "B",
                 _ => "C",
             };
-            var title = AsAscii($"ZSM{Randomizer.version}{z3Glitch}{smGlitch}{seed:X8}".PadRight(21)[..21]);
+            var title = AsAscii($"ZSM{Randomizer.version}{z3Logic}{smGlitch}{seed:X8}".PadRight(21)[..21]);
             patches.Add((Z3Snes(0x007FC0), title));
             patches.Add((SMSnes(0xC07FC0), title));
         }

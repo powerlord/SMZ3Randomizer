@@ -16,7 +16,7 @@ namespace Randomizer.SMZ3 {
 
         public IEnumerable<Item> Items => Locations.Select(l => l.Item).Where(i => i != null);
 
-        // Let Regions be a list with predictable order, use this lookup internally
+        /* Let Regions be a list with predictable order, use this lookup internally */
         readonly IDictionary<Type, Region> regionsOfType;
 
         public World(Config config, string player, int id, string guid) {

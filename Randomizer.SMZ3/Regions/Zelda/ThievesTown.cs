@@ -31,13 +31,17 @@ namespace Randomizer.SMZ3.Regions.Zelda {
             };
         }
 
-        private bool CanBeatBoss(Progression items) {
+        bool CanBeatBoss(Progression items) {
             return items.Sword || items.Hammer ||
                 items.Somaria || items.Byrna;
         }
 
         public override bool CanEnter(Progression items) {
-            return items.MoonPearl && World.CanEnter<DarkWorldNorthWest>(items);
+            return (
+                items.MoonPearl ||
+                Logic.OwYba && items.Bottle ||
+                Logic.BunnyRevive && items.CanSpinSpeed()
+            ) && World.CanEnter<DarkWorldNorthWest>(items);
         }
 
         public bool CanComplete(Progression items) {

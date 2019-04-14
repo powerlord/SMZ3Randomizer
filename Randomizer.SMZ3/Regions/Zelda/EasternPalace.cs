@@ -22,7 +22,8 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                 new Location(this, 256+107, 0xE9B9, LocationType.Regular, "Eastern Palace - Big Key Chest",
                     items => items.Lamp),
                 new Location(this, 256+108, 0x180150, LocationType.Regular, "Eastern Palace - Armos Knights",
-                    items => items.BigKeyEP && items.Bow && items.Lamp),
+                    // Todo: firerod, to be or not to be?
+                    items => items.BigKeyEP && items.Bow && (items.Lamp || items.Firerod)),
             };
         }
 

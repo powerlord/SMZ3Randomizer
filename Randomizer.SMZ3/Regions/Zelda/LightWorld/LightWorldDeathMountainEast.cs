@@ -10,7 +10,12 @@ namespace Randomizer.SMZ3.Regions.Zelda {
         public LightWorldDeathMountainEast(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
                 new Location(this, 256+4, 0x180141, LocationType.Regular, "Floating Island",
-                    items => items.Mirror && items.MoonPearl && items.CanLiftHeavy()),
+                    items =>
+                        Logic.OneFrameClipOw ||
+                        Logic.OwYba && items.Bottle ||
+                        Logic.BootsClip && items.Boots ||
+                        items.Mirror && (Logic.MirrorWrap || items.MoonPearl && items.CanLiftLight()) &&
+                            World.CanEnter<DarkWorldDeathMountainEast>(items)),
                 new Location(this, 256+5, 0xE9BF, LocationType.Regular, "Spiral Cave"),
                 new Location(this, 256+6, 0xEB39, LocationType.Regular, "Paradox Cave Upper - Left"),
                 new Location(this, 256+7, 0xEB3C, LocationType.Regular, "Paradox Cave Upper - Right"),
@@ -20,15 +25,25 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                 new Location(this, 256+11, 0xEB30, LocationType.Regular, "Paradox Cave Lower - Right"),
                 new Location(this, 256+12, 0xEB33, LocationType.Regular, "Paradox Cave Lower - Far Right"),
                 new Location(this, 256+13, 0xE9C5, LocationType.Regular, "Mimic Cave",
-                    items => items.Mirror && items.KeyTR >= 2 && World.CanEnter<TurtleRock>(items)),
+                    items => items.Mirror && items.Hammer && (
+                        Logic.OneFrameClipOw ||
+                        Logic.MirrorClip ||
+                        Logic.BootsClip && items.Boots && (items.MoonPearl || Logic.OwYba && items.Bottle) ||
+                        Logic.SuperSpeed && items.CanSpinSpeed() && items.MoonPearl &&
+                            World.CanEnter<DarkWorldDeathMountainEast>(items) ||
+                        items.KeyTR >= 2 && World.CanEnter<TurtleRock>(items)
+                    )),
             };
         }
 
         public override bool CanEnter(Progression items) {
-            return World.CanEnter<LightWorldDeathMountainWest>(items) && (
-                items.Hammer && items.Mirror ||
-                items.Hookshot
-            );
+            return
+                Logic.OneFrameClipOw ||
+                Logic.BootsClip && items.Boots ||
+                Logic.SuperSpeed && items.CanSpinSpeed() ||
+                (items.Hookshot || (Logic.MirrorClip || Logic.MirrorWrap) && items.Mirror) &&
+                    World.CanEnter<LightWorldDeathMountainWest>(items) ||
+                items.Hammer && World.CanEnter<TowerOfHera>(items);
         }
 
     }

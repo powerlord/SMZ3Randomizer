@@ -23,24 +23,29 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                     items => items.KeyDP),
                 new Location(this, 256+113, 0xE9CB, LocationType.Regular, "Desert Palace - Compass Chest",
                     items => items.KeyDP),
+                // Todo: enter DP2 from Super Metroid mire portal
                 new Location(this, 256+114, 0x180151, LocationType.Regular, "Desert Palace - Lanmolas",
                     items => (
+                        Logic.OneFrameClipOw ||
+                        Logic.BootsClip && items.Boots ||
+                        Logic.SuperSpeed && items.CanSpinSpeed() ||
                         items.CanLiftLight() ||
-                        items.CanAccessMiseryMirePortal(Config) && items.Mirror
+                        items.Mirror && World.CanEnter<DarkWorldMire>(items)
                     ) && items.BigKeyDP && items.KeyDP && items.CanLightTorches() && CanBeatBoss(items)),
             };
         }
 
-        private bool CanBeatBoss(Progression items) {
+        protected bool CanBeatBoss(Progression items) {
             return items.Sword || items.Hammer || items.Bow ||
                 items.Firerod || items.Icerod ||
                 items.Byrna || items.Somaria;
         }
 
         public override bool CanEnter(Progression items) {
-            return items.Book ||
-                items.Mirror && items.CanLiftHeavy() && items.Flute ||
-                items.CanAccessMiseryMirePortal(Config) && items.Mirror;
+            return Logic.OneFrameClipOw ||
+                Logic.BootsClip && items.Boots ||
+                items.Book ||
+                items.Mirror && World.CanEnter<DarkWorldMire>(items);
         }
 
         public bool CanComplete(Progression items) {

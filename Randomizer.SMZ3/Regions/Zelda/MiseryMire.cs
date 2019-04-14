@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+using System.Collections.Generic;
 using static Randomizer.SMZ3.ItemType;
 
 namespace Randomizer.SMZ3.Regions.Zelda {
@@ -34,19 +35,41 @@ namespace Randomizer.SMZ3.Regions.Zelda {
             };
         }
 
-        // Need "CanKillManyEnemies" if implementing swordless
+        /* Need "CanKillManyEnemies" if implementing swordless */
         public override bool CanEnter(Progression items) {
             return Medallion switch {
                     Bombos => items.Bombos,
                     Ether => items.Ether,
-                    _ => items.Quake
-                } && items.Sword &&
-                items.MoonPearl && (items.Boots || items.Hookshot) &&
+                    _ => items.Quake,
+                } && items.Sword && (
+                    items.MoonPearl || items.Bottle && (
+                        Logic.BunnyRevive && items.Bugnet && (
+                            Logic.OneFrameClipOw ||
+                            Logic.OwYba && items.Mirror ||
+                            items.CanLiftHeavy() && (items.Flute || Logic.BootsClip && items.Boots)
+                        ) ||
+                        Logic.OwYba && (
+                            Logic.OneFrameClipOw ||
+                            /*items.Bottles >= 2 ||*/
+                            Logic.BootsClip && items.Boots
+                        )
+                    )
+                ) && (items.Boots || items.Hookshot) &&
+                /*items.CanKillManyEnemies() &&*/
                 World.CanEnter<DarkWorldMire>(items);
         }
 
         public bool CanComplete(Progression items) {
             return Locations.Get("Misery Mire - Vitreous").Available(items);
+        }
+
+        public bool EnterFromMire(Progression items) {
+            return Logic.OneFrameClipUw &&
+                items.KeyMM >= (new[] {
+                    Locations.Get("Misery Mire - Compass Chest"),
+                    Locations.Get("Misery Mire - Big Key Chest"),
+                }.Any(l => l.ItemType == BigKeyMM) ? 2 : 3) &&
+                CanEnter(items);
         }
 
     }

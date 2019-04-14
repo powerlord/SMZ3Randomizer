@@ -19,9 +19,20 @@ namespace Randomizer.SMZ3 {
 
             var randoRnd = new Random(randoSeed);
 
-            var logic = SMLogic.Advanced;
+            // Todo: enable z3 logic toggle on front end
+            var z3Logic = Z3Logic.Nmg;
+            if (options.ContainsKey("z3-logic")) {
+                z3Logic = options["z3-logic"] switch {
+                    "mg" => Z3Logic.Mg,
+                    "ow" => Z3Logic.Ow,
+                    "nmg" => Z3Logic.Nmg,
+                    _ => Z3Logic.Nmg,
+                };
+            }
+
+            var smLogic = SMLogic.Advanced;
             if (options.ContainsKey("logic")) {
-                logic = options["logic"] switch {
+                smLogic = options["logic"] switch {
                     "casual" => SMLogic.Casual,
                     "tournament" => SMLogic.Advanced,
                     _ => SMLogic.Advanced,
@@ -32,7 +43,8 @@ namespace Randomizer.SMZ3 {
 
             var config = new Config {
                 Multiworld = players > 1,
-                SMLogic = logic,
+                Z3Logic = z3Logic,
+                SMLogic = smLogic,
             };
 
             var worlds = new List<World>();
@@ -50,7 +62,7 @@ namespace Randomizer.SMZ3 {
                 Guid = new HexGuid(),
                 Seed = seed,
                 Game = "SMAlttP Combo Randomizer",
-                Logic = logic.ToString(),
+                Logic = $"{z3Logic.Name}+{smLogic.ToString()}",
                 Playthrough = spheres,
                 Worlds = new List<IWorldData>(),
             };

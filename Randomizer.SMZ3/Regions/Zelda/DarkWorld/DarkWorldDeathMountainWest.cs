@@ -10,10 +10,21 @@ namespace Randomizer.SMZ3.Regions.Zelda {
         public DarkWorldDeathMountainWest(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
                 new Location(this, 256+64, 0xEA8B, LocationType.Regular, "Spike Cave",
-                    items => items.MoonPearl && items.Hammer && items.CanLiftLight() &&
-                        (items.CanExtendMagic() && items.Cape || items.Byrna) &&
-                        World.CanEnter<LightWorldDeathMountainWest>(items)),
+                    items => (
+                        items.MoonPearl ||
+                        Logic.OwYba && items.Bottle && (
+                            Logic.OneFrameClipOw ||
+                            Logic.BootsClip && items.Boots
+                        ) &&
+                        (items.CanExtendMagic(3) && items.Cape || items.Byrna)
+                    ) &&
+                        items.CanLiftLight() && items.Hammer &&
+                        (items.CanExtendMagic() && items.Cape || items.Byrna)),
             };
+        }
+
+        public override bool CanEnter(Progression items) {
+            return World.CanEnter<LightWorldDeathMountainWest>(items);
         }
 
     }

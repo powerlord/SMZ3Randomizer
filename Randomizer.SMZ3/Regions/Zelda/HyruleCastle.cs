@@ -21,7 +21,8 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                 new Location(this, 256+94, 0xEB63, LocationType.Regular, "Sewers - Secret Room - Right",
                     items => items.CanLiftLight() || items.Lamp && items.KeyHC),
                 new Location(this, 256+95, 0xE96E, LocationType.Regular, "Sewers - Dark Cross",
-                    items => items.Lamp),
+                    // Todo: firerod, to be or not to be?
+                    items => items.Lamp || items.Firerod),
                 new Location(this, 256+96, 0xEB0C, LocationType.Regular, "Hyrule Castle - Map Chest").Weighted(sphereOne),
                 new Location(this, 256+97, 0xE974, LocationType.Regular, "Hyrule Castle - Boomerang Chest",
                     items => items.KeyHC).Weighted(sphereOne),

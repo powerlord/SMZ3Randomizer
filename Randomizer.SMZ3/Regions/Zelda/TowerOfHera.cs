@@ -20,23 +20,37 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                     items => items.KeyTH && items.CanLightTorches())
                     .AlwaysAllow((item, items) => item.Type == KeyTH),
                 new Location(this, 256+118, 0xE9FB, LocationType.Regular, "Tower of Hera - Compass Chest",
-                    items => items.BigKeyTH),
+                    items => EnterFromTower(items) && items.BigKeyTH || EnterFromMire(items)),
                 new Location(this, 256+119, 0xE9F8, LocationType.Regular, "Tower of Hera - Big Chest",
-                    items => items.BigKeyTH),
+                    items =>
+                        EnterFromTower(items) && items.BigKeyTH ||
+                        EnterFromMire(items) && (items.BigKeyTH || items.BigKeyMM)),
                 new Location(this, 256+120, 0x180152, LocationType.Regular, "Tower of Hera - Moldorm",
-                    items => items.BigKeyTH && CanBeatBoss(items)),
+                    items => (
+                        EnterFromTower(items) && items.BigKeyTH ||
+                        EnterFromMire(items) && items.BigKeyMM
+                    ) && CanBeatBoss(items)),
             };
         }
 
-        private bool CanBeatBoss(Progression items) {
+        protected bool CanBeatBoss(Progression items) {
             return items.Sword || items.Hammer;
         }
 
         public override bool CanEnter(Progression items) {
-            return (items.Mirror || items.Hookshot && items.Hammer) && World.CanEnter<LightWorldDeathMountainWest>(items);
+            return EnterFromTower(items) || EnterFromMire(items);
         }
 
-        public bool CanComplete(Progression items) {
+        bool EnterFromTower(Progression items) {
+            return Logic.OneFrameClipOw ||
+                Logic.BootsClip && items.Boots ||
+                Logic.SuperSpeed && items.CanSpinSpeed() ||
+                (items.Mirror || items.Hookshot && items.Hammer) && World.CanEnter<LightWorldDeathMountainWest>(items);
+        }
+
+        bool EnterFromMire(Progression items) => World.Region<MiseryMire>().EnterFromMire(items);
+
+        public virtual bool CanComplete(Progression items) {
             return Locations.Get("Tower of Hera - Moldorm").Available(items);
         }
 

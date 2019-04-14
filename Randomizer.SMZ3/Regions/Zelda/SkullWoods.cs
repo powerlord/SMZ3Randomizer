@@ -24,14 +24,19 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                     .Allow((item, items) => item.Type == KeySW),
                 new Location(this, 256+150, 0xE99E, LocationType.Regular, "Skull Woods - Big Key Chest"),
                 new Location(this, 256+151, 0xE9FE, LocationType.Regular, "Skull Woods - Bridge Room",
-                    items => items.Firerod),
+                    items => items.MoonPearl && items.Firerod),
                 new Location(this, 256+152, 0x180155, LocationType.Regular, "Skull Woods - Mothula",
-                    items => items.Firerod && items.Sword && items.KeySW >= 3),
+                    items => items.MoonPearl && items.Firerod && items.Sword && items.KeySW >= 3),
             };
         }
 
         public override bool CanEnter(Progression items) {
-            return items.MoonPearl && World.CanEnter<DarkWorldNorthWest>(items);
+            return (
+                items.MoonPearl ||
+                Logic.DungeonRevive ||
+                Logic.OwYba && items.Bottle ||
+                Logic.BunnyRevive && items.CanBunnyRevive()
+            ) && World.CanEnter<DarkWorldNorthWest>(items);
         }
 
         public bool CanComplete(Progression items) {
