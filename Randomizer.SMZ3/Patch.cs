@@ -472,7 +472,7 @@ namespace Randomizer.SMZ3 {
         void WriteSeedData() {
             var configField =
                 ((int)myWorld.Config.Z3Logic << 10) |
-                ((int)myWorld.Config.SMLogic << 8) |
+                (myWorld.Config.SMLogic.Ordinal << 8) |
                 (Randomizer.version.Major << 4) |
                 (Randomizer.version.Minor << 0);
 
@@ -491,12 +491,8 @@ namespace Randomizer.SMZ3 {
                 Z3Logic.Owg => "G",
                 _ => "N",
             };
-            var smGlitch = myWorld.Config.SMLogic switch {
-                SMLogic.Advanced => "A",
-                SMLogic.Basic => "B",
-                _ => "C",
-            };
-            var title = AsAscii($"ZSM{Randomizer.version}{z3Glitch}{smGlitch}{seed:X8}".PadRight(21)[..21]);
+            var smLogic = myWorld.Config.SMLogic.Abbrevation;
+            var title = AsAscii($"ZSM{Randomizer.version}{z3Glitch}{smLogic}{seed:X8}".PadRight(21)[..21]);
             patches.Add((Z3Snes(0x007FC0), title));
             patches.Add((SMSnes(0xC07FC0), title));
         }

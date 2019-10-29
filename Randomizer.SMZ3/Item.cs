@@ -456,9 +456,11 @@ namespace Randomizer.SMZ3 {
         public bool SpaceJump { get; private set; }
         public bool SpeedBooster { get; private set; }
         public bool Missile { get; private set; }
+        public int Missiles { get; private set; }
         public bool Super { get; private set; }
+        public int Supers { get; private set; }
         public bool PowerBomb { get; private set; }
-        public bool TwoPowerBombs { get; private set; }
+        public int PowerBombs { get; private set; }
         public int ETank { get; private set; }
         public int ReserveTank { get; private set; }
 
@@ -528,8 +530,6 @@ namespace Randomizer.SMZ3 {
                     ItemType.HiJump => HiJump = true,
                     ItemType.SpaceJump => SpaceJump = true,
                     ItemType.SpeedBooster => SpeedBooster = true,
-                    ItemType.Missile => Missile = true,
-                    ItemType.Super => Super = true,
                     _ => false
                 };
 
@@ -555,9 +555,17 @@ namespace Randomizer.SMZ3 {
                         Mitt = Glove;
                         Glove = true;
                         break;
+                    case ItemType.Missile:
+                        Missile = true;
+                        Missiles += 1;
+                        break;
+                    case ItemType.Super:
+                        Super = true;
+                        Supers += 1;
+                        break;
                     case ItemType.PowerBomb:
-                        TwoPowerBombs = PowerBomb;
                         PowerBomb = true;
+                        PowerBombs += 1;
                         break;
                 }
             }
@@ -591,25 +599,19 @@ namespace Randomizer.SMZ3 {
             return (items.CanDestroyBombWalls() || items.SpeedBooster) && items.Super && items.Morph;
         }
 
-        public static bool CanAccessDarkWorldPortal(this Progression items, Config config) {
-            return config.SMLogic switch {
-                Casual =>
-                    items.CanUsePowerBombs() && items.Super && items.Gravity && items.SpeedBooster,
-                _ =>
-                    items.CanUsePowerBombs() && items.Super &&
-                    (items.Charge || items.Super && items.Missile) &&
-                    (items.Gravity || items.HiJump && items.Ice && items.Grapple) &&
-                    (items.Ice || items.Gravity && items.SpeedBooster)
-            };
+        public static bool CanAccessDarkLakeHyliaPortal(this Progression items, Config config) {
+            var logic = config.SMLogic;
+            Func<Progression, bool> ammo = items => true; // Todo: actually add the formula (0 M + 2 S or 3 M + 1 S)
+            return items.CanUsePowerBombs() && items.Super &&
+                (logic.SoftlockRisk || items.Charge || ammo(items)) && // Todo: lacking logic? not enough ammo?
+                (items.Gravity || logic.Suitless && items.HiJump && items.Ice && items.Grapple) &&
+                (items.Gravity && items.SpeedBooster || logic.IceClip && items.Ice);
         }
 
         public static bool CanAccessMiseryMirePortal(this Progression items, Config config) {
-            return config.SMLogic switch {
-                Casual =>
-                    items.Varia && items.Super && (items.Gravity && items.SpaceJump) && items.CanUsePowerBombs(),
-                _ =>
-                    items.Varia && items.Super && (items.Gravity || items.HiJump) && items.CanUsePowerBombs()
-            };
+            var logic = config.SMLogic;
+            return items.Varia && items.Super && items.CanUsePowerBombs() &&
+                (logic.LavaDive ? (items.Gravity || items.HiJump) : items.Gravity && items.SpaceJump);
         }
 
         public static bool CanIbj(this Progression items) {
@@ -636,12 +638,16 @@ namespace Randomizer.SMZ3 {
             return items.Morph && items.SpringBall;
         }
 
-        public static bool CanHellRun(this Progression items) {
-            return items.Varia || items.HasEnergyReserves(5);
+        public static bool CanHellRun(this Progression items, int tanks) {
+            return items.Varia || items.HasEnergyReserves(tanks);
         }
 
         public static bool HasEnergyReserves(this Progression items, int amount) {
             return (items.ETank + items.ReserveTank) >= amount;
+        }
+
+        public static bool CanCrystalFlash(this Progression items) {
+            return items.Morph && items.Missiles >= 2 && items.Supers >= 2 && items.PowerBombs >= 3;
         }
 
         public static bool CanOpenRedDoors(this Progression items) {
@@ -657,16 +663,12 @@ namespace Randomizer.SMZ3 {
         }
 
         public static bool CanAccessMaridiaPortal(this Progression items, World world) {
-            return world.Config.SMLogic switch {
-                Casual =>
-                    items.MoonPearl && items.Flippers &&
-                    items.Gravity && items.Morph &&
-                    (world.CanAquire(items, Agahnim) || items.Hammer && items.CanLiftLight() || items.CanLiftHeavy()),
-                _ =>
-                    items.MoonPearl && items.Flippers &&
-                    (items.CanSpringBallJump() || items.HiJump || items.Gravity) && items.Morph &&
-                    (world.CanAquire(items, Agahnim) || items.Hammer && items.CanLiftLight() || items.CanLiftHeavy())
-            };
+            var logic = world.Config.SMLogic;
+            return items.MoonPearl && items.Flippers &&
+                (world.CanAquire(items, Agahnim) || items.Hammer && items.CanLiftLight() || items.CanLiftHeavy()) && (
+                    logic.Suitless && (items.CanSpringBallJump() || items.HiJump) ||
+                    items.Gravity
+                ) && items.Morph;
         }
 
     }

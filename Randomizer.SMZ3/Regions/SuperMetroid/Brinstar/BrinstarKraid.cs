@@ -16,7 +16,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                 new Location(this, 48, 0xC78ACA, LocationType.Chozo, "Varia Suit",
                     items => !Config.Keysanity || items.KraidKey),
                 new Location(this, 44, 0xC789EC, LocationType.Hidden, "Missile (Kraid)", Logic switch {
-                    _ => new Requirement(items => items.CanUsePowerBombs())
+                    _ => items => items.CanUsePowerBombs()
                 }),
             };
         }

@@ -26,7 +26,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
             return World.CanAquire(items, Agahnim) || items.MoonPearl && (
                 items.Hammer && items.CanLiftLight() ||
                 items.CanLiftHeavy() && items.Flippers ||
-                items.CanAccessDarkWorldPortal(Config) && items.Flippers
+                items.CanAccessDarkLakeHyliaPortal(Config) && items.Flippers
             );
         }
 

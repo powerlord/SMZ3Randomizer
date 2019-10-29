@@ -50,7 +50,7 @@ namespace Randomizer.SMZ3 {
                 Guid = new HexGuid(),
                 Seed = seed,
                 Game = "SMAlttP Combo Randomizer",
-                Logic = logic.ToString(),
+                Logic = logic.Name,
                 Playthrough = spheres,
                 Worlds = new List<IWorldData>(),
             };
