@@ -40,7 +40,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                 _ =>
                     items.Morph && (items.Bombs || items.PowerBombs >= 2) ||
                     items.ScrewAttack ||
-                    items.SpeedBooster && items.CanUsePowerBombs() && items.HasEnergyReserves(2)
+                    items.SpeedBooster && items.CanUsePowerBombs() && items.HasEnergyCapacity(2)
             };
         }
 

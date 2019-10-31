@@ -48,7 +48,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                     ) &&
                     (items.CanFly() || items.HiJump || items.CanSpringBallJump() || items.Ice && items.Charge) &&
                     (items.CanPassBombPassages() || items.ScrewAttack && items.SpaceJump) &&
-                    (items.Morph || items.HasEnergyReserves(5))
+                    (items.Morph || items.HasEnergyCapacity(5))
             };
         }
 

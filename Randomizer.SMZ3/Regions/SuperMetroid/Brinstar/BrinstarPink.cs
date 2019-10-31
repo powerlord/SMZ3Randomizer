@@ -30,7 +30,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                 }),
                 new Location(this, 33, 0xC787FA, LocationType.Visible, "Energy Tank, Waterway", Logic switch {
                     _ => items => items.CanUsePowerBombs() && items.CanOpenRedDoors() && items.SpeedBooster &&
-                        (items.HasEnergyReserves(1) || items.Gravity)
+                        (items.HasEnergyCapacity(1) || items.Gravity)
                 }),
                 new Location(this, 35, 0xC78824, LocationType.Visible, "Energy Tank, Brinstar Gate", Logic switch {
                     Casual => items => items.CanUsePowerBombs() && items.Wave && items.HasEnergyReserves(1),

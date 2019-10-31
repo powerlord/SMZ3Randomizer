@@ -23,7 +23,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                     items => CanDefeatDraygon(items) && (
                         items.ScrewAttack || items.Plasma ||
                         /*Logic.Something && */items.SpeedBooster ||
-                        Logic.PseudoScrew && items.Charge && items.HasEnergyReserves(3)
+                        Logic.PseudoScrew && items.Charge && items.HasEnergyCapacity(3)
                     ) && (
                         items.HiJump || items.CanFly() ||
                         /*Logic.Something && */(items.SpeedBooster || items.CanSpringBallJump())

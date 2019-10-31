@@ -39,13 +39,13 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                 }),
                 // Todo: Consider scaling the mountain given Cathedral vs Speedway + intended route
                 new Location(this, 66, 0xC78C82, LocationType.Chozo, "Speed Booster",
-                    items => items.Super && (items.CanFly() || items.HiJump || Logic.FrozenEnemy && items.Ice)),
+                    items => items.Super && (items.CanFly() || items.HiJump || Logic.TrickyEnemyFreeze && items.Ice)),
                 new Location(this, 67, 0xC78CBC, LocationType.Visible, "Missile (Wave Beam)",
                     items => Logic == Advanced || items.CanOpenRedDoors() || (Logic.ShortCharge || items.HiJump) && items.SpeedBooster || items.CanFly()),
                 new Location(this, 68, 0xC78CCA, LocationType.Chozo, "Wave Beam",
                     items => items.CanOpenRedDoors() && (!Logic.SoftlockRisk ? items.Morph : (
                             items.Grapple || items.SpaceJump ||
-                            items.HiJump && (Logic.CanTakeExcessiveDamage || items.Varia) ||
+                            items.HiJump && (Logic.ExcessiveDamage || items.Varia) ||
                             Logic.SpringBallJump && items.CanSpringBallJump()
                         ) && (Logic.GreenGate || items.Wave))),
             };
@@ -58,14 +58,14 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                 items.CanAccessNorfairUpperPortal()
             ) &&
             (items.Varia || Logic.HellRun && items.CanHellRun(5)) && (
-                // Cathedral Route
+                // Cathedral route
                 items.Super && (
                     items.CanFly() || items.HiJump || items.SpeedBooster ||
-                    Logic.FrozenEnemy && items.Ice ||
+                    Logic.TrickyEnemyFreeze && items.Ice ||
                     Logic.SpringBallJump && items.CanSpringBallJump()
                 ) ||
                 // Speedway route
-                items.SpeedBooster && (items.CanUsePowerBombs() || Logic.CanMidAirMorph && items.CanPassBombPassages())
+                items.SpeedBooster && (items.CanUsePowerBombs() || Logic.MidAirMorph && items.CanPassBombPassages())
             );
         }
 

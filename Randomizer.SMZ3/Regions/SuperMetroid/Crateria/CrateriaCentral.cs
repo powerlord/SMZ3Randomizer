@@ -20,7 +20,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                     _ => items => items.CanDestroyBombWalls()
                 }),
                 new Location(this, 11, 0xC78478, LocationType.Visible, "Super Missile (Crateria)", Logic switch {
-                    _ => items => items.CanUsePowerBombs() && items.HasEnergyReserves(2) && items.SpeedBooster
+                    _ => items => items.CanUsePowerBombs() && items.HasEnergyCapacity(2) && items.SpeedBooster
                 }),
                 new Location(this, 7, 0xC78404, LocationType.Chozo, "Bombs", Logic switch {
                     Casual => items => items.CanPassBombPassages() && items.CanOpenRedDoors(),

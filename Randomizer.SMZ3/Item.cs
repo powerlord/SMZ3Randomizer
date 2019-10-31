@@ -461,8 +461,7 @@ namespace Randomizer.SMZ3 {
         public int Supers { get; private set; }
         public bool PowerBomb { get; private set; }
         public int PowerBombs { get; private set; }
-        public int ETank { get; private set; }
-        public int ReserveTank { get; private set; }
+        public int EnergyCapacity { get; private set; }
 
         int shield;
 
@@ -544,8 +543,7 @@ namespace Randomizer.SMZ3 {
                     case ItemType.KeyMM: KeyMM += 1; break;
                     case ItemType.KeyTR: KeyTR += 1; break;
                     case ItemType.KeyGT: KeyGT += 1; break;
-                    case ItemType.ETank: ETank += 1; break;
-                    case ItemType.ReserveTank: ReserveTank += 1; break;
+                    case ETank: case ReserveTank: EnergyCapacity += 1; break;
                     case ProgressiveShield: shield += 1; break;
                     case ProgressiveSword:
                         MasterSword = Sword;
@@ -601,9 +599,8 @@ namespace Randomizer.SMZ3 {
 
         public static bool CanAccessDarkLakeHyliaPortal(this Progression items, Config config) {
             var logic = config.SMLogic;
-            Func<Progression, bool> ammo = items => true; // Todo: actually add the formula (0 M + 2 S or 3 M + 1 S)
             return items.CanUsePowerBombs() && items.Super &&
-                (logic.SoftlockRisk || items.Charge || ammo(items)) && // Todo: lacking logic? not enough ammo?
+                (logic.SoftlockRisk || items.Charge || items.HasEnoughAmmo(6)) &&
                 (items.Gravity || logic.Suitless && items.HiJump && items.Ice && items.Grapple) &&
                 (items.Gravity && items.SpeedBooster || logic.IceClip && items.Ice);
         }
@@ -612,6 +609,10 @@ namespace Randomizer.SMZ3 {
             var logic = config.SMLogic;
             return items.Varia && items.Super && items.CanUsePowerBombs() &&
                 (logic.LavaDive ? (items.Gravity || items.HiJump) : items.Gravity && items.SpaceJump);
+        }
+
+        public static bool CanOpenRedDoors(this Progression items) {
+            return items.Missile || items.Super;
         }
 
         public static bool CanIbj(this Progression items) {
@@ -638,20 +639,20 @@ namespace Randomizer.SMZ3 {
             return items.Morph && items.SpringBall;
         }
 
-        public static bool CanHellRun(this Progression items, int tanks) {
-            return items.Varia || items.HasEnergyReserves(tanks);
+        public static bool HasEnergyCapacity(this Progression items, int amount) {
+            return items.EnergyCapacity >= amount;
         }
 
-        public static bool HasEnergyReserves(this Progression items, int amount) {
-            return (items.ETank + items.ReserveTank) >= amount;
+        public static bool CanHellRun(this Progression items, int amount) {
+            return items.HasEnergyCapacity(amount);
         }
 
         public static bool CanCrystalFlash(this Progression items) {
             return items.Morph && items.Missiles >= 2 && items.Supers >= 2 && items.PowerBombs >= 3;
         }
 
-        public static bool CanOpenRedDoors(this Progression items) {
-            return items.Missile || items.Super;
+        public static bool HasEnoughAmmo(this Progression items, int amount) {
+            return 3 * items.Supers + items.Missiles >= amount;
         }
 
         public static bool CanAccessNorfairUpperPortal(this Progression items) {

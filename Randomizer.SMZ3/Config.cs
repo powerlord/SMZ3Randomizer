@@ -1,4 +1,6 @@
-﻿namespace Randomizer.SMZ3 {
+﻿using static System.Reflection.BindingFlags;
+
+namespace Randomizer.SMZ3 {
 
     enum Z3Logic {
         Nmg,
@@ -21,58 +23,61 @@
 
     class SMLogic : Logic {
 
-        public static SMLogic Casual => new SMLogic(0, "Casual");
-        public static SMLogic Basic => new SMLogic(1, "Basic") {
-            Suitless = true,
-            IceClip = true,
-            GreenGate = true,
-            FrozenEnemy = true,
-            HellRun = true,
-            CanTakeAdditionalDamage = true,
-            CanMidAirMorph = true,
-            SoftlockRisk = true,
-            ShortCharge = true,
-            LavaDive = true,
-        };
-        public static SMLogic Advanced => new SMLogic(2, "Advanced") {
-            Suitless = true,
-            IceClip = true,
-            GreenGate = true,
-            FrozenEnemy = true,
-            HellRun = true,
-            CanTakeAdditionalDamage = true,
-            CanMidAirMorph = true,
-            SoftlockRisk = true,
-            ShortCharge = true,
-            LavaDive = true,
-            SpringBallJump = true,
-            ClimbCwj = true,
-            SnailClip = true,
-            PseudoScrew = true,
-            ThreeTapSpeed = true,
-            FrozenHostile = true,
-            CanTakeExcessiveDamage = true,
-        };
+        public static SMLogic Casual { get; }
+        public static SMLogic Basic { get; }
+        public static SMLogic Advanced { get; }
+
+        static SMLogic() {
+            Casual = new SMLogic(0, "Casual");
+            Basic = new SMLogic(1, "Basic") {
+                Suitless = true,
+                IceClip = true,
+                GreenGate = true,
+                TrickyEnemyFreeze = true,
+                HellRun = true,
+                AdditionalDamage = true,
+                MidAirMorph = true,
+                SoftlockRisk = true,
+                ShortCharge = true,
+                LavaDive = true,
+                MockBall = true,
+            };
+            Advanced = new SMLogic(2, "Advanced", Basic) {
+                SpringBallJump = true,
+                ClimbCwj = true,
+                SnailClip = true,
+                PseudoScrew = true,
+                ThreeTapCharge = true,
+                GuidedEnemyFreeze = true,
+                ExcessiveDamage = true,
+            };
+        }
 
         public bool Suitless { get; private set; }
         public bool IceClip { get; private set; }
         public bool GreenGate { get; private set; }
-        public bool FrozenEnemy { get; private set; }
+        public bool TrickyEnemyFreeze { get; private set; }
+        public bool GuidedEnemyFreeze { get; private set; }
         public bool HellRun { get; private set; }
-        public bool CanTakeAdditionalDamage { get; private set; }
-        public bool CanTakeExcessiveDamage { get; private set; }
-        public bool CanMidAirMorph { get; private set; }
+        public bool AdditionalDamage { get; private set; }
+        public bool ExcessiveDamage { get; private set; }
+        public bool MidAirMorph { get; private set; }
         public bool SoftlockRisk { get; private set; }
         public bool ShortCharge { get; private set; }
+        public bool ThreeTapCharge { get; private set; }
         public bool LavaDive { get; private set; }
+        public bool MockBall { get; private set; }
         public bool SpringBallJump { get; private set; }
         public bool ClimbCwj { get; private set; }
         public bool SnailClip { get; private set; }
         public bool PseudoScrew { get; private set; }
-        public bool ThreeTapSpeed { get; private set; }
-        public bool FrozenHostile { get; private set; }
 
         public SMLogic(int ord, string name) : base(ord, name) { }
+        public SMLogic(int ord, string name, SMLogic template) : base(ord, name) {
+            foreach (var prop in typeof(SMLogic).GetProperties(Public|Instance|DeclaredOnly)) {
+                prop.SetValue(this, prop.GetValue(template));
+            }
+        }
 
     }
 

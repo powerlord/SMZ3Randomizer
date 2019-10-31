@@ -12,12 +12,12 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                 new Location(this, 50, 0xC78B24, LocationType.Chozo, "Ice Beam",
                     items => items.Super && items.CanPassBombPassages() && (
                         items.SpeedBooster && items.Varia ||
-                        Logic.HellRun && items.CanHellRun(3)
+                        Logic.HellRun && (items.Varia || items.CanHellRun(3))
                     )),
                 new Location(this, 51, 0xC78B46, LocationType.Hidden, "Missile (below Ice Beam)",
                     items => items.Super && (
                         items.CanUsePowerBombs() && items.SpeedBooster && items.Varia ||
-                        Logic.HellRun && (items.CanUsePowerBombs() || items.SpeedBooster) && items.CanHellRun(3)
+                        Logic.HellRun && (items.CanUsePowerBombs() || items.SpeedBooster) && (items.Varia || items.CanHellRun(3))
                     )),
                 new Location(this, 53, 0xC78BAC, LocationType.Chozo, "Hi-Jump Boots",
                     items => items.CanOpenRedDoors() && items.CanPassBombPassages()),
