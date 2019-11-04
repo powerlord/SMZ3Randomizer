@@ -34,42 +34,37 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
             };
         }
 
-        // Todo: combine logic into one expression
         public override bool CanEnter(Progression items) {
-            var (hellrun, crystalFlash, varia) = Logic.ExcessiveDamage ? (3, 2, 1) : (5, 2, 1);
-            return Logic switch {
-                _ when Logic == Casual =>
-                    items.Super &&
-                    items.Charge &&
-                    items.Varia && (
-                        // Through Cathedral and Bubble Mountain to blue gate to Croc (avoid lava dive damage)
-                        (items.CanFly() || items.HiJump || items.Ice) && (items.Gravity || items.CanPassBombPassages()) ||
-                        // Through Ice Super Door to Croc Speedway, or Speedway to Bubble Mountain to blue gate
-                        (Logic.MockBall || items.SpeedBooster) && items.CanUsePowerBombs() || items.SpeedBooster && (Logic.GreenGate || items.Wave)
-                    ),
-                // Lower Norfair's portal is not considered on Casual
-                _ =>
-                    items.Super &&
-                    (items.Charge || Logic.SoftlockRisk && items.HasEnoughAmmo(Logic == Advanced ? 6 : 9)) && (
-                        // Through Cathedral and Bubble Mountain
-                        (items.Varia || Logic.HellRun && (
-                            items.CanHellRun(hellrun) ||
-                            items.CanHellRun(crystalFlash) && items.CanCrystalFlash() ||
-                            items.CanHellRun(varia) && items.Varia
-                        ))
-                        && (items.CanFly() || items.HiJump || items.Ice || Logic.SpringBallJump && items.CanSpringBallJump()) &&
-                            (Logic.LavaDive || items.CanPassBombPassages()) ||
-                        // Through Ice Super Door to Croc Speedway, or Speedway to Bubble Mountain to blue gate
-                        (items.Varia || Logic.HellRun && items.CanHellRun(2)) && (
-                            (Logic.MockBall || items.SpeedBooster) && items.CanUsePowerBombs() ||
-                            items.SpeedBooster && (Logic.GreenGate || items.Wave)
-                        ) ||
-                        // Through Mire portal, back through lava dive, to blue gate to Croc
-                        Logic.LavaDive && items.Varia && items.CanHellRun(2) &&
-                            items.CanAccessNorfairLowerPortal() && items.CanDestroyBombWalls() &&
-                            (items.CanFly() || Logic.SpringBallJump && items.CanSpringBallJump())
-                    ),
-            };
+            return items.Super &&
+                // Todo: charge is outside of SoftlockRisk here, do the same for Botwoon?
+                (items.Charge || Logic.SoftlockRisk && items.HasEnoughAmmo(Logic == Advanced ? 6 : 9)) && (
+                    // Through Cathedral to Bubble Mountain
+                    (items.Varia || Logic.HellRun && HellRunThroughCathedral(items)) &&
+                    // (No SpeedBooster for Cathedral since it simplifies to Speedway)
+                    (items.CanFly() || items.HiJump || items.Ice || Logic.SpringBallJump && items.CanSpringBallJump()) && (
+                        // Either down the mountain, or over the peak. Includes lava dive damage along reverse intended.
+                        items.CanPassBombPassages() ||
+                        (Logic != Casual || items.SpaceJump || items.HiJump || items.Ice) && (Logic.SuitlessLava || items.Gravity)
+                    ) &&
+                        (Logic.GreenGate || items.Wave) ||
+                    // Through Ice Super Door to Croc Speedway, or Speedway to Bubble Mountain to Blue gate
+                    (items.Varia || Logic.HellRun && items.CanHellRun(2)) && (
+                        (Logic.MockBall || items.SpeedBooster) && items.CanUsePowerBombs() ||
+                        items.SpeedBooster && (Logic.GreenGate || items.Wave)
+                    ) ||
+                    // Through Mire portal, back through lava dive, to blue gate
+                    // (PB is implied with Springball due to CanDestroyBombWall)
+                    Logic.SuitlessLava && items.Varia && items.CanHellRun(2) &&
+                        items.CanAccessNorfairLowerPortal() && items.CanDestroyBombWalls() &&
+                        (items.CanFly() || Logic.SpringBallJump && items.CanSpringBallJump())
+                );
+        }
+
+        bool HellRunThroughCathedral(Progression items) {
+            var (hellrun, crystalFlash, varia) = Logic.ExcessiveDamage ? (3, 2, 1) : (5, 2, 2);
+            return items.CanHellRun(hellrun) ||
+                items.CanHellRun(crystalFlash) && items.CanCrystalFlash() ||
+                items.CanHellRun(varia) && items.Varia;
         }
 
     }

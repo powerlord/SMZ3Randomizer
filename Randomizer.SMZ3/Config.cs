@@ -30,7 +30,8 @@ namespace Randomizer.SMZ3 {
         static SMLogic() {
             Casual = new SMLogic(0, "Casual");
             Basic = new SMLogic(1, "Basic") {
-                Suitless = true,
+                SuitlessWater = true,
+                SuitlessLava = true,
                 IceClip = true,
                 GreenGate = true,
                 TrickyEnemyFreeze = true,
@@ -39,7 +40,6 @@ namespace Randomizer.SMZ3 {
                 MidAirMorph = true,
                 SoftlockRisk = true,
                 ShortCharge = true,
-                LavaDive = true,
                 MockBall = true,
             };
             Advanced = new SMLogic(2, "Advanced", Basic) {
@@ -53,7 +53,7 @@ namespace Randomizer.SMZ3 {
             };
         }
 
-        public bool Suitless { get; private set; }
+        public bool SuitlessWater { get; private set; }
         public bool IceClip { get; private set; }
         public bool GreenGate { get; private set; }
         public bool TrickyEnemyFreeze { get; private set; }
@@ -65,7 +65,7 @@ namespace Randomizer.SMZ3 {
         public bool SoftlockRisk { get; private set; }
         public bool ShortCharge { get; private set; }
         public bool ThreeTapCharge { get; private set; }
-        public bool LavaDive { get; private set; }
+        public bool SuitlessLava { get; private set; }
         public bool MockBall { get; private set; }
         public bool SpringBallJump { get; private set; }
         public bool ClimbCwj { get; private set; }

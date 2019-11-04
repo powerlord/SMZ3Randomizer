@@ -601,14 +601,14 @@ namespace Randomizer.SMZ3 {
             var logic = config.SMLogic;
             return items.CanUsePowerBombs() && items.Super &&
                 (logic.SoftlockRisk || items.Charge || items.HasEnoughAmmo(6)) &&
-                (items.Gravity || logic.Suitless && items.HiJump && items.Ice && items.Grapple) &&
+                (items.Gravity || logic.SuitlessWater && items.HiJump && items.Ice && items.Grapple) &&
                 (items.Gravity && items.SpeedBooster || logic.IceClip && items.Ice);
         }
 
         public static bool CanAccessMiseryMirePortal(this Progression items, Config config) {
             var logic = config.SMLogic;
             return items.Varia && items.Super && items.CanUsePowerBombs() &&
-                (logic.LavaDive ? (items.Gravity || items.HiJump) : items.Gravity && items.SpaceJump);
+                (logic.SuitlessLava ? (items.Gravity || items.HiJump) : items.Gravity && items.SpaceJump);
         }
 
         public static bool CanOpenRedDoors(this Progression items) {
@@ -667,7 +667,7 @@ namespace Randomizer.SMZ3 {
             var logic = world.Config.SMLogic;
             return items.MoonPearl && items.Flippers &&
                 (world.CanAquire(items, Agahnim) || items.Hammer && items.CanLiftLight() || items.CanLiftHeavy()) && (
-                    logic.Suitless && (items.CanSpringBallJump() || items.HiJump) ||
+                    logic.SuitlessWater && (items.CanSpringBallJump() || items.HiJump) ||
                     items.Gravity
                 ) && items.Morph;
         }

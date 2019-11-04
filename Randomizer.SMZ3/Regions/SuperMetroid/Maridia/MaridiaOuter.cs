@@ -23,9 +23,9 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
         }
 
         public override bool CanEnter(Progression items) {
-            return (Logic.Suitless || items.Gravity) && (
+            return (Logic.SuitlessWater || items.Gravity) && (
                 World.CanEnter<NorfairUpperWest>(items) && items.CanUsePowerBombs() && (items.Gravity ||
-                    Logic.Suitless && items.HiJump && (items.Ice || Logic.SpringBallJump && items.CanSpringBallJump()))
+                    Logic.SuitlessWater && items.HiJump && (items.Ice || Logic.SpringBallJump && items.CanSpringBallJump()))
                 || items.CanAccessMaridiaPortal(World)
             );
         }

@@ -13,12 +13,12 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
             Locations = new List<Location> {
                 new Location(this, 140, 0xC7C4AF, LocationType.Visible, "Super Missile (yellow Maridia)",
                     items => (items.CanPassBombPassages() || items.CanSpringBallJump()) && (items.Gravity ||
-                        Logic.Suitless && items.HiJump && (items.Ice || Logic.SpringBallJump && items.CanSpringBallJump()))),
+                        Logic.SuitlessWater && items.HiJump && (items.Ice || Logic.SpringBallJump && items.CanSpringBallJump()))),
                 new Location(this, 141, 0xC7C4B5, LocationType.Visible, "Missile (yellow Maridia super missile)",
                     items => (items.CanPassBombPassages() || items.CanSpringBallJump()) && (items.Gravity ||
-                        Logic.Suitless && items.HiJump && (items.Ice || Logic.SpringBallJump && items.CanSpringBallJump()))),
+                        Logic.SuitlessWater && items.HiJump && (items.Ice || Logic.SpringBallJump && items.CanSpringBallJump()))),
                 new Location(this, 142, 0xC7C533, LocationType.Visible, "Missile (yellow Maridia false wall)",
-                    items => items.Gravity || Logic.Suitless && items.HiJump && (items.Ice || Logic.SpringBallJump && items.CanSpringBallJump())),
+                    items => items.Gravity || Logic.SuitlessWater && items.HiJump && (items.Ice || Logic.SpringBallJump && items.CanSpringBallJump())),
                 new Location(this, 143, 0xC7C559, LocationType.Chozo, "Plasma Beam",
                     items => CanDefeatDraygon(items) && (
                         items.ScrewAttack || items.Plasma ||
@@ -34,7 +34,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                 new Location(this, 145, 0xC7C5E3, LocationType.Chozo, "Reserve Tank, Maridia",
                     LeftSandPit),
                 new Location(this, 146, 0xC7C5EB, LocationType.Visible, "Missile (right Maridia sand pit room)",
-                    items => items.Gravity || Logic.Suitless && items.HiJump),
+                    items => items.Gravity || Logic.SuitlessWater && items.HiJump),
                 new Location(this, 147, 0xC7C5F1, LocationType.Visible, "Power Bomb (right Maridia sand pit room)",
                     items => items.Gravity || Logic.SpringBallJump && items.CanSpringBallJump() && items.HiJump),
                 new Location(this, 148, 0xC7C603, LocationType.Visible, "Missile (pink Maridia)",
@@ -62,26 +62,26 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
 
         bool LeftSandPit(Progression items) {
             return (
-                    items.Gravity && (Logic.Suitless || items.HiJump) ||
+                    items.Gravity && (Logic.SuitlessWater || items.HiJump) ||
                     /*Logic.Something && */items.HiJump && (items.SpaceJump || items.CanSpringBallJump())
                 ) &&
                 (items.CanPassBombPassages() || items.CanSpringBallJump() && items.HiJump);
         }
 
         bool CanDefeatBotwoon(Progression items) {
-            return Logic.Suitless && items.Ice || items.SpeedBooster || items.CanAccessMaridiaPortal(World);
+            return Logic.SuitlessWater && items.Ice || items.SpeedBooster || items.CanAccessMaridiaPortal(World);
         }
 
         bool CanDefeatDraygon(Progression items) {
             return items.Gravity &&
-                (Logic.Suitless || items.SpeedBooster && items.HiJump || items.CanFly()) ||
+                (Logic.SuitlessWater || items.SpeedBooster && items.HiJump || items.CanFly()) ||
                 Logic.SpringBallJump && items.CanSpringBallJump() && items.Grapple;
         }
 
         // Todo: figure out Springball Jumps category names based on logic
         public override bool CanEnter(Progression items) {
-            return (Logic.Suitless || items.Gravity) && (
-                World.CanEnter<NorfairUpperWest>(items) && items.CanUsePowerBombs() && (!Logic.Suitless ?
+            return (Logic.SuitlessWater || items.Gravity) && (
+                World.CanEnter<NorfairUpperWest>(items) && items.CanUsePowerBombs() && (!Logic.SuitlessWater ?
                     (items.CanFly() || items.SpeedBooster || items.Grapple) :
                     (items.Gravity || items.HiJump && (items.Ice || Logic.SpringBallJump && items.CanSpringBallJump()) && items.Grapple)
                 ) ||
