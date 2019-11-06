@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Collections.Generic;
 using static Randomizer.SMZ3.ItemType;
-using static Randomizer.SMZ3.SMLogic;
 using static Randomizer.SMZ3.RewardType;
 using System.Text.RegularExpressions;
 
@@ -445,6 +444,7 @@ namespace Randomizer.SMZ3 {
         public bool Charge { get; private set; }
         public bool Ice { get; private set; }
         public bool Wave { get; private set; }
+        public bool Spazer { get; private set; }
         public bool Plasma { get; private set; }
         public bool Varia { get; private set; }
         public bool Gravity { get; private set; }
@@ -519,6 +519,7 @@ namespace Randomizer.SMZ3 {
                     ItemType.Charge => Charge = true,
                     ItemType.Ice => Ice = true,
                     ItemType.Wave => Wave = true,
+                    ItemType.Spazer => Spazer = true,
                     ItemType.Plasma => Plasma = true,
                     ItemType.Varia => Varia = true,
                     ItemType.Gravity => Gravity = true,
@@ -600,7 +601,7 @@ namespace Randomizer.SMZ3 {
         public static bool CanAccessDarkLakeHyliaPortal(this Progression items, Config config) {
             var logic = config.SMLogic;
             return items.CanUsePowerBombs() && items.Super &&
-                (logic.SoftlockRisk || items.Charge || items.HasEnoughAmmo(6)) &&
+                (items.Charge || logic.SoftlockRisk && items.HasEnoughAmmo(6)) &&
                 (items.Gravity || logic.SuitlessWater && items.HiJump && items.Ice && items.Grapple) &&
                 (items.Gravity && items.SpeedBooster || logic.IceClip && items.Ice);
         }
@@ -645,6 +646,12 @@ namespace Randomizer.SMZ3 {
 
         public static bool CanHellRun(this Progression items, int amount) {
             return items.HasEnergyCapacity(amount);
+        }
+
+        // Beach Boys shoutout. Hell run from Main Street eastward.
+        public static bool CanHellRunNorfairSafari(this Progression items, SMLogic logic) {
+            var (hellrun, crystalFlash) = logic.ExcessiveDamage ? (3, 2) : (5, 2);
+            return items.CanHellRun(hellrun) || items.CanHellRun(crystalFlash) && items.CanCrystalFlash();
         }
 
         public static bool CanCrystalFlash(this Progression items) {

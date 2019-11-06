@@ -9,6 +9,12 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
 
         public NorfairUpperWest(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
+                // Cathedral Missile, right of Main Street. A whole safari as a
+                // convenience for continuing to East or Crocomire.
+                // Todo: consider if this was a good idea
+                new Location(this, 49, 0xC78AE4, LocationType.Hidden, "Missile (lava room)",
+                    items => (items.Varia || Logic.HellRun && items.CanHellRunNorfairSafari(Logic)) &&
+                        items.CanOpenRedDoors() && items.Morph),
                 new Location(this, 50, 0xC78B24, LocationType.Chozo, "Ice Beam",
                     items => items.Super && items.CanPassBombPassages() && (
                         items.SpeedBooster && items.Varia ||

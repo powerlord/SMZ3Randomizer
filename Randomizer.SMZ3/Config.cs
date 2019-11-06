@@ -30,6 +30,7 @@ namespace Randomizer.SMZ3 {
         static SMLogic() {
             Casual = new SMLogic(0, "Casual");
             Basic = new SMLogic(1, "Basic") {
+                TrickyWallJump = true,
                 SuitlessWater = true,
                 SuitlessLava = true,
                 IceClip = true,
@@ -53,6 +54,7 @@ namespace Randomizer.SMZ3 {
             };
         }
 
+        public bool TrickyWallJump { get; private set; }
         public bool SuitlessWater { get; private set; }
         public bool IceClip { get; private set; }
         public bool GreenGate { get; private set; }
