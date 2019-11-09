@@ -14,7 +14,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                     items => items.Varia && items.CanUsePowerBombs() && items.SpaceJump && (
                         World.CanEnter<NorfairUpperEast>(items) || (
                             items.CanFly() ||
-                            Logic.SpringBallJump && items.CanSpringBallJump() ||
+                            Logic.SpringBallGlitch && items.CanSpringBallJump() ||
                             Logic.ShortCharge && items.SpeedBooster
                         ) && items.Super
                     ) && CanBeatGT(items)),

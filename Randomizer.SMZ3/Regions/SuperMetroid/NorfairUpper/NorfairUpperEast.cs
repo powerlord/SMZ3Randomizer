@@ -31,7 +31,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                     items => CanClimbMountain(items) && items.CanOpenRedDoors() && (!Logic.SoftlockRisk ? items.Morph : (
                             items.Grapple || items.SpaceJump ||
                             items.HiJump && (Logic.ExcessiveDamage || items.Varia) ||
-                            Logic.SpringBallJump && items.CanSpringBallJump()
+                            Logic.SpringBallGlitch && items.CanSpringBallJump()
                         ) && (Logic.GreenGate || items.Wave))),
             };
         }
@@ -58,7 +58,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                     // Cathedral route, Speedbooster is here iif Morph Ball is at Bubble Mountain Missile
                     items.Super && (
                         items.CanFly() || items.HiJump || items.SpeedBooster || items.Ice ||
-                        Logic.SpringBallJump && items.CanSpringBallJump()
+                        Logic.SpringBallGlitch && items.CanSpringBallJump()
                     ) ||
                     // Cathedral or Speedway route with booster
                     items.SpeedBooster

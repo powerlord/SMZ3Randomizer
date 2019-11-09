@@ -16,7 +16,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                     // Todo: speedbooster here, how, why?
                     // Todo: Test grapple's reach without Hi-Jump boots
                     items => items.CanOpenRedDoors() && (items.CanFly() || /*items.HiJump && */items.Grapple) ||
-                        Logic.SpringBallJump && items.CanSpringBallJump() && (items.Gravity || items.HiJump)),
+                        Logic.SpringBallGlitch && items.CanSpringBallJump() && (items.Gravity || items.HiJump)),
                 new Location(this, 139, 0xC7C483, LocationType.Hidden, "Missile (green Maridia tatori)",
                     items => items.CanOpenRedDoors()),
             };
@@ -25,7 +25,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
         public override bool CanEnter(Progression items) {
             return (Logic.SuitlessWater || items.Gravity) && (
                 World.CanEnter<NorfairUpperWest>(items) && items.CanUsePowerBombs() && (items.Gravity ||
-                    Logic.SuitlessWater && items.HiJump && (items.Ice || Logic.SpringBallJump && items.CanSpringBallJump()))
+                    Logic.SuitlessWater && items.HiJump && (items.Ice || Logic.SpringBallGlitch && items.CanSpringBallJump()))
                 || items.CanAccessMaridiaPortal(World)
             );
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using static Randomizer.SMZ3.SMLogic;
 
 namespace Randomizer.SMZ3.Regions.SuperMetroid {
@@ -18,11 +17,11 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                     items => items.CanFly() || items.Grapple ||
                         (items.Varia || Logic.HellRun && items.CanHellRun(4)) && items.HiJump && (
                             items.SpeedBooster ||
-                            Logic.SpringBallJump && items.CanSpringBallJump() ||
+                            Logic.SpringBallGlitch && items.CanSpringBallJump() ||
                             Logic.GuidedEnemyFreeze && items.Varia && items.Ice)),
                 new Location(this, 57, 0xC78C04, LocationType.Visible, "Power Bomb (Crocomire)",
                     items => items.CanFly() || items.HiJump || items.Grapple ||
-                        Logic.TrickyEnemyFreeze && items.Ice || Logic.SpringBallJump && items.CanSpringBallJump()),
+                        Logic.TrickyEnemyFreeze && items.Ice || Logic.SpringBallGlitch && items.CanSpringBallJump()),
                 new Location(this, 58, 0xC78C14, LocationType.Visible, "Missile (below Crocomire)",
                     items => items.Morph),
                 // Todo: name for something where you might be forced to leave the room to replicate. is it "SoftlockRisk"?
@@ -42,7 +41,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                         // Through Cathedral to Bubble Mountain
                         (items.Varia || Logic.HellRun && items.CanHellRunNorfairSafari(Logic)) &&
                         // (No SpeedBooster for Cathedral since it simplifies to Speedway)
-                        (items.CanFly() || items.HiJump || items.Ice || Logic.SpringBallJump && items.CanSpringBallJump()) && (
+                        (items.CanFly() || items.HiJump || items.Ice || Logic.SpringBallGlitch && items.CanSpringBallJump()) && (
                             // Either down the mountain, or over the peak. Includes lava dive damage along reverse intended.
                             items.CanPassBombPassages() ||
                             (Logic != Casual || items.SpaceJump || items.HiJump || items.Ice) && (Logic.SuitlessLava || items.Gravity)
@@ -59,7 +58,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                     Logic.SuitlessLava && items.CanAccessNorfairLowerPortal() && items.Varia && items.CanHellRun(2) &&
                         // Worst Room, destroy bomb blocks and get up (and dodging pirates)
                         items.CanDestroyBombWalls() && (
-                            items.CanFly() || Logic.TrickyWallJump && items.HiJump || Logic.SpringBallJump && items.CanSpringBallJump() ||
+                            items.CanFly() || Logic.TrickyWallJump && items.HiJump || Logic.SpringBallGlitch && items.CanSpringBallJump() ||
                             Logic.GuidedEnemyFreeze && items.Charge && items.Ice
                         )
                 );

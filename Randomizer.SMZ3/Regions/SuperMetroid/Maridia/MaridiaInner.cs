@@ -13,12 +13,12 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
             Locations = new List<Location> {
                 new Location(this, 140, 0xC7C4AF, LocationType.Visible, "Super Missile (yellow Maridia)",
                     items => (items.CanPassBombPassages() || items.CanSpringBallJump()) && (items.Gravity ||
-                        Logic.SuitlessWater && items.HiJump && (items.Ice || Logic.SpringBallJump && items.CanSpringBallJump()))),
+                        Logic.SuitlessWater && items.HiJump && (items.Ice || Logic.SpringBallGlitch && items.CanSpringBallJump()))),
                 new Location(this, 141, 0xC7C4B5, LocationType.Visible, "Missile (yellow Maridia super missile)",
                     items => (items.CanPassBombPassages() || items.CanSpringBallJump()) && (items.Gravity ||
-                        Logic.SuitlessWater && items.HiJump && (items.Ice || Logic.SpringBallJump && items.CanSpringBallJump()))),
+                        Logic.SuitlessWater && items.HiJump && (items.Ice || Logic.SpringBallGlitch && items.CanSpringBallJump()))),
                 new Location(this, 142, 0xC7C533, LocationType.Visible, "Missile (yellow Maridia false wall)",
-                    items => items.Gravity || Logic.SuitlessWater && items.HiJump && (items.Ice || Logic.SpringBallJump && items.CanSpringBallJump())),
+                    items => items.Gravity || Logic.SuitlessWater && items.HiJump && (items.Ice || Logic.SpringBallGlitch && items.CanSpringBallJump())),
                 new Location(this, 143, 0xC7C559, LocationType.Chozo, "Plasma Beam",
                     items => CanDefeatDraygon(items) && (
                         items.ScrewAttack || items.Plasma ||
@@ -36,20 +36,20 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                 new Location(this, 146, 0xC7C5EB, LocationType.Visible, "Missile (right Maridia sand pit room)",
                     items => items.Gravity || Logic.SuitlessWater && items.HiJump),
                 new Location(this, 147, 0xC7C5F1, LocationType.Visible, "Power Bomb (right Maridia sand pit room)",
-                    items => items.Gravity || Logic.SpringBallJump && items.CanSpringBallJump() && items.HiJump),
+                    items => items.Gravity || Logic.SpringBallGlitch && items.CanSpringBallJump() && items.HiJump),
                 new Location(this, 148, 0xC7C603, LocationType.Visible, "Missile (pink Maridia)",
                     items => items.Gravity && (Logic.SnailClip || items.SpeedBooster)),
                 new Location(this, 149, 0xC7C609, LocationType.Visible, "Super Missile (pink Maridia)",
                     items => items.Gravity && (Logic.SnailClip || items.SpeedBooster)),
                 new Location(this, 150, 0xC7C6E5, LocationType.Chozo, "Spring Ball",
                 items => items.CanUsePowerBombs() && (
-                    items.Grapple && (Logic.ClimbCwj ?
+                    items.Grapple && (Logic.Cwj ?
                         items.SpaceJump && items.HiJump :
                         items.Gravity && (items.SpaceJump || items.HiJump)
                     ) ||
                     Logic.IceClip && items.Gravity && items.Ice
                 ) &&
-                Logic.SpringBallJump && items.CanSpringBallJump() && items.HiJump),
+                Logic.SpringBallGlitch && items.CanSpringBallJump() && items.HiJump),
                 new Location(this, 151, 0xC7C74D, LocationType.Hidden, "Missile (Draygon)",
                     CanDefeatBotwoon),
                 new Location(this, 152, 0xC7C755, LocationType.Visible, "Energy Tank, Botwoon", 
@@ -75,7 +75,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
         bool CanDefeatDraygon(Progression items) {
             return items.Gravity &&
                 (Logic.SuitlessWater || items.SpeedBooster && items.HiJump || items.CanFly()) ||
-                Logic.SpringBallJump && items.CanSpringBallJump() && items.Grapple;
+                Logic.SpringBallGlitch && items.CanSpringBallJump() && items.Grapple;
         }
 
         // Todo: figure out Springball Jumps category names based on logic
@@ -83,7 +83,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
             return (Logic.SuitlessWater || items.Gravity) && (
                 World.CanEnter<NorfairUpperWest>(items) && items.CanUsePowerBombs() && (!Logic.SuitlessWater ?
                     (items.CanFly() || items.SpeedBooster || items.Grapple) :
-                    (items.Gravity || items.HiJump && (items.Ice || Logic.SpringBallJump && items.CanSpringBallJump()) && items.Grapple)
+                    (items.Gravity || items.HiJump && (items.Ice || Logic.SpringBallGlitch && items.CanSpringBallJump()) && items.Grapple)
                 ) ||
                 items.CanAccessMaridiaPortal(World)
             );

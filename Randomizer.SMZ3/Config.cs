@@ -30,6 +30,7 @@ namespace Randomizer.SMZ3 {
         static SMLogic() {
             Casual = new SMLogic(0, "Casual");
             Basic = new SMLogic(1, "Basic") {
+                BounceSpringBall = true,
                 TrickyWallJump = true,
                 SuitlessWater = true,
                 SuitlessLava = true,
@@ -44,20 +45,22 @@ namespace Randomizer.SMZ3 {
                 MockBall = true,
             };
             Advanced = new SMLogic(2, "Advanced", Basic) {
-                SpringBallJump = true,
-                ClimbCwj = true,
+                SpringBallGlitch = true,
+                Cwj = true,
                 SnailClip = true,
                 PseudoScrew = true,
                 ThreeTapCharge = true,
                 GuidedEnemyFreeze = true,
                 ExcessiveDamage = true,
+                WildJump = true,
             };
         }
 
+        public bool BounceSpringBall { get; private set; }
         public bool TrickyWallJump { get; private set; }
         public bool SuitlessWater { get; private set; }
         public bool IceClip { get; private set; }
-        public bool GreenGate { get; private set; }
+        public bool GreenGate { get; private set; } // Todo: green vs blue gate. and verify ammo
         public bool TrickyEnemyFreeze { get; private set; }
         public bool GuidedEnemyFreeze { get; private set; }
         public bool HellRun { get; private set; }
@@ -69,10 +72,11 @@ namespace Randomizer.SMZ3 {
         public bool ThreeTapCharge { get; private set; }
         public bool SuitlessLava { get; private set; }
         public bool MockBall { get; private set; }
-        public bool SpringBallJump { get; private set; }
-        public bool ClimbCwj { get; private set; }
+        public bool SpringBallGlitch { get; private set; }
+        public bool Cwj { get; private set; }
         public bool SnailClip { get; private set; }
         public bool PseudoScrew { get; private set; }
+        public bool WildJump { get; private set; }
 
         public SMLogic(int ord, string name) : base(ord, name) { }
         public SMLogic(int ord, string name, SMLogic template) : base(ord, name) {

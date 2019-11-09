@@ -39,10 +39,10 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                 World.CanEnter<NorfairUpperEast>(items) && items.CanUsePowerBombs() &&
                     (Logic.SuitlessLava ? (items.HiJump || items.Gravity) : items.SpaceJump && items.Gravity) ||
                 items.CanAccessNorfairLowerPortal() && items.CanDestroyBombWalls() && (Logic != Casual || items.CanUsePowerBombs()) &&
-                    (items.CanFly() || Logic.SpringBallJump && items.CanSpringBallJump() || Logic.ShortCharge && items.SpeedBooster) && items.Super
+                    (items.CanFly() || Logic.SpringBallGlitch && items.CanSpringBallJump() || Logic.ShortCharge && items.SpeedBooster) && items.Super
             ) && (
                 // Worst Room, destroy bomb blocks and get up (and dodging pirates)
-                items.CanFly() || Logic.TrickyWallJump && items.HiJump || Logic.SpringBallJump && items.CanSpringBallJump() ||
+                items.CanFly() || Logic.TrickyWallJump && items.HiJump || Logic.SpringBallGlitch && items.CanSpringBallJump() ||
                 Logic.GuidedEnemyFreeze && items.Charge && items.Ice
             );
         }
