@@ -14,9 +14,8 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                     items => items.CanUsePowerBombs()),
                 new Location(this, 28, 0xC78798, LocationType.Visible, "Missile (blue Brinstar middle)",
                     items => items.Morph),
-                // Todo: consider if midair ibj should be in casual
                 new Location(this, 29, 0xC7879E, LocationType.Hidden, "Energy Tank, Brinstar Ceiling",
-                    items => Logic.AdditionalDamage || items.CanFly() || items.HiJump || items.SpeedBooster || items.Ice),
+                    items => Logic.AdditionalDamage || items.SpaceJump || items.HiJump || items.SpeedBooster || items.Ice),
                 new Location(this, 34, 0xC78802, LocationType.Chozo, "Missile (blue Brinstar bottom)",
                     items => items.Morph),
                 new Location(this, 36, 0xC78836, LocationType.Visible, "Missile (blue Brinstar top)",

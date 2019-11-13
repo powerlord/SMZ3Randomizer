@@ -613,9 +613,9 @@ namespace Randomizer.SMZ3 {
                 (logic.SuitlessLava ? (items.Gravity || items.HiJump) : items.Gravity && items.SpaceJump);
         }
 
-        public static bool CanOpenRedDoors(this Progression items) {
-            return items.Missile || items.Super;
-        }
+        public static bool CanOpenRedDoors(this Progression items) => items.Missile || items.Super;
+
+        public static bool CanBlueGateGlitch(this Progression items) => items.Missile || items.Super;
 
         public static bool CanIbj(this Progression items) {
             return items.Morph && items.Bombs;

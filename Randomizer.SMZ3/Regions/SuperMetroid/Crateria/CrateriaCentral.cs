@@ -14,10 +14,11 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                 new Location(this, 12, 0xC78486, LocationType.Visible, "Missile (Crateria middle)",
                     items => items.CanPassBombPassages()),
                 new Location(this, 6, 0xC783EE, LocationType.Visible, "Missile (Crateria bottom)",
+                    // Get a spark using Tourian Escape
                     items => items.CanDestroyBombWalls() || Logic.ThreeTapCharge && items.SpeedBooster),
                 new Location(this, 11, 0xC78478, LocationType.Visible, "Super Missile (Crateria)",
                     items => items.CanUsePowerBombs() && items.HasEnergyCapacity(2) && items.SpeedBooster &&
-                        (Logic.AdditionalDamage || Logic.ShortCharge || items.Ice || items.ScrewAttack || items.PowerBombs >= 2)),
+                        (Logic.AdditionalDamage || (items.Ice || Logic.ShortCharge) && (items.SpaceJump || items.Grapple))),
                 new Location(this, 7, 0xC78404, LocationType.Chozo, "Bombs",
                     items => (Logic.TrickyWallJump ? items.Morph : items.CanPassBombPassages()) && items.CanOpenRedDoors()),
             };

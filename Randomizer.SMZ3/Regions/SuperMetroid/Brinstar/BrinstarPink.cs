@@ -26,16 +26,19 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                         (items.Gravity || items.HasEnergyCapacity(1))),
                 new Location(this, 35, 0xC78824, LocationType.Visible, "Energy Tank, Brinstar Gate",
                     items => items.CanUsePowerBombs() && (Logic.AdditionalDamage || items.HasEnergyCapacity(1)) &&
-                        (Logic.GreenGate ? items.Super : items.Wave)),
+                        (Logic.GreenGate && items.Super || items.Wave)),
             };
         }
 
         public override bool CanEnter(Progression items) {
-            return World.CanEnter<BrinstarGreen>(items) && items.CanOpenRedDoors() ||
-                World.CanEnter<BrinstarBlue>(items) && items.CanUsePowerBombs() ||
+            return
+                // Through Brinstar Green
+                (items.CanDestroyBombWalls() || items.SpeedBooster) && items.CanOpenRedDoors() ||
+                // Through Brinstar Blue
+                items.CanUsePowerBombs() ||
                 items.CanAccessNorfairUpperPortal() && items.Morph &&
                     (items.SpaceJump || items.HiJump || items.Ice || Logic.SpringBallGlitch && items.CanSpringBallJump()) &&
-                    (Logic.GreenGate || items.Wave);
+                    (Logic.BlueGate && items.CanBlueGateGlitch() || items.Wave);
         }
 
     }

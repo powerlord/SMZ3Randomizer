@@ -33,7 +33,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
         }
 
         public override bool CanEnter(Progression items) {
-            return World.CanEnter<CrateriaWest>(items);
+            return items.CanDestroyBombWalls() || items.SpeedBooster;
         }
 
     }

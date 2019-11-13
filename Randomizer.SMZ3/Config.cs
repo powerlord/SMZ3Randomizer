@@ -35,6 +35,7 @@ namespace Randomizer.SMZ3 {
                 SuitlessWater = true,
                 SuitlessLava = true,
                 IceClip = true,
+                BlueGate = true,
                 GreenGate = true,
                 TrickyEnemyFreeze = true,
                 HellRun = true,
@@ -60,7 +61,8 @@ namespace Randomizer.SMZ3 {
         public bool TrickyWallJump { get; private set; }
         public bool SuitlessWater { get; private set; }
         public bool IceClip { get; private set; }
-        public bool GreenGate { get; private set; } // Todo: green vs blue gate. and verify ammo
+        public bool BlueGate { get; private set; }
+        public bool GreenGate { get; private set; }
         public bool TrickyEnemyFreeze { get; private set; }
         public bool GuidedEnemyFreeze { get; private set; }
         public bool HellRun { get; private set; }
