@@ -79,6 +79,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
         }
 
         // Todo: figure out Springball Jumps category names based on logic
+        // Todo: is Super accounted for?
         public override bool CanEnter(Progression items) {
             return (Logic.SuitlessWater || items.Gravity) && (
                 World.CanEnter<NorfairUpperWest>(items) && items.CanUsePowerBombs() && (!Logic.SuitlessWater ?

@@ -11,7 +11,8 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
 
         public WreckedShip(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
-                new Location(this, 128, 0xC7C265, LocationType.Visible, "Missile (Wrecked Ship middle)"),
+                new Location(this, 128, 0xC7C265, LocationType.Visible, "Missile (Wrecked Ship middle)",
+                    items => items.CanPassBombPassages()),
                 new Location(this, 129, 0xC7C2E9, LocationType.Chozo, "Reserve Tank, Wrecked Ship",
                     items => CanUnlockShip(items) && CanCrossBowling(items, excessive: 2)),
                 new Location(this, 130, 0xC7C2EF, LocationType.Visible, "Missile (Gravity Suit)",
@@ -31,7 +32,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
         }
 
         bool CanUnlockShip(Progression items) {
-            return !Config.Keysanity || items.PhantoonKey;
+            return items.CanPassBombPassages() && (!Config.Keysanity || items.PhantoonKey);
         }
 
         bool CanCrossBowling(Progression items, int excessive) {
@@ -46,11 +47,12 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
         public override bool CanEnter(Progression items) {
             return items.Super && (
                 items.CanUsePowerBombs() && (
-                    Logic.Cwj || items.SpeedBooster || items.Grapple || items.SpaceJump ||
-                    items.Gravity && (Logic.SuitlessWater || items.CanIbj() || items.HiJump) ||
-                    Logic.BounceSpringBall && items.CanSpringBallJump()
+                    // Through Turbo Shaft, Forgotten Highway
+                    items.CanAccessNorfairUpperPortal() && items.Gravity ||
+                    items.CanCrossMoat(Logic)
                 ) ||
-                items.CanAccessMaridiaPortal(World) && items.Gravity && items.CanPassBombPassages()
+                // Dark World access with no Flute or Lamp. Destroy bomb blocks at Turbo Shaft
+                items.CanAccessMaridiaPortal(World) && items.Gravity && items.CanDestroyBombWalls()
             );
         }
 

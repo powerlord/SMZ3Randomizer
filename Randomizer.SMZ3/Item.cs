@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using static Randomizer.SMZ3.ItemType;
 using static Randomizer.SMZ3.RewardType;
+using static Randomizer.SMZ3.SMLogic;
 using System.Text.RegularExpressions;
 
 namespace Randomizer.SMZ3 {
@@ -636,6 +637,14 @@ namespace Randomizer.SMZ3 {
             return items.CanPassBombPassages() || items.ScrewAttack;
         }
 
+        public static bool CanCrossMoat(this Progression items, SMLogic logic) {
+            return items.SpaceJump || items.Grapple || logic != Casual && (
+                logic.Cwj || items.SpeedBooster ||
+                items.Gravity && (logic.SuitlessWater || items.CanIbj() || items.HiJump) ||
+                logic.BounceSpringBall && items.CanSpringBallJump()
+            );
+        }
+
         public static bool CanSpringBallJump(this Progression items) {
             return items.Morph && items.SpringBall;
         }
@@ -673,10 +682,9 @@ namespace Randomizer.SMZ3 {
         public static bool CanAccessMaridiaPortal(this Progression items, World world) {
             var logic = world.Config.SMLogic;
             return items.MoonPearl && items.Flippers &&
-                (world.CanAquire(items, Agahnim) || items.Hammer && items.CanLiftLight() || items.CanLiftHeavy()) && (
-                    logic.SuitlessWater && (items.CanSpringBallJump() || items.HiJump) ||
-                    items.Gravity
-                ) && items.Morph;
+                (world.CanAquire(items, Agahnim) || items.Hammer && items.CanLiftLight() || items.CanLiftHeavy()) &&
+                (items.Gravity || logic.SuitlessWater && (logic.SpringBallGlitch && items.CanSpringBallJump() || items.HiJump)) &&
+                items.Morph;
         }
 
     }
