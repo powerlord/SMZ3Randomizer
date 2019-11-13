@@ -23,7 +23,8 @@ namespace Randomizer.SMZ3 {
             if (options.ContainsKey("logic")) {
                 logic = options["logic"] switch {
                     "casual" => SMLogic.Casual,
-                    "tournament" => SMLogic.Advanced,
+                    "basic" => SMLogic.Basic,
+                    "advanced" => SMLogic.Advanced,
                     _ => SMLogic.Advanced,
                 };
             }

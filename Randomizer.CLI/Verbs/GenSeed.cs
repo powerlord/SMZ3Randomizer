@@ -20,9 +20,13 @@ namespace Randomizer.CLI.Verbs {
             HelpText = "Generate seeds with Casual SM logic")]
         public bool Casual { get; set; }
 
-        [Option('t', "tournament",
-            HelpText = "Generate seeds with Tournament SM logic (default)")]
-        public bool Tournament { get; set; }
+        [Option('b', "basic",
+            HelpText = "Generate seeds with Basic SM logic")]
+        public bool Basic { get; set; }
+
+        [Option('a', "advanced",
+            HelpText = "Generate seeds with Advanced SM logic (default)")]
+        public bool Advanced { get; set; }
 
         [Option('l', "loop",
             HelpText = "Generate seeds repeatedly")]
@@ -57,9 +61,10 @@ namespace Randomizer.CLI.Verbs {
         public bool Patch { get; set; }
 
         public string Logic => this switch {
-            var o when o.Tournament => "tournament",
+            var o when o.Advanced => "advanced",
+            var o when o.Basic => "basic",
             var o when o.Casual => "casual",
-            _ => "tournament"
+            _ => "advanced",
         };
 
         protected const string smFile = @".\Super_Metroid_JU_.smc";
