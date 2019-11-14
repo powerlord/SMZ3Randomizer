@@ -15,6 +15,8 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                 new Location(this, 62, 0xC78C44, LocationType.Hidden, "Missile (Norfair Reserve Tank)",
                     items => Locations.Get("Missile (bubble Norfair green door)").Available(items) && items.Morph),
                 new Location(this, 63, 0xC78C52, LocationType.Visible, "Missile (bubble Norfair green door)",
+                    // Having SpeedBooster implies you can reach both sides,
+                    // so grapple only becomes a hard requirement in non-casual
                     items => (CanScaleToBroFist(items) || CanClimbMountainSlope(items) && items.Grapple) && items.Super),
                 new Location(this, 64, 0xC78C66, LocationType.Visible, "Missile (bubble Norfair)"),
                 new Location(this, 65, 0xC78C74, LocationType.Hidden, "Missile (Speed Booster)",
@@ -22,17 +24,21 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                 new Location(this, 66, 0xC78C82, LocationType.Chozo, "Speed Booster",
                     items => CanClimbMountain(items) && items.Super),
                 new Location(this, 67, 0xC78CBC, LocationType.Visible, "Missile (Wave Beam)",
+                    // Todo: test if tricky walljump is Basic or Advanced
                     items => CanClimbMountain(items) && (
-                        Logic == Advanced ||
-                        items.CanOpenRedDoors() ||
-                        (Logic.ShortCharge || items.HiJump) && items.SpeedBooster ||
-                        items.CanFly())),
+                        //Logic == Advanced ||
+                        Logic.TrickyWallJump ||
+                        items.CanOpenRedDoors() || items.CanFly() || items.HiJump ||
+                        Logic.ShortCharge && items.SpeedBooster
+                    )),
                 new Location(this, 68, 0xC78CCA, LocationType.Chozo, "Wave Beam",
-                    items => CanClimbMountain(items) && items.CanOpenRedDoors() && (!Logic.SoftlockRisk ? items.Morph : (
-                            items.Grapple || items.SpaceJump ||
-                            items.HiJump && (Logic.ExcessiveDamage || items.Varia) ||
-                            Logic.SpringBallGlitch && items.CanSpringBallJump()
-                        ) && (Logic.GreenGate || items.Wave))),
+                    items => CanClimbMountain(items) && items.CanOpenRedDoors() && (
+                        !Logic.SoftlockRisk ? items.Morph : (
+                                items.Grapple || items.SpaceJump ||
+                                Logic.AdditionalDamage && items.HiJump
+                            ) &&
+                            (Logic.BlueGate && items.CanBlueGateGlitch() || items.Wave)
+                        )),
             };
         }
 
@@ -41,7 +47,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
         }
 
         bool CanClimbMountainWall(Progression items) {
-            return Logic != Casual || items.CanFly() || items.HiJump || items.Ice;
+            return Logic.TrickyWallJump || items.CanFly() || items.HiJump || items.Ice;
         }
 
         bool CanClimbMountainSlope(Progression items) {
@@ -49,15 +55,17 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
         }
 
         bool CanScaleToBroFist(Progression items) {
-            return Logic != Casual || items.CanFly() || items.Ice;
+            // AdditionalDamage implies damage boost over the peaks
+            return Logic.TrickyWallJump && (Logic.AdditionalDamage || items.HiJump) || items.CanFly() || items.Ice;
         }
 
         public override bool CanEnter(Progression items) {
+            var tanks = Logic.ExcessiveDamage ? (3, 2) : (5, 2);
             return World.CanEnter<NorfairUpperWest>(items) &&
-                (items.Varia || Logic.HellRun && items.CanHellRunNorfairSafari(Logic)) && (
-                    // Cathedral route, Speedbooster is here iif Morph Ball is at Bubble Mountain Missile
+                (items.Varia || Logic.HellRun && items.CanHellRunMaybeCf(tanks)) && (
+                    // Cathedral route, Speedbooster is here for the case of Morph at Bubble Mountain Missile
                     items.Super && (
-                        items.CanFly() || items.HiJump || items.SpeedBooster || items.Ice ||
+                        items.CanFly() || items.HiJump || items.SpeedBooster || items.Varia && items.Ice ||
                         Logic.SpringBallGlitch && items.CanSpringBallJump()
                     ) ||
                     // Cathedral or Speedway route with booster

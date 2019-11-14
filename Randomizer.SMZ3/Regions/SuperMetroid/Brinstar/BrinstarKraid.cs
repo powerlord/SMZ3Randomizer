@@ -20,9 +20,15 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
             };
         }
 
+        // Todo: Add in a route from Inner Maridia
         public override bool CanEnter(Progression items) {
-            return (items.CanDestroyBombWalls() || items.SpeedBooster || items.CanAccessNorfairUpperPortal()) &&
-                items.Super && items.CanPassBombPassages();
+            return (
+                    // Through Brinstar Green
+                    items.CanDestroyBombWalls() || items.SpeedBooster ||
+                    // Through Ship, or Brinstar Blue
+                    items.CanUsePowerBombs() ||
+                    items.CanAccessNorfairUpperPortal()
+                ) && items.Super && items.CanPassBombPassages();
         }
 
         public bool CanComplete(Progression items) {

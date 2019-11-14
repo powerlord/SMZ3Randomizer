@@ -19,7 +19,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                         ) && items.Super
                     ) && CanBeatGT(items)),
                 new Location(this, 71, 0xC78E74, LocationType.Hidden, "Super Missile (Gold Torizo)",
-                    items => (items.Varia || Logic.HellRun && items.CanHellRun(5)) && (
+                    items => (items.Varia || Logic.HellRun && items.CanHellRunWithoutCf(5)) && (
                         items.CanAccessNorfairLowerPortal() ||
                         items.CanUsePowerBombs() && items.SpaceJump || Logic.GreenGate && items.Super
                     ) && CanBeatGT(items)),

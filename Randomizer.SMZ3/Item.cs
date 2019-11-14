@@ -595,6 +595,7 @@ namespace Randomizer.SMZ3 {
                 items.Somaria || items.Byrna && items.CanExtendMagic();
         }
 
+        // Todo: Add in Red Tower route from Ship
         public static bool CanAccessDeathMountainPortal(this Progression items) {
             return (items.CanDestroyBombWalls() || items.SpeedBooster) && items.Super && items.Morph;
         }
@@ -653,18 +654,21 @@ namespace Randomizer.SMZ3 {
             return items.EnergyCapacity >= amount;
         }
 
-        public static bool CanHellRun(this Progression items, int amount) {
+        public static bool CanHellRunWithoutCf(this Progression items, int amount) {
             return items.HasEnergyCapacity(amount);
         }
 
-        // Beach Boys shoutout. Hell run from Main Street eastward.
-        public static bool CanHellRunNorfairSafari(this Progression items, SMLogic logic) {
-            var (hellrun, crystalFlash) = logic.ExcessiveDamage ? (3, 2) : (5, 2);
-            return items.CanHellRun(hellrun) || items.CanHellRun(crystalFlash) && items.CanCrystalFlash();
+        public static bool CanHellRunMaybeCf(this Progression items, (int, int) amount) {
+            var (hellrun, crystalFlash) = amount;
+            return items.HasEnergyCapacity(hellrun) || items.HasEnergyCapacity(crystalFlash) && items.CanCrystalFlash();
         }
 
         public static bool CanCrystalFlash(this Progression items) {
             return items.Morph && items.Missiles >= 2 && items.Supers >= 2 && items.PowerBombs >= 3;
+        }
+
+        public static bool CanBeatCrocomire(this Progression items, SMLogic logic) {
+            return items.Charge || logic.SoftlockRisk && items.HasEnoughAmmo(logic == Advanced ? 6 : 9);
         }
 
         public static bool HasEnoughAmmo(this Progression items, int amount) {
