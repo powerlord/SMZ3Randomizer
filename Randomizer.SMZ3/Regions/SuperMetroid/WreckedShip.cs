@@ -31,7 +31,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
             };
         }
 
-        bool CanUnlockShip(Progression items) {
+        public bool CanUnlockShip(Progression items) {
             return items.CanPassBombPassages() && (!Config.Keysanity || items.PhantoonKey);
         }
 

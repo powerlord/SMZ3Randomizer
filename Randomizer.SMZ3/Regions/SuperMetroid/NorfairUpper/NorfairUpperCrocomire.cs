@@ -67,7 +67,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                     // Just normal walljumps through water
                     items.Gravity ||
                     // Time a jump with the tide, with speedbooster but HiJump disabled (thanks Wild)
-                    Logic.WildWallJump && items.SpeedBooster ||
+                    Logic.TimedWallJump && items.SpeedBooster ||
                     // Spawning the Gerutas, freezing them before they scatter,
                     // then luring them to the right to freeze them again
                     Logic.GuidedEnemyFreeze && items.Ice

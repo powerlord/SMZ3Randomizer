@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using static Randomizer.SMZ3.SMLogic;
 
 namespace Randomizer.SMZ3.Regions.SuperMetroid {
 
@@ -22,29 +21,42 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                 new Location(this, 77, 0xC79100, LocationType.Visible, "Missile (lower Norfair near Wave Beam)",
                     items => items.Morph),
                 new Location(this, 78, 0xC79108, LocationType.Hidden, "Energy Tank, Ridley",
-                    items => (!Config.Keysanity || items.RidleyKey) && items.CanUsePowerBombs() && items.Super &&
-                        (items.Charge || Logic.SoftlockRisk && CanBeatRidley(items))),
+                    items => (!Config.Keysanity || items.RidleyKey) && items.CanUsePowerBombs() && items.Super && CanBeatRidley(items)),
                 new Location(this, 80, 0xC79184, LocationType.Visible, "Energy Tank, Firefleas",
                     items => items.Morph || items.Super),
             };
         }
 
         bool CanBeatRidley(Progression items) {
-            return items.Supers * 6 + items.PowerBombs * 2 + items.Missiles >= 36;
+            return items.Charge && (Logic.WeakBeam || items.Ice && items.Wave && items.Plasma) ||
+                Logic.SoftlockRisk && (items.Supers * 6 + items.PowerBombs * 2 + items.Missiles >= 36);
         }
 
         public override bool CanEnter(Progression items) {
-            // Additional damage implies possible escape through Amphitheater
-            return (Logic.AdditionalDamage || items.HasEnergyCapacity(5)) && (
-                World.CanEnter<NorfairUpperEast>(items) && items.CanUsePowerBombs() &&
-                    (Logic.SuitlessLava ? (items.HiJump || items.Gravity) : items.SpaceJump && items.Gravity) ||
-                items.CanAccessNorfairLowerPortal() && items.CanDestroyBombWalls() && (Logic != Casual || items.CanUsePowerBombs()) &&
-                    (items.CanFly() || Logic.SpringBallGlitch && items.CanSpringBallJump() || Logic.ShortCharge && items.SpeedBooster) && items.Super
-            ) && (
-                // Worst Room, destroy bomb blocks and get up (and dodging pirates)
-                items.CanFly() || Logic.TrickyWallJump && items.HiJump || Logic.SpringBallGlitch && items.CanSpringBallJump() ||
-                Logic.GuidedEnemyFreeze && items.Charge && items.Ice
-            );
+            return items.Varia && ((
+                    World.CanEnter<NorfairUpperEast>(items) && items.CanUsePowerBombs() &&
+                        (Logic.SuitlessLava ? items.HiJump || items.Gravity : items.SpaceJump && items.Gravity) ||
+                    items.CanAccessNorfairLowerPortal() && (
+                        items.CanUsePowerBombs() && (
+                            items.Bombs ||
+                            items.SpaceJump ||
+                            Logic.SpringBallGlitch && items.CanSpringBallJump()
+                        ) ||
+                        Logic.DoubleIbj && items.CanIbj() ||
+                        items.SpaceJump && items.ScrewAttack
+                    ) && items.Super
+                ) && (
+                    // Worst Room, destroy bomb blocks and get up (and dodging pirates)
+                    items.CanFly() || Logic.TrickyWallJump && items.HiJump ||
+                    Logic.SpringBallGlitch && items.CanSpringBallJump() && items.PowerBomb
+                ) ||
+                    // Special case: Short charged SpeedBooster, then break
+                    // bomb blocks in Worst Room with screw from frozen enemy
+                    Logic.ShortCharge && items.SpeedBooster && items.CanBeatGoldenTorizo(Logic) &&
+                        Logic.GuidedEnemyFreeze && items.Charge && items.Ice && items.ScrewAttack
+            ) &&
+                // Vanilla escape, or back through Amphitheater when missing Morph
+                (items.Morph || Logic.AdditionalDamage && items.HasEnergyCapacity(5) && items.Gravity);
         }
 
         public bool CanComplete(Progression items) {

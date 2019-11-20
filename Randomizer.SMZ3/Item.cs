@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using static Randomizer.SMZ3.ItemType;
 using static Randomizer.SMZ3.RewardType;
-using static Randomizer.SMZ3.SMLogic;
-using System.Text.RegularExpressions;
 
 namespace Randomizer.SMZ3 {
 
@@ -639,11 +638,10 @@ namespace Randomizer.SMZ3 {
         }
 
         public static bool CanCrossMoat(this Progression items, SMLogic logic) {
-            return items.SpaceJump || items.Grapple || logic != Casual && (
-                logic.Cwj || items.SpeedBooster ||
+            return items.SpaceJump || items.Grapple ||
                 items.Gravity && (logic.SuitlessWater || items.CanIbj() || items.HiJump) ||
-                logic.BounceSpringBall && items.CanSpringBallJump()
-            );
+                logic.Cwj || items.SpeedBooster ||
+                logic.BounceSpringBall && items.CanSpringBallJump();
         }
 
         public static bool CanSpringBallJump(this Progression items) {
@@ -668,7 +666,12 @@ namespace Randomizer.SMZ3 {
         }
 
         public static bool CanBeatCrocomire(this Progression items, SMLogic logic) {
-            return items.Charge || logic.SoftlockRisk && items.HasEnoughAmmo(logic == Advanced ? 6 : 9);
+            return items.Charge || logic.SoftlockRisk && items.HasEnoughAmmo(logic.NoAmmoMargin ? 6 : 9);
+        }
+        
+        public static bool CanBeatGoldenTorizo(this Progression items, SMLogic logic) {
+            return items.Charge && (logic.WeakBeam || items.Ice && items.Wave && items.Spazer) ||
+                logic.SoftlockRisk && (logic.ExcessiveDamage ? items.Supers >= 3 && items.Grapple : items.Supers >= 6);
         }
 
         public static bool HasEnoughAmmo(this Progression items, int amount) {

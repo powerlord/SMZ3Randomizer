@@ -25,7 +25,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                 new Location(this, 67, 0xC78CBC, LocationType.Visible, "Missile (Wave Beam)",
                     // Todo: test if tricky walljump is Basic or Advanced
                     items => CanClimbMountain(items) && (
-                        //Logic == Advanced ||
+                        //Logic.[TimedWallJump/WildWallJump] ||
                         Logic.TrickyWallJump ||
                         items.CanOpenRedDoors() || items.CanFly() || items.HiJump ||
                         Logic.ShortCharge && items.SpeedBooster

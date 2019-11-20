@@ -13,21 +13,35 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
                     items => items.Gravity && items.SpeedBooster),
                 new Location(this, 137, 0xC7C43D, LocationType.Visible, "Super Missile (green Maridia)"),
                 new Location(this, 138, 0xC7C47D, LocationType.Visible, "Energy Tank, Mama turtle",
-                    // Todo: speedbooster here, how, why?
-                    // Todo: Test grapple's reach without Hi-Jump boots
-                    items => items.CanOpenRedDoors() && (items.CanFly() || /*items.HiJump && */items.Grapple) ||
-                        Logic.SpringBallGlitch && items.CanSpringBallJump() && (items.Gravity || items.HiJump)),
+                    items => items.CanOpenRedDoors() && (
+                        Logic.MidAirIbj && items.CanIbj() ||
+                        items.SpaceJump || items.Grapple ||
+                        items.SpeedBooster && items.Gravity ||
+                        Logic.SpringBallGlitch && items.CanSpringBallJump() && (items.Gravity || items.HiJump)
+                    )),
                 new Location(this, 139, 0xC7C483, LocationType.Hidden, "Missile (green Maridia tatori)",
                     items => items.CanOpenRedDoors()),
             };
         }
 
         public override bool CanEnter(Progression items) {
-            return (Logic.SuitlessWater || items.Gravity) && (
-                World.CanEnter<NorfairUpperWest>(items) && items.CanUsePowerBombs() && (items.Gravity ||
-                    Logic.SuitlessWater && items.HiJump && (items.Ice || Logic.SpringBallGlitch && items.CanSpringBallJump()))
-                || items.CanAccessMaridiaPortal(World)
-            );
+            return (
+                // Enter through Norfair -> Tube, or Portal -> (Tube / Crab Tunnel)
+                World.CanEnter<NorfairUpperWest>(items) && items.CanUsePowerBombs() ||
+                World.Region<MaridiaInner>().CanEnterMaridiaFromPortal(items) && items.Super && (Logic.GreenGate || items.CanUsePowerBombs())
+            ) && (
+                items.Gravity ||
+                // Super needed when missing either of HiJump or SpringBall to dislodge the first crab
+                Logic.SuitlessWater && (
+                    items.HiJump && (items.Ice && items.Super || Logic.SpringBallGlitch && items.CanSpringBallJump()) ||
+                    // SpringBall jump instead of HiJump from frozen enemies
+                    items.Ice && items.Super && Logic.SpringBallGlitch && items.CanSpringBallJump()
+                )
+            ) ||
+            // Enter through Portal -> Aquaduct
+            // Freezing an enemy, with a Super to dislodge, is skipped since
+            // Portal Corridor already require one of the other alternatives.
+            World.Region<MaridiaInner>().CanEnterMaridiaFromPortal(items) && items.CanPassBombPassages();
         }
 
     }

@@ -30,6 +30,7 @@ namespace Randomizer.SMZ3 {
         static SMLogic() {
             Casual = new SMLogic(0, "Casual");
             Basic = new SMLogic(1, "Basic") {
+                WeakBeam = true,
                 BounceSpringBall = true,
                 TrickyShineSpark = true,
                 TrickyWallJump = true,
@@ -41,7 +42,9 @@ namespace Randomizer.SMZ3 {
                 TrickyEnemyFreeze = true,
                 HellRun = true,
                 AdditionalDamage = true,
+                MidAirMorph = true,
                 MidAirIbj = true,
+                DoubleIbj = true,
                 SoftlockRisk = true,
                 ShortCharge = true,
                 MockBall = true,
@@ -53,16 +56,18 @@ namespace Randomizer.SMZ3 {
                 PseudoScrew = true,
                 ThreeTapCharge = true,
                 GuidedEnemyFreeze = true,
-                WildWallJump = true,
+                TimedWallJump = true,
                 ExcessiveDamage = true,
                 WildJump = true,
+                NoAmmoMargin = true,
             };
         }
 
+        public bool WeakBeam { get; private set; }
         public bool BounceSpringBall { get; private set; }
         public bool TrickyShineSpark { get; private set; }
         public bool TrickyWallJump { get; private set; }
-        public bool WildWallJump { get; private set; }
+        public bool TimedWallJump { get; private set; }
         public bool SuitlessWater { get; private set; }
         public bool IceClip { get; private set; }
         public bool BlueGate { get; private set; }
@@ -72,7 +77,9 @@ namespace Randomizer.SMZ3 {
         public bool HellRun { get; private set; }
         public bool AdditionalDamage { get; private set; }
         public bool ExcessiveDamage { get; private set; }
+        public bool MidAirMorph { get; private set; }
         public bool MidAirIbj { get; private set; }
+        public bool DoubleIbj { get; private set; }
         public bool SoftlockRisk { get; private set; }
         public bool ShortCharge { get; private set; }
         public bool ThreeTapCharge { get; private set; }
@@ -83,6 +90,7 @@ namespace Randomizer.SMZ3 {
         public bool SnailClip { get; private set; }
         public bool PseudoScrew { get; private set; }
         public bool WildJump { get; private set; }
+        public bool NoAmmoMargin { get; private set; }
 
         public SMLogic(int ord, string name) : base(ord, name) { }
         public SMLogic(int ord, string name, SMLogic template) : base(ord, name) {
