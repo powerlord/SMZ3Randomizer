@@ -1,23 +1,23 @@
 ﻿using System.Collections.Generic;
 using static Randomizer.SMZ3.RewardType;
 
-namespace Randomizer.SMZ3.Regions.Zelda.DarkWorld {
+namespace Randomizer.SMZ3.Regions.Zelda {
 
-    class NorthEast : Z3Region {
+    class DarkWorldNorthEast : Z3Region {
 
         public override string Name => "Dark World North East";
         public override string Area => "Dark World";
 
-        public NorthEast(World world, Config config) : base(world, config) {
+        public DarkWorldNorthEast(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
                 new Location(this, 256+78, 0xEE185, LocationType.Regular, "Catfish",
                     items => items.MoonPearl && items.CanLiftLight()),
                 new Location(this, 256+79, 0x180147, LocationType.Regular, "Pyramid"),
                 new Location(this, 256+80, 0xE980, LocationType.Regular, "Pyramid Fairy - Left",
-                    items => World.CanAquireAll(items, CrystalRed) && items.MoonPearl && World.CanEnter("Dark World South", items) &&
+                    items => World.CanAquireAll(items, CrystalRed) && items.MoonPearl && World.CanEnter<DarkWorldSouth>(items) &&
                         (items.Hammer || items.Mirror && World.CanAquire(items, Agahnim))),
                 new Location(this, 256+81, 0xE983, LocationType.Regular, "Pyramid Fairy - Right",
-                    items => World.CanAquireAll(items, CrystalRed) && items.MoonPearl && World.CanEnter("Dark World South", items) &&
+                    items => World.CanAquireAll(items, CrystalRed) && items.MoonPearl && World.CanEnter<DarkWorldSouth>(items) &&
                         (items.Hammer || items.Mirror && World.CanAquire(items, Agahnim)))
             };
         }

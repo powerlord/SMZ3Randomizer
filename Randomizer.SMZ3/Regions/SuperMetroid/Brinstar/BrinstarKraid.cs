@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 
-namespace Randomizer.SMZ3.Regions.SuperMetroid.Brinstar {
+namespace Randomizer.SMZ3.Regions.SuperMetroid {
 
-    class Kraid : SMRegion, IReward {
+    class BrinstarKraid : SMRegion, IReward {
 
         public override string Name => "Brinstar Kraid";
         public override string Area => "Brinstar";
 
         public RewardType Reward { get; set; } = RewardType.GoldenFourBoss;
 
-        public Kraid(World world, Config config) : base(world, config) {
+        public BrinstarKraid(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
                 new Location(this, 43, 0xC7899C, LocationType.Hidden, "Energy Tank, Kraid",
                     items => !Config.Keysanity || items.KraidKey),

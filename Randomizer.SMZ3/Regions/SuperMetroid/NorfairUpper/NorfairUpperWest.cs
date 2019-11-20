@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using static Randomizer.SMZ3.SMLogic;
 
-namespace Randomizer.SMZ3.Regions.SuperMetroid.NorfairUpper {
+namespace Randomizer.SMZ3.Regions.SuperMetroid {
 
-    class West : SMRegion {
+    class NorfairUpperWest : SMRegion {
 
         public override string Name => "Norfair Upper West";
         public override string Area => "Norfair Upper";
 
-        public West(World world, Config config) : base(world, config) {
+        public NorfairUpperWest(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
                 new Location(this, 50, 0xC78B24, LocationType.Chozo, "Ice Beam", Logic switch {
                     Casual => items => items.Super && items.CanPassBombPassages() && items.Varia && items.SpeedBooster,

@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 
-namespace Randomizer.SMZ3.Regions.Zelda.LightWorld.DeathMountain {
+namespace Randomizer.SMZ3.Regions.Zelda {
 
-    class West : Z3Region {
+    class LightWorldDeathMountainWest : Z3Region {
 
         public override string Name => "Light World Death Mountain West";
         public override string Area => "Light World";
 
-        public West(World world, Config config) : base(world, config) {
+        public LightWorldDeathMountainWest(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
                 new Location(this, 256+0, 0x180016, LocationType.Ether, "Ether Tablet",
                     items => items.Book && items.MasterSword && (items.Mirror || items.Hammer && items.Hookshot)),

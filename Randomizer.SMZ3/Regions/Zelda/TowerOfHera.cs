@@ -33,7 +33,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
         }
 
         public override bool CanEnter(Progression items) {
-            return (items.Mirror || items.Hookshot && items.Hammer) && World.CanEnter("Light World Death Mountain West", items);
+            return (items.Mirror || items.Hookshot && items.Hammer) && World.CanEnter<LightWorldDeathMountainWest>(items);
         }
 
         public bool CanComplete(Progression items) {

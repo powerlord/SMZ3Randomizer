@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using static Randomizer.SMZ3.SMLogic;
 
-namespace Randomizer.SMZ3.Regions.SuperMetroid.NorfairLower {
+namespace Randomizer.SMZ3.Regions.SuperMetroid {
 
-    class West : SMRegion {
+    class NorfairLowerWest : SMRegion {
 
         public override string Name => "Norfair Lower West";
         public override string Area => "Norfair Lower";
 
-        public West(World world, Config config) : base(world, config) {
+        public NorfairLowerWest(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
                 new Location(this, 70, 0xC78E6E, LocationType.Visible, "Missile (Gold Torizo)", Logic switch {
                     Casual => items => items.CanUsePowerBombs() && items.SpaceJump && items.Super,
@@ -32,10 +32,10 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid.NorfairLower {
             return Logic switch {
                 Casual =>
                     items.Varia && (
-                        World.CanEnter("Norfair Upper East", items) && items.CanUsePowerBombs() && items.SpaceJump && items.Gravity ||
+                        World.CanEnter<NorfairUpperEast>(items) && items.CanUsePowerBombs() && items.SpaceJump && items.Gravity ||
                         items.CanAccessNorfairLowerPortal() && items.CanDestroyBombWalls()),
                 _ =>
-                    World.CanEnter("Norfair Upper East", items) && items.CanUsePowerBombs() && items.Varia && (items.HiJump || items.Gravity) ||
+                    World.CanEnter<NorfairUpperEast>(items) && items.CanUsePowerBombs() && items.Varia && (items.HiJump || items.Gravity) ||
                     items.CanAccessNorfairLowerPortal() && items.CanDestroyBombWalls()
             };
         }

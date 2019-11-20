@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 
-namespace Randomizer.SMZ3.Regions.Zelda.DarkWorld {
+namespace Randomizer.SMZ3.Regions.Zelda {
 
-    class Mire : Z3Region {
+    class DarkWorldMire : Z3Region {
 
         public override string Name => "Dark World Mire";
         public override string Area => "Dark World";
 
-        public Mire(World world, Config config) : base(world, config) {
+        public DarkWorldMire(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
                 new Location(this, 256+89, 0xEA73, LocationType.Regular, "Mire Shed - Left",
                     items => items.MoonPearl),

@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using static Randomizer.SMZ3.SMLogic;
 
-namespace Randomizer.SMZ3.Regions.SuperMetroid.Crateria {
+namespace Randomizer.SMZ3.Regions.SuperMetroid {
 
-    class West : SMRegion {
+    class CrateriaWest : SMRegion {
 
         public override string Name => "Crateria West";
         public override string Area => "Crateria";
 
-        public West(World world, Config config) : base(world, config) {
+        public CrateriaWest(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
                 new Location(this, 8, 0xC78432, LocationType.Visible, "Energy Tank, Terminator"),
                 new Location(this, 5, 0xC78264, LocationType.Visible, "Energy Tank, Gauntlet", Logic switch {

@@ -56,7 +56,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                     _ => items.Quake
                 } && items.Sword &&
                 items.MoonPearl && items.CanLiftHeavy() && items.Hammer && items.Somaria &&
-                World.CanEnter("Light World Death Mountain East", items);
+                World.CanEnter<LightWorldDeathMountainEast>(items);
         }
 
         public bool CanComplete(Progression items) {

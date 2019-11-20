@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using static Randomizer.SMZ3.SMLogic;
 
-namespace Randomizer.SMZ3.Regions.SuperMetroid.NorfairUpper {
+namespace Randomizer.SMZ3.Regions.SuperMetroid {
 
-    class Crocomire : SMRegion {
+    class NorfairUpperCrocomire : SMRegion {
 
         public override string Name => "Norfair Upper Crocomire";
         public override string Area => "Norfair Upper";
 
-        public Crocomire(World world, Config config) : base(world, config) {
+        public NorfairUpperCrocomire(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
                 new Location(this, 52, 0xC78BA4, LocationType.Visible, "Energy Tank, Crocomire", Logic switch {
                     Casual => items => items.HasEnergyReserves(1) || items.SpaceJump || items.Grapple,

@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using static Randomizer.SMZ3.RewardType;
 
-namespace Randomizer.SMZ3.Regions.Zelda.LightWorld {
+namespace Randomizer.SMZ3.Regions.Zelda {
 
-    class NorthWest : Z3Region {
+    class LightWorldNorthWest : Z3Region {
 
         public override string Name => "Light World North West";
         public override string Area => "Light World";
 
-        public NorthWest(World world, Config config) : base(world, config) {
+        public LightWorldNorthWest(World world, Config config) : base(world, config) {
             var sphereOne = -14;
             Locations = new List<Location> {
                 new Location(this, 256+14, 0x289B0, LocationType.Pedestal, "Master Sword Pedestal",
@@ -20,11 +20,11 @@ namespace Randomizer.SMZ3.Regions.Zelda.LightWorld {
                 new Location(this, 256+18, 0xEB3F, LocationType.Regular, "Pegasus Rocks",
                     items => items.Boots),
                 new Location(this, 256+19, 0x180004, LocationType.Regular, "Graveyard Ledge",
-                    items => items.Mirror && items.MoonPearl && World.CanEnter("Dark World North West", items)),
+                    items => items.Mirror && items.MoonPearl && World.CanEnter<DarkWorldNorthWest>(items)),
                 new Location(this, 256+20, 0xE97A, LocationType.Regular, "King's Tomb",
                     items => items.Boots && (
                         items.CanLiftHeavy() ||
-                        items.Mirror && items.MoonPearl && World.CanEnter("Dark World North West", items))),
+                        items.Mirror && items.MoonPearl && World.CanEnter<DarkWorldNorthWest>(items))),
                 new Location(this, 256+21, 0xEA8E, LocationType.Regular, "Kakariko Well - Top").Weighted(sphereOne),
                 new Location(this, 256+22, 0xEA91, LocationType.Regular, "Kakariko Well - Left").Weighted(sphereOne),
                 new Location(this, 256+23, 0xEA94, LocationType.Regular, "Kakariko Well - Middle").Weighted(sphereOne),

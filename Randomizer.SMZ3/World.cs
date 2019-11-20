@@ -7,16 +7,17 @@ namespace Randomizer.SMZ3 {
 
     class World {
 
-        public List<Location> Locations { get; set; }
-        public List<Region> Regions { get; set; }
+        public List<Location> Locations { get; }
+        public List<Region> Regions { get; }
         public Config Config { get; set; }
         public string Player { get; set; }
         public string Guid { get; set; }
         public int Id { get; set; }
 
-        public IEnumerable<Item> Items {
-            get { return Locations.Select(l => l.Item).Where(i => i != null); }
-        }
+        public IEnumerable<Item> Items => Locations.Select(l => l.Item).Where(i => i != null);
+
+        // Let Regions be a list with predictable order, use this lookup internally
+        readonly IDictionary<Type, Region> regionsOfType;
 
         public World(Config config, string player, int id, string guid) {
             Config = config;
@@ -37,44 +38,48 @@ namespace Randomizer.SMZ3 {
                 new Regions.Zelda.MiseryMire(this, Config),
                 new Regions.Zelda.TurtleRock(this, Config),
                 new Regions.Zelda.GanonTower(this, Config),
-                new Regions.Zelda.LightWorld.DeathMountain.West(this, Config),
-                new Regions.Zelda.LightWorld.DeathMountain.East(this, Config),
-                new Regions.Zelda.LightWorld.NorthWest(this, Config),
-                new Regions.Zelda.LightWorld.NorthEast(this, Config),
-                new Regions.Zelda.LightWorld.South(this, Config),
+                new Regions.Zelda.LightWorldDeathMountainWest(this, Config),
+                new Regions.Zelda.LightWorldDeathMountainEast(this, Config),
+                new Regions.Zelda.LightWorldNorthWest(this, Config),
+                new Regions.Zelda.LightWorldNorthEast(this, Config),
+                new Regions.Zelda.LightWorldSouth(this, Config),
                 new Regions.Zelda.HyruleCastle(this, Config),
-                new Regions.Zelda.DarkWorld.DeathMountain.West(this, Config),
-                new Regions.Zelda.DarkWorld.DeathMountain.East(this, Config),
-                new Regions.Zelda.DarkWorld.NorthWest(this, Config),
-                new Regions.Zelda.DarkWorld.NorthEast(this, Config),
-                new Regions.Zelda.DarkWorld.South(this, Config),
-                new Regions.Zelda.DarkWorld.Mire(this, Config),
-                new Regions.SuperMetroid.Crateria.Central(this, Config),
-                new Regions.SuperMetroid.Crateria.West(this, Config),
-                new Regions.SuperMetroid.Crateria.East(this, Config),
-                new Regions.SuperMetroid.Brinstar.Blue(this, Config),
-                new Regions.SuperMetroid.Brinstar.Green(this, Config),
-                new Regions.SuperMetroid.Brinstar.Kraid(this, Config),
-                new Regions.SuperMetroid.Brinstar.Pink(this, Config),
-                new Regions.SuperMetroid.Brinstar.Red(this, Config),
-                new Regions.SuperMetroid.Maridia.Outer(this, Config),
-                new Regions.SuperMetroid.Maridia.Inner(this, Config),
-                new Regions.SuperMetroid.NorfairUpper.West(this, Config),
-                new Regions.SuperMetroid.NorfairUpper.East(this, Config),
-                new Regions.SuperMetroid.NorfairUpper.Crocomire(this, Config),
-                new Regions.SuperMetroid.NorfairLower.West(this, Config),
-                new Regions.SuperMetroid.NorfairLower.East(this, Config),
+                new Regions.Zelda.DarkWorldDeathMountainWest(this, Config),
+                new Regions.Zelda.DarkWorldDeathMountainEast(this, Config),
+                new Regions.Zelda.DarkWorldNorthWest(this, Config),
+                new Regions.Zelda.DarkWorldNorthEast(this, Config),
+                new Regions.Zelda.DarkWorldSouth(this, Config),
+                new Regions.Zelda.DarkWorldMire(this, Config),
+                new Regions.SuperMetroid.CrateriaCentral(this, Config),
+                new Regions.SuperMetroid.CrateriaWest(this, Config),
+                new Regions.SuperMetroid.CrateriaEast(this, Config),
+                new Regions.SuperMetroid.BrinstarBlue(this, Config),
+                new Regions.SuperMetroid.BrinstarGreen(this, Config),
+                new Regions.SuperMetroid.BrinstarKraid(this, Config),
+                new Regions.SuperMetroid.BrinstarPink(this, Config),
+                new Regions.SuperMetroid.BrinstarRed(this, Config),
+                new Regions.SuperMetroid.MaridiaOuter(this, Config),
+                new Regions.SuperMetroid.MaridiaInner(this, Config),
+                new Regions.SuperMetroid.NorfairUpperWest(this, Config),
+                new Regions.SuperMetroid.NorfairUpperEast(this, Config),
+                new Regions.SuperMetroid.NorfairUpperCrocomire(this, Config),
+                new Regions.SuperMetroid.NorfairLowerWest(this, Config),
+                new Regions.SuperMetroid.NorfairLowerEast(this, Config),
                 new Regions.SuperMetroid.WreckedShip(this, Config)
             };
 
             Locations = Regions.SelectMany(x => x.Locations).ToList();
+            regionsOfType = Regions.ToDictionary(k => k.GetType(), v => v);
         }
 
-        public bool CanEnter(string regionName, Progression items) {
-            var region = Regions.Find(r => r.Name == regionName);
-            if (region == null)
-                throw new ArgumentException($"World.CanEnter: Invalid region name {regionName}", nameof(regionName));
-            return region.CanEnter(items);
+        public TRegion Region<TRegion>() where TRegion : Region {
+            if (regionsOfType.TryGetValue(typeof(TRegion), out var region))
+                return region as TRegion;
+            throw new ArgumentException($"Invalid region type {typeof(TRegion).Name}");
+        }
+
+        public bool CanEnter<TRegion>(Progression items) where TRegion : Region {
+            return Region<TRegion>().CanEnter(items);
         }
 
         public bool CanAquire(Progression items, RewardType reward) {

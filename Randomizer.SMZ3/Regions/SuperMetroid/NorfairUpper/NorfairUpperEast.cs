@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using static Randomizer.SMZ3.SMLogic;
 
-namespace Randomizer.SMZ3.Regions.SuperMetroid.NorfairUpper {
+namespace Randomizer.SMZ3.Regions.SuperMetroid {
 
-    class East : SMRegion {
+    class NorfairUpperEast : SMRegion {
 
         public override string Name => "Norfair Upper East";
         public override string Area => "Norfair Upper";
 
-        public East(World world, Config config) : base(world, config) {
+        public NorfairUpperEast(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
                 new Location(this, 49, 0xC78AE4, LocationType.Hidden, "Missile (lava room)", Logic switch {
                     _ => new Requirement(items => items.Morph)

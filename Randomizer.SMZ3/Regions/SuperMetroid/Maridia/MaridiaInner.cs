@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using static Randomizer.SMZ3.SMLogic;
 
-namespace Randomizer.SMZ3.Regions.SuperMetroid.Maridia {
+namespace Randomizer.SMZ3.Regions.SuperMetroid {
 
-    class Inner : SMRegion, IReward {
+    class MaridiaInner : SMRegion, IReward {
 
         public override string Name => "Maridia Inner";
         public override string Area => "Maridia";
 
         public RewardType Reward { get; set; } = RewardType.GoldenFourBoss;
 
-        public Inner(World world, Config config) : base(world, config) {
+        public MaridiaInner(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
                 new Location(this, 140, 0xC7C4AF, LocationType.Visible, "Super Missile (yellow Maridia)", Logic switch {
                     Casual => items => items.CanPassBombPassages(),
@@ -97,12 +97,12 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid.Maridia {
         public override bool CanEnter(Progression items) {
             return Logic switch {
                 Casual => (
-                        World.CanEnter("Norfair Upper West", items) && items.CanUsePowerBombs() &&
+                        World.CanEnter<NorfairUpperWest>(items) && items.CanUsePowerBombs() &&
                         (items.CanFly() || items.SpeedBooster || items.Grapple)
                         || items.CanAccessMaridiaPortal(World)
                     ) && items.Gravity,
                 _ =>
-                    World.CanEnter("Norfair Upper West", items) && items.CanUsePowerBombs() &&
+                    World.CanEnter<NorfairUpperWest>(items) && items.CanUsePowerBombs() &&
                     (items.Gravity || items.HiJump && (items.Ice || items.CanSpringBallJump()) && items.Grapple)
                     || items.CanAccessMaridiaPortal(World)
             };

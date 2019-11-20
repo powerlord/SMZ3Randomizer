@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using static Randomizer.SMZ3.SMLogic;
 
-namespace Randomizer.SMZ3.Regions.SuperMetroid.NorfairLower {
+namespace Randomizer.SMZ3.Regions.SuperMetroid {
 
-    class East : SMRegion, IReward {
+    class NorfairLowerEast : SMRegion, IReward {
 
         public override string Name => "Norfair Lower East";
         public override string Area => "Norfair Lower";
 
         public RewardType Reward { get; set; } = RewardType.GoldenFourBoss;
 
-        public East(World world, Config config) : base(world, config) {
+        public NorfairLowerEast(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
                 new Location(this, 73, 0xC78F30, LocationType.Visible, "Missile (Mickey Mouse room)", Logic switch {
                     Casual => new Requirement(items => true),
@@ -39,11 +39,11 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid.NorfairLower {
             return Logic switch {
                 Casual =>
                     items.Varia && (
-                        World.CanEnter("Norfair Upper East", items) && items.CanUsePowerBombs() && items.SpaceJump && items.Gravity ||
+                        World.CanEnter<NorfairUpperEast>(items) && items.CanUsePowerBombs() && items.SpaceJump && items.Gravity ||
                         items.CanAccessNorfairLowerPortal() && items.CanDestroyBombWalls() && items.Super && items.CanUsePowerBombs() && items.CanFly()),
                 _ =>
                     items.Varia && (
-                        World.CanEnter("Norfair Upper East", items) && items.CanUsePowerBombs() && (items.HiJump || items.Gravity) ||
+                        World.CanEnter<NorfairUpperEast>(items) && items.CanUsePowerBombs() && (items.HiJump || items.Gravity) ||
                         items.CanAccessNorfairLowerPortal() && items.CanDestroyBombWalls() && items.Super && (items.CanFly() || items.CanSpringBallJump() || items.SpeedBooster)
                     ) &&
                     (items.CanFly() || items.HiJump || items.CanSpringBallJump() || items.Ice && items.Charge) &&

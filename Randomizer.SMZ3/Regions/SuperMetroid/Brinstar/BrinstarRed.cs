@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using static Randomizer.SMZ3.SMLogic;
 
-namespace Randomizer.SMZ3.Regions.SuperMetroid.Brinstar {
+namespace Randomizer.SMZ3.Regions.SuperMetroid {
 
-    class Red : SMRegion {
+    class BrinstarRed : SMRegion {
 
         public override string Name => "Brinstar Red";
         public override string Area => "Brinstar";
 
-        public Red(World world, Config config) : base(world, config) {
+        public BrinstarRed(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
                 new Location(this, 38, 0xC78876, LocationType.Chozo, "X-Ray Scope", Logic switch {
                     Casual => items => items.CanUsePowerBombs() && items.CanOpenRedDoors() && (items.Grapple || items.SpaceJump),
@@ -34,7 +34,8 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid.Brinstar {
         }
 
         public override bool CanEnter(Progression items) {
-            return Logic switch {
+            return Logic switch
+            {
                 Casual =>
                     (items.CanDestroyBombWalls() || items.SpeedBooster) && items.Super && items.Morph ||
                     items.CanAccessNorfairUpperPortal() && (items.Ice || items.HiJump || items.SpaceJump),

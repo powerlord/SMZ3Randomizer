@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using static Randomizer.SMZ3.RewardType;
 
-namespace Randomizer.SMZ3.Regions.Zelda.DarkWorld {
+namespace Randomizer.SMZ3.Regions.Zelda {
 
-    class NorthWest : Z3Region {
+    class DarkWorldNorthWest : Z3Region {
 
         public override string Name => "Dark World North West";
         public override string Area => "Dark World";
 
-        public NorthWest(World world, Config config) : base(world, config) {
+        public DarkWorldNorthWest(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
                 new Location(this, 256+71, 0x180146, LocationType.Regular, "Bumper Cave",
                     items => items.CanLiftLight() && items.Cape),

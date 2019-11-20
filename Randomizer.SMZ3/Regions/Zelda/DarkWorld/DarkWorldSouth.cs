@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using static Randomizer.SMZ3.RewardType;
 
-namespace Randomizer.SMZ3.Regions.Zelda.DarkWorld {
+namespace Randomizer.SMZ3.Regions.Zelda {
 
-    class South : Z3Region {
+    class DarkWorldSouth : Z3Region {
 
         public override string Name => "Dark World South";
         public override string Area => "Dark World";
 
-        public South(World world, Config config) : base(world, config) {
+        public DarkWorldSouth(World world, Config config) : base(world, config) {
             Locations = new List<Location> {
                 new Location(this, 256+82, 0x180148, LocationType.Regular, "Digging Game"),
                 new Location(this, 256+83, 0x330C7, LocationType.Regular, "Stumpy"),
