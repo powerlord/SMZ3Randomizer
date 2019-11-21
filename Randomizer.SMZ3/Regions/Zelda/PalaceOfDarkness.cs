@@ -16,7 +16,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
             Locations = new List<Location> {
                 new Location(this, 256+121, 0xEA5B, LocationType.Regular, "Palace of Darkness - Shooter Room"),
                 new Location(this, 256+122, 0xEA37, LocationType.Regular, "Palace of Darkness - Big Key Chest",
-                    items => items.KeyPD >= (Locations.Get("Palace of Darkness - Big Key Chest").ItemType == KeyPD ? 1 :
+                    items => items.KeyPD >= (Location("Palace of Darkness - Big Key Chest").ItemType == KeyPD ? 1 :
                         Config.Keysanity || items.Hammer && items.Bow && items.Lamp ? 6 : 5))
                     .AlwaysAllow((item, items) => item.Type == KeyPD && items.KeyPD >= 5),
                 new Location(this, 256+123, 0xEA49, LocationType.Regular, "Palace of Darkness - Stalfos Basement",
@@ -30,7 +30,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                 new Location(this, 256+127, 0xEA43, LocationType.Regular, "Palace of Darkness - Compass Chest",
                     items => items.KeyPD >= (Config.Keysanity || items.Hammer && items.Bow && items.Lamp ? 4 : 3)),
                 new Location(this, 256+128, 0xEA46, LocationType.Regular, "Palace of Darkness - Harmless Hellway",
-                    items => items.KeyPD >= (Locations.Get("Palace of Darkness - Harmless Hellway").ItemType == KeyPD ?
+                    items => items.KeyPD >= (Location("Palace of Darkness - Harmless Hellway").ItemType == KeyPD ?
                         Config.Keysanity || items.Hammer && items.Bow && items.Lamp ? 4 : 3 :
                         Config.Keysanity || items.Hammer && items.Bow && items.Lamp ? 6 : 5))
                     .AlwaysAllow((item, items) => item.Type == KeyPD && items.KeyPD >= 5),
@@ -67,7 +67,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
         }
 
         public bool CanComplete(Progression items) {
-            return Locations.Get("Palace of Darkness - Helmasaur King").Available(items);
+            return Location("Palace of Darkness - Helmasaur King").Available(items);
         }
 
     }

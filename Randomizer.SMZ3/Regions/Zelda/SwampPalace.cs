@@ -56,7 +56,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                 items.MoonPearl && items.Mirror ||
                 Logic.OneFrameClipUw &&
                     EnterFromMire(items) && (items.BigKeyMM || items.BigKeyTH) &&
-                    World.Region<LightWorldDeathMountainWest>().Locations.Get("Old Man").Available(items) && (
+                    World.LocationIn<LightWorldDeathMountainWest>("Old Man").Available(items) && (
                         Logic.OneFrameClipOw ||
                         Logic.BootsClip && items.Boots ||
                         Logic.SuperSpeed && items.CanSpinSpeed()
@@ -71,7 +71,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
         }
 
         public bool CanComplete(Progression items) {
-            return Locations.Get("Swamp Palace - Arrghus").Available(items);
+            return Location("Swamp Palace - Arrghus").Available(items);
         }
 
     }

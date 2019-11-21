@@ -27,7 +27,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
         }
 
         public bool CanComplete(Progression items) {
-            return Locations.Get("Varia Suit").Available(items);
+            return Location("Varia Suit").Available(items);
         }
 
     }

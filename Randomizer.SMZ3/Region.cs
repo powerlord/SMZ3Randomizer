@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Randomizer.SMZ3 {
 
@@ -45,6 +47,17 @@ namespace Randomizer.SMZ3 {
         public Region(World world, Config config) {
             Config = config;
             World = world;
+        }
+
+        public Location Location(string name) {
+            var location = Locations.Find(l => l.Name == name);
+            if (location == null)
+                throw new ArgumentException($"Could not find location name {name}", nameof(name));
+            return location;
+        }
+
+        public IEnumerable<Location> Location(params string[] names) {
+            return names.Select(Location);
         }
 
         public bool IsRegionItem(Item item) {

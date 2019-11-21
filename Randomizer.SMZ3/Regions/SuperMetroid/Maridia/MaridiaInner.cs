@@ -109,7 +109,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
         }
 
         public bool CanComplete(Progression items) {
-            return Locations.Get("Space Jump").Available(items);
+            return Location("Space Jump").Available(items);
         }
 
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Randomizer.SMZ3 {
@@ -86,13 +85,6 @@ namespace Randomizer.SMZ3 {
     }
 
     static class LocationsExtensions {
-
-        public static Location Get(this IEnumerable<Location> locations, string name) {
-            var location = locations.FirstOrDefault(l => l.Name == name);
-            if (location == null)
-                throw new ArgumentException($"Could not find location name {name}", nameof(name));
-            return location;
-        }
 
         public static IEnumerable<Location> Empty(this IEnumerable<Location> locations) {
             return locations.Where(l => l.Item == null);

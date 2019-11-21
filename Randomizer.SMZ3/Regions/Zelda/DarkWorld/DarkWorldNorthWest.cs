@@ -62,7 +62,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                             Logic.BunnyRevive && items.CanBunnyRevive()
                         ) && items.CanLiftHeavy()),
                 new Location(this, 256+77, 0x33D68, LocationType.Regular, "Purple Chest",
-                    items => Locations.Get("Blacksmith").Available(items) && (
+                    items => Location("Blacksmith").Available(items) && (
                         Logic.MirrorWrap && items.Mirror || (
                             items.MoonPearl ||
                             Logic.OwYba && items.Bottle ||

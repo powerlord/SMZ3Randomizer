@@ -51,7 +51,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
         bool EnterFromMire(Progression items) => World.Region<MiseryMire>().EnterFromMire(items);
 
         public virtual bool CanComplete(Progression items) {
-            return Locations.Get("Tower of Hera - Moldorm").Available(items);
+            return Location("Tower of Hera - Moldorm").Available(items);
         }
 
     }

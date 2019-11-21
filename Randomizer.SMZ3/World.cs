@@ -78,6 +78,14 @@ namespace Randomizer.SMZ3 {
             throw new ArgumentException($"Invalid region type {typeof(TRegion).Name}");
         }
 
+        public Location LocationIn<TRegion>(string name) where TRegion : Region {
+            return Region<TRegion>().Location(name);
+        }
+
+        public IEnumerable<Location> LocationIn<TRegion>(params string[] names) where TRegion : Region {
+            return Region<TRegion>().Location(names);
+        }
+
         public bool CanEnter<TRegion>(Progression items) where TRegion : Region {
             return Region<TRegion>().CanEnter(items);
         }

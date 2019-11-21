@@ -17,28 +17,28 @@ namespace Randomizer.SMZ3.Regions.Zelda {
 
             Locations = new List<Location> {
                 new Location(this, 256+177, 0xEA22, LocationType.Regular, "Turtle Rock - Compass Chest",
-                    items => items.Somaria && ReachLobbyTransit(items, new[] {
-                        Locations.Get("Turtle Rock - Roller Room - Left"),
-                        Locations.Get("Turtle Rock - Roller Room - Right"),
-                    })),
+                    items => items.Somaria && ReachLobbyTransit(items, Location(
+                        "Turtle Rock - Roller Room - Left",
+                        "Turtle Rock - Roller Room - Right"
+                    ))),
                 new Location(this, 256+178, 0xEA1C, LocationType.Regular, "Turtle Rock - Roller Room - Left",
-                    items => items.Somaria && items.Firerod && ReachLobbyTransit(items, new[] {
-                        Locations.Get("Turtle Rock - Roller Room - Right"),
-                        Locations.Get("Turtle Rock - Compass Chest"),
-                    })),
+                    items => items.Somaria && items.Firerod && ReachLobbyTransit(items, Location(
+                        "Turtle Rock - Roller Room - Right",
+                        "Turtle Rock - Compass Chest"
+                    ))),
                 new Location(this, 256+179, 0xEA1F, LocationType.Regular, "Turtle Rock - Roller Room - Right",
-                    items => items.Somaria && items.Firerod && ReachLobbyTransit(items, new[] {
-                        Locations.Get("Turtle Rock - Roller Room - Left"),
-                        Locations.Get("Turtle Rock - Compass Chest"),
-                    })),
+                    items => items.Somaria && items.Firerod && ReachLobbyTransit(items, Location(
+                        "Turtle Rock - Roller Room - Left",
+                        "Turtle Rock - Compass Chest"
+                    ))),
                 new Location(this, 256+180, 0xEA16, LocationType.Regular, "Turtle Rock - Chain Chomps",
                     items => EnterTop(items) && items.KeyTR >= 1 ||
                         EnterMiddle(items) ||
                         EnterLower(items) && items.Lamp && items.Somaria),
                 new Location(this, 256+181, 0xEA25, LocationType.Regular, "Turtle Rock - Big Key Chest",
                     items => items.KeyTR >=
-                        (!Config.Keysanity || Locations.Get("Turtle Rock - Big Key Chest").ItemType == BigKeyTR ? 2 :
-                            Locations.Get("Turtle Rock - Big Key Chest").ItemType == KeyTR ? 3 : 4))
+                        (!Config.Keysanity || Location("Turtle Rock - Big Key Chest").ItemType == BigKeyTR ? 2 :
+                            Location("Turtle Rock - Big Key Chest").ItemType == KeyTR ? 3 : 4))
                     .AlwaysAllow((item, items) => item.Type == KeyTR && items.KeyTR >= 3),
                 new Location(this, 256+182, 0xEA19, LocationType.Regular, "Turtle Rock - Big Chest",
                     items => items.BigKeyTR && (
@@ -62,7 +62,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
             };
         }
 
-        bool ReachLobbyTransit(Progression items, IList<Location> locations) {
+        bool ReachLobbyTransit(Progression items, IEnumerable<Location> locations) {
             return EnterTop(items) ||
                 EnterMiddle(items) && items.KeyTR >= (locations.Any(l => l.ItemType == BigKeyTR) ? 2 : 4) ||
                 EnterLower(items) && items.Lamp && items.KeyTR >= 4;
@@ -140,7 +140,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
         }
 
         public bool CanComplete(Progression items) {
-            return Locations.Get("Turtle Rock - Trinexx").Available(items);
+            return Location("Turtle Rock - Trinexx").Available(items);
         }
 
     }

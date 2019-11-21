@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Randomizer.SMZ3.Regions.Zelda;
 
 namespace Randomizer.SMZ3 {
 
@@ -76,7 +77,7 @@ namespace Randomizer.SMZ3 {
 
         void InitialFillInOwnWorld(List<Item> items, World world) {
             var swKey = items.Get(ItemType.KeySW);
-            world.Locations.Get("Skull Woods - Pinball Room").Item = swKey;
+            world.LocationIn<SkullWoods>("Skull Woods - Pinball Room").Item = swKey;
             items.Remove(swKey);
         }
 

@@ -68,7 +68,7 @@ namespace Randomizer.SMZ3 {
 
             WriteOpenModeFlags();
 
-            WriteRemoveEquipmentFromUncle(myWorld.Locations.Get("Link's Uncle").Item);
+            WriteRemoveEquipmentFromUncle(myWorld.LocationIn<HyruleCastle>("Link's Uncle").Item);
 
             WriteLockAgahnimDoorInEscape();
             WriteWishingWellUpgradeFalse();
