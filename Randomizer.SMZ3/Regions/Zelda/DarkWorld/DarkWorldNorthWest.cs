@@ -55,7 +55,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                     items =>
                         Logic.OwYba && items.Bottle && (
                             Logic.OneFrameClipOw ||
-                            Logic.BootsClip && items.Boots && (items.MoonPearl /*|| items.Bottles >= 2*/)
+                            Logic.BootsClip && items.Boots && (items.MoonPearl || items.TwoBottles)
                         ) || (
                             items.MoonPearl ||
                             Logic.OwYba && items.Bottle ||

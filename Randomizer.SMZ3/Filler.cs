@@ -23,6 +23,7 @@ namespace Randomizer.SMZ3 {
 
         public void Fill() {
             var progressionItems = new List<Item>();
+            var niceItems = new List<Item>();
 
             foreach (var world in Worlds) {
                 /* The dungeon pool order is significant, don't shuffle */
@@ -42,12 +43,16 @@ namespace Randomizer.SMZ3 {
                 FrontFillItemInOwnWorld(progression, ItemType.Super, world);
                 FrontFillItemInOwnWorld(progression, ItemType.PowerBomb, world);
 
+                var nice = Item.CreateNicePool(world);
+                AdjustPools(progression, nice);
+
                 progressionItems.AddRange(dungeon);
                 progressionItems.AddRange(progression);
+                niceItems.AddRange(nice);
             }
 
             progressionItems = progressionItems.Shuffle(Rnd);
-            var niceItems = Worlds.SelectMany(world => Item.CreateNicePool(world)).Shuffle(Rnd);
+            niceItems = niceItems.Shuffle(Rnd);
             var junkItems = Worlds.SelectMany(world => Item.CreateJunkPool(world)).Shuffle(Rnd);
 
             if (Config.Multiworld == true) {
@@ -79,6 +84,16 @@ namespace Randomizer.SMZ3 {
             var swKey = items.Get(ItemType.KeySW);
             world.LocationIn<SkullWoods>("Skull Woods - Pinball Room").Item = swKey;
             items.Remove(swKey);
+        }
+
+        void AdjustPools(List<Item> progression, List<Item> nice) {
+            /* with Overworld YBA, make one more bottle be progression */
+            if (Config.Z3Logic.OwYba) {
+                var bottle = nice.Get(ItemType.Bottle);
+                nice.Remove(bottle);
+                bottle.Progression = true;
+                progression.Add(bottle);
+            }
         }
 
         void AssumedFill(List<Item> itemPool, List<Item> baseItems, IEnumerable<Location> locations, IEnumerable<World> worlds) {

@@ -432,6 +432,7 @@ namespace Randomizer.SMZ3 {
         public bool Bugnet { get; private set; }
         public bool Book { get; private set; }
         public bool Bottle { get; private set; }
+        public bool TwoBottles { get; private set; }
         public bool Somaria { get; private set; }
         public bool Byrna { get; private set; }
         public bool Cape { get; private set; }
@@ -507,7 +508,6 @@ namespace Randomizer.SMZ3 {
                     ItemType.Flute => Flute = true,
                     ItemType.Bugnet => Bugnet = true,
                     ItemType.Book => Book = true,
-                    ItemType.Bottle => Bottle = true,
                     ItemType.Somaria => Somaria = true,
                     ItemType.Byrna => Byrna = true,
                     ItemType.Cape => Cape = true,
@@ -556,6 +556,10 @@ namespace Randomizer.SMZ3 {
                     case ProgressiveGlove:
                         Mitt = Glove;
                         Glove = true;
+                        break;
+                    case ItemType.Bottle:
+                        TwoBottles = Bottle;
+                        Bottle = true;
                         break;
                     case ItemType.PowerBomb:
                         TwoPowerBombs = PowerBomb;

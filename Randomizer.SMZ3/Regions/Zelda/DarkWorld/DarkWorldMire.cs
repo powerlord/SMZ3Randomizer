@@ -21,7 +21,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                 Logic.SuperBunny && items.Mirror ||
                 Logic.OwYba && items.Bottle && (
                     Logic.OneFrameClipOw ||
-                    /*items.Bottles >= 2 ||*/
+                    items.TwoBottles ||
                     Logic.BunnyRevive && items.Mirror && items.Bugnet ||
                     Logic.BootsClip && items.Boots
                 );

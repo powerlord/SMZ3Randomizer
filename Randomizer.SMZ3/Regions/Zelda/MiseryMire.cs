@@ -50,7 +50,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                         ) ||
                         Logic.OwYba && (
                             Logic.OneFrameClipOw ||
-                            /*items.Bottles >= 2 ||*/
+                            items.TwoBottles ||
                             Logic.BootsClip && items.Boots
                         )
                     )
