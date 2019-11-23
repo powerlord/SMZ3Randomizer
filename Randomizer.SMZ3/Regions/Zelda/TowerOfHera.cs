@@ -18,7 +18,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                 new Location(this, 256+116, 0xE9AD, LocationType.Regular, "Tower of Hera - Map Chest"),
                 new Location(this, 256+117, 0xE9E6, LocationType.Regular, "Tower of Hera - Big Key Chest",
                     items => items.KeyTH && items.CanLightTorches())
-                    .AlwaysAllow((item, items) => item.Type == KeyTH),
+                    .AlwaysAllow((item, items) => item.Is(KeyTH, World)),
                 new Location(this, 256+118, 0xE9FB, LocationType.Regular, "Tower of Hera - Compass Chest",
                     items => EnterFromTower(items) && items.BigKeyTH || EnterFromMire(items)),
                 new Location(this, 256+119, 0xE9F8, LocationType.Regular, "Tower of Hera - Big Chest",

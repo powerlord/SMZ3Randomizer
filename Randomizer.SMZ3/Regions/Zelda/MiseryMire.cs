@@ -24,10 +24,10 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                 new Location(this, 256+172, 0xE9DA, LocationType.Regular, "Misery Mire - Spike Chest"),
                 new Location(this, 256+173, 0xEA64, LocationType.Regular, "Misery Mire - Compass Chest",
                     items => items.CanLightTorches() &&
-                        items.KeyMM >= (Location("Misery Mire - Big Key Chest").ItemType == BigKeyMM ? 2 : 3)),
+                        items.KeyMM >= (Location("Misery Mire - Big Key Chest").ItemIs(BigKeyMM, World) ? 2 : 3)),
                 new Location(this, 256+174, 0xEA6D, LocationType.Regular, "Misery Mire - Big Key Chest",
                     items => items.CanLightTorches() &&
-                        items.KeyMM >= (Location("Misery Mire - Compass Chest").ItemType == BigKeyMM ? 2 : 3)),
+                        items.KeyMM >= (Location("Misery Mire - Compass Chest").ItemIs(BigKeyMM, World) ? 2 : 3)),
                 new Location(this, 256+175, 0xEA67, LocationType.Regular, "Misery Mire - Big Chest",
                     items => items.BigKeyMM),
                 new Location(this, 256+176, 0x180158, LocationType.Regular, "Misery Mire - Vitreous",
@@ -68,7 +68,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                 items.KeyMM >= (Location(
                     "Misery Mire - Compass Chest",
                     "Misery Mire - Big Key Chest"
-                ).Any(l => l.ItemType == BigKeyMM) ? 2 : 3) &&
+                ).Any(l => l.ItemIs(BigKeyMM, World)) ? 2 : 3) &&
                 CanEnter(items);
         }
 

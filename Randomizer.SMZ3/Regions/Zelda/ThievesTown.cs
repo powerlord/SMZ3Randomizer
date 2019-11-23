@@ -24,8 +24,8 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                     items => items.BigKeyTT),
                 new Location(this, 256+159, 0xEA10, LocationType.Regular, "Thieves' Town - Big Chest",
                     items => items.BigKeyTT && items.Hammer &&
-                        (Location("Thieves' Town - Big Chest").ItemType == KeyTT || items.KeyTT))
-                    .AlwaysAllow((item, items) => item.Type == KeyTT && items.Hammer),
+                        (Location("Thieves' Town - Big Chest").ItemIs(KeyTT, World) || items.KeyTT))
+                    .AlwaysAllow((item, items) => item.Is(KeyTT, World) && items.Hammer),
                 new Location(this, 256+160, 0x180156, LocationType.Regular, "Thieves' Town - Blind",
                     items => items.BigKeyTT && items.KeyTT && CanBeatBoss(items)),
             };

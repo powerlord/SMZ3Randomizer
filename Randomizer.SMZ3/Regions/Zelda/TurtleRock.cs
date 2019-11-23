@@ -37,9 +37,9 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                         EnterLower(items) && items.Lamp && items.Somaria),
                 new Location(this, 256+181, 0xEA25, LocationType.Regular, "Turtle Rock - Big Key Chest",
                     items => items.KeyTR >=
-                        (!Config.Keysanity || Location("Turtle Rock - Big Key Chest").ItemType == BigKeyTR ? 2 :
-                            Location("Turtle Rock - Big Key Chest").ItemType == KeyTR ? 3 : 4))
-                    .AlwaysAllow((item, items) => item.Type == KeyTR && items.KeyTR >= 3),
+                        (!Config.Keysanity || Location("Turtle Rock - Big Key Chest").ItemIs(BigKeyTR, World) ? 2 :
+                            Location("Turtle Rock - Big Key Chest").ItemIs(KeyTR, World) ? 3 : 4))
+                    .AlwaysAllow((item, items) => item.Is(KeyTR, World) && items.KeyTR >= 3),
                 new Location(this, 256+182, 0xEA19, LocationType.Regular, "Turtle Rock - Big Chest",
                     items => items.BigKeyTR && (
                         EnterTop(items) && items.KeyTR >= 2 ||
@@ -64,7 +64,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
 
         bool ReachLobbyTransit(Progression items, IEnumerable<Location> locations) {
             return EnterTop(items) ||
-                EnterMiddle(items) && items.KeyTR >= (locations.Any(l => l.ItemType == BigKeyTR) ? 2 : 4) ||
+                EnterMiddle(items) && items.KeyTR >= (locations.Any(l => l.ItemIs(BigKeyTR, World)) ? 2 : 4) ||
                 EnterLower(items) && items.Lamp && items.KeyTR >= 4;
         }
 

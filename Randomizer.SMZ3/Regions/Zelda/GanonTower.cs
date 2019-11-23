@@ -26,16 +26,16 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                     items => items.Hammer && items.Hookshot),
                 new Location(this, 256+194, 0xEAD3, LocationType.Regular, "Ganon's Tower - Map Chest",
                     items => items.Hammer && (items.Hookshot || items.Boots) && items.KeyGT >=
-                        (new[] { BigKeyGT, KeyGT }.Contains(Location("Ganon's Tower - Map Chest").ItemType) ? 3 : 4))
-                    .AlwaysAllow((item, items) => item.Type == KeyGT && items.KeyGT >= 3),
+                        (new[] { BigKeyGT, KeyGT }.Any(type => Location("Ganon's Tower - Map Chest").ItemIs(type, World)) ? 3 : 4))
+                    .AlwaysAllow((item, items) => item.Is(KeyGT, World) && items.KeyGT >= 3),
                 new Location(this, 256+195, 0xEAD0, LocationType.Regular, "Ganon's Tower - Firesnake Room",
                     items => items.Hammer && items.Hookshot && items.KeyGT >= (Location(
                             "Ganon's Tower - Randomizer Room - Top Right",
                             "Ganon's Tower - Randomizer Room - Top Left",
                             "Ganon's Tower - Randomizer Room - Bottom Left",
                             "Ganon's Tower - Randomizer Room - Bottom Right"
-                        ).Any(l => l.ItemType == BigKeyGT) ||
-                        Location("Ganon's Tower - Firesnake Room").ItemType == KeyGT ? 2 : 3)),
+                        ).Any(l => l.ItemIs(BigKeyGT, World)) ||
+                        Location("Ganon's Tower - Firesnake Room").ItemIs(KeyGT, World) ? 2 : 3)),
                 new Location(this, 256+196, 0xEAC4, LocationType.Regular, "Ganon's Tower - Randomizer Room - Top Left",
                     items => LeftSide(items, Location(
                         "Ganon's Tower - Randomizer Room - Top Right",
@@ -107,16 +107,16 @@ namespace Randomizer.SMZ3.Regions.Zelda {
                         items.Bow && items.CanLightTorches() &&
                         CanBeatMoldorm(items) && items.Hookshot)
                     // Todo: remove this? access already require only big key and all small keys
-                    .Allow((item, items) => new[] { KeyGT, BigKeyGT }.Contains(item.Type) == false),
+                    .Allow((item, items) => new[] { KeyGT, BigKeyGT }.All(type => item.IsNot(type, World))),
             };
         }
 
         bool LeftSide(Progression items, IEnumerable<Location> locations) {
-            return items.Hammer && items.Hookshot && items.KeyGT >= (locations.Any(l => l.ItemType == BigKeyGT) ? 3 : 4);
+            return items.Hammer && items.Hookshot && items.KeyGT >= (locations.Any(l => l.ItemIs(BigKeyGT, World)) ? 3 : 4);
         }
 
         bool RightSide(Progression items, IEnumerable<Location> locations) {
-            return items.Somaria && items.Firerod && items.KeyGT >= (locations.Any(l => l.ItemType == BigKeyGT) ? 3 : 4);
+            return items.Somaria && items.Firerod && items.KeyGT >= (locations.Any(l => l.ItemIs(BigKeyGT, World)) ? 3 : 4);
         }
 
         bool BigKeyRoom(Progression items) {
