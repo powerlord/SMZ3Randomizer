@@ -36,6 +36,7 @@ namespace Randomizer.SMZ3.Regions.SuperMetroid {
         }
 
         // Todo: Maridia again
+        // Todo: no super + morph from portal (doh!)
         public override bool CanEnter(Progression items) {
             return (
                 // Through Brinstar Green

@@ -637,13 +637,6 @@ namespace Randomizer.SMZ3 {
             return items.CanPassBombPassages() || items.ScrewAttack;
         }
 
-        public static bool CanCrossMoat(this Progression items, SMLogic logic) {
-            return items.SpaceJump || items.Grapple ||
-                items.Gravity && (logic.SuitlessWater || items.CanIbj() || items.HiJump) ||
-                logic.Cwj || items.SpeedBooster ||
-                logic.BounceSpringBall && items.CanSpringBallJump();
-        }
-
         public static bool CanSpringBallJump(this Progression items) {
             return items.Morph && items.SpringBall;
         }
