@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Randomizer.SMZ3 {
@@ -67,6 +68,11 @@ namespace Randomizer.SMZ3 {
 
         public Location CanAccess(Requirement access = null) {
             canAccess = access ?? (items => true);
+            return this;
+        }
+
+        public Location WrapCanAccess(Func<Requirement, Requirement> wrap) {
+            canAccess = wrap(canAccess);
             return this;
         }
 

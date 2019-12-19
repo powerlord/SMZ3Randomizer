@@ -5,7 +5,7 @@
         public CastleTower(World world, Config config) : base(world, config) { }
 
         public override bool CanEnter(Progression items) {
-            return items.CanKillManyEnemies() && World.CanEnter("Dark World Death Mountain West", items);
+            return items.CanKillManyEnemies() && World.CanEnter<DarkWorldDeathMountainWest>(items);
         }
 
     }

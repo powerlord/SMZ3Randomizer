@@ -41,14 +41,14 @@ namespace Randomizer.SMZ3.Regions.Zelda {
             return EnterFromTower(items) || EnterFromMire(items);
         }
 
-        bool EnterFromTower(Progression items) {
+        protected virtual bool EnterFromTower(Progression items) {
             return Logic.OneFrameClipOw ||
                 Logic.BootsClip && items.Boots ||
                 Logic.SuperSpeed && items.CanSpinSpeed() ||
                 (items.Mirror || items.Hookshot && items.Hammer) && World.CanEnter<LightWorldDeathMountainWest>(items);
         }
 
-        bool EnterFromMire(Progression items) => World.Region<MiseryMire>().EnterFromMire(items);
+        protected bool EnterFromMire(Progression items) => World.Region<MiseryMire>().EnterFromMire(items);
 
         public virtual bool CanComplete(Progression items) {
             return Location("Tower of Hera - Moldorm").Available(items);

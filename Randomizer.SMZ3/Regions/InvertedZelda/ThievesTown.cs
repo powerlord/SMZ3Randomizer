@@ -5,7 +5,7 @@
         public ThievesTown(World world, Config config) : base(world, config) { }
 
         public override bool CanEnter(Progression items) {
-            return World.CanEnter("Dark World North West", items);
+            return World.CanEnter<DarkWorldNorthWest>(items);
         }
 
     }

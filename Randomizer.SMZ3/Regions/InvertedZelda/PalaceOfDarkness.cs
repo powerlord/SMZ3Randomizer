@@ -5,7 +5,8 @@
         public PalaceOfDarkness(World world, Config config) : base(world, config) { }
 
         public override bool CanEnter(Progression items) {
-            return World.CanEnter("Dark World North East", items);
+            return World.CanEnter<DarkWorldNorthEast>(items) ||
+                Logic.OneFrameClipOw && World.CanEnter<LightWorldDeathMountainWest>(items);
         }
 
     }

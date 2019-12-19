@@ -6,14 +6,16 @@ namespace Randomizer.SMZ3.Regions.InvertedZelda {
 
         public MiseryMire(World world, Config config) : base(world, config) { }
 
-        // Need "CanKillManyEnemies" if implementing swordless
+        /* Need "CanKillManyEnemies" if implementing swordless */
         public override bool CanEnter(Progression items) {
             return Medallion switch {
                     Bombos => items.Bombos,
                     Ether => items.Ether,
                     _ => items.Quake
                 } && items.Sword &&
-                    (items.Boots || items.Hookshot) && World.CanEnter("Dark World Mire", items);
+                    (items.Boots || items.Hookshot) &&
+                    /*items.CanKillManyEnemies() &&*/
+                    World.CanEnter<DarkWorldMire>(items);
         }
 
     }

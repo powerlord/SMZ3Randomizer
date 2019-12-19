@@ -64,9 +64,9 @@ namespace Randomizer.SMZ3.Regions.Zelda {
             );
         }
 
-        bool EnterFromMire(Progression items) => World.Region<MiseryMire>().EnterFromMire(items);
+        protected bool EnterFromMire(Progression items) => World.Region<MiseryMire>().EnterFromMire(items);
 
-        bool EnterFromHera(Progression items) {
+        protected bool EnterFromHera(Progression items) {
             return Logic.OneFrameClipUw && World.CanEnter<TowerOfHera>(items) && items.BigKeyTH;
         }
 

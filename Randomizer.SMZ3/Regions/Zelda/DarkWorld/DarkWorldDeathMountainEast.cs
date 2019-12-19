@@ -32,7 +32,7 @@ namespace Randomizer.SMZ3.Regions.Zelda {
             };
         }
 
-        bool CanReachHookshotCave(Progression items) {
+        protected virtual bool CanReachHookshotCave(Progression items) {
             return (
                 items.MoonPearl ||
                 Logic.OwYba && items.Bottle
