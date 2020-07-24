@@ -1,0 +1,591 @@
+﻿Hyrule Castle:
+
+  Enter:
+
+  Locations:
+
+    Sanctuary:
+
+    Sewers - Secret Room - Left:
+    - Glove
+    - Lamp KeyHC 1
+
+    Sewers - Secret Room - Middle:
+    - Glove
+    - Lamp KeyHC 1
+
+    Sewers - Secret Room - Right:
+    - Glove
+    - Lamp KeyHC 1
+
+    Sewers - Dark Cross:
+    - Lamp
+
+    Hyrule Castle - Map Chest:
+
+    Hyrule Castle - Boomerang Chest:
+    - KeyHC 1
+    Hyrule Castle - Zelda's Cell:
+    - KeyHC 1
+
+    Link's Uncle:
+    Secret Passage:
+
+Castle Tower:
+
+  Enter:
+  - Sword Cape
+  - Sword MasterSword
+  - Hammer Cape
+  - Hammer MasterSword
+  - Bow Cape
+  - Bow MasterSword
+  - Firerod Cape
+  - Firerod MasterSword
+  - Somaria Cape
+  - Somaria MasterSword
+  - HalfMagic Byrna Cape
+  - HalfMagic Byrna MasterSword
+  - Bottle Byrna Cape
+  - Bottle Byrna MasterSword
+
+  Locations:
+
+    Castle Tower - Foyer:
+
+    Castle Tower - Dark Maze:
+    - Lamp KeyCT 1
+
+Eastern Palace:
+
+  Enter:
+
+  Locations:
+
+    Eastern Palace - Cannonball Chest:
+    Eastern Palace - Map Chest:
+    Eastern Palace - Compass Chest:
+
+    Eastern Palace - Big Chest:
+    - BigKeyEP
+
+    Eastern Palace - Big Key Chest:
+    - Lamp
+
+    Eastern Palace - Armos Knights:
+    - BigKeyEP Bow Lamp
+
+Desert Palace:
+
+  Enter:
+  - Book
+  - Mirror Mitt Flute
+  - Varia Super Gravity SpaceJump Morph PowerBomb Mirror
+
+  Locations:
+
+    Desert Palace - Big Chest:
+    - BigKeyDP
+
+    Desert Palace - Torch:
+    - Boots
+
+    Desert Palace - Map Chest:
+
+    Desert Palace - Big Key Chest:
+    - KeyDP 1
+    Desert Palace - Compass Chest:
+    - KeyDP 1
+
+    Desert Palace - Lanmolas:
+    - Glove BigKeyDP KeyDP 1 Firerod
+    - Glove BigKeyDP KeyDP 1 Lamp Sword
+    - Glove BigKeyDP KeyDP 1 Lamp Bow
+    - Glove BigKeyDP KeyDP 1 Lamp Firerod
+    - Glove BigKeyDP KeyDP 1 Lamp Icerod
+    - Glove BigKeyDP KeyDP 1 Lamp Byrna
+    - Glove BigKeyDP KeyDP 1 Lamp Somaria
+    - Varia Super Gravity SpaceJump Morph PowerBomb Mirror BigKeyDP KeyDP 1 Firerod
+    - Varia Super Gravity SpaceJump Morph PowerBomb Mirror BigKeyDP KeyDP 1 Lamp Sword
+    - Varia Super Gravity SpaceJump Morph PowerBomb Mirror BigKeyDP KeyDP 1 Lamp Bow
+    - Varia Super Gravity SpaceJump Morph PowerBomb Mirror BigKeyDP KeyDP 1 Lamp Firerod
+    - Varia Super Gravity SpaceJump Morph PowerBomb Mirror BigKeyDP KeyDP 1 Lamp Icerod
+    - Varia Super Gravity SpaceJump Morph PowerBomb Mirror BigKeyDP KeyDP 1 Lamp Byrna
+    - Varia Super Gravity SpaceJump Morph PowerBomb Mirror BigKeyDP KeyDP 1 Lamp Somaria
+
+Tower of Hera:
+
+  Enter:
+  - Mirror Flute
+  - Mirror Glove Lamp
+  - Mirror Morph Bombs Super
+  - Mirror Morph PowerBomb Super
+  - Mirror ScrewAttack Super Morph
+  - Mirror SpeedBooster Super Morph
+  - Hookshot Hammer Flute
+  - Hookshot Hammer Glove Lamp
+  - Hookshot Hammer Morph Bombs Super
+  - Hookshot Hammer Morph PowerBomb Super
+  - Hookshot Hammer ScrewAttack Super Morph
+  - Hookshot Hammer SpeedBooster Super Morph
+
+  Locations:
+
+    Tower of Hera - Basement Cage:
+    Tower of Hera - Map Chest:
+
+    Tower of Hera - Big Key Chest:
+    - KeyTH 1 Firerod
+    - KeyTH 1 Lamp
+
+    Tower of Hera - Compass Chest:
+    - BigKeyTH
+    Tower of Hera - Big Chest:
+    - BigKeyTH
+
+    Tower of Hera - Moldorm:
+    - BigKeyTH Sword
+    - BigKeyTH Hammer
+
+Palace of Darkness:
+
+  Enter:
+  - MoonPearl Cape Lamp KeyCT 2 Sword
+  - MoonPearl Lamp KeyCT 2 MasterSword
+  - MoonPearl Hammer Glove
+  - MoonPearl Mitt Flippers
+  - MoonPearl Morph PowerBomb Super Gravity SpeedBooster Flippers
+
+  Locations:
+
+    Palace of Darkness - Shooter Room:
+
+    Palace of Darkness - Big Key Chest:
+    - HasKeyPD KeyPD 1
+    - Hammer Bow Lamp KeyPD 6
+    - KeyPD 5
+
+    Palace of Darkness - Stalfos Basement:
+    - KeyPD 1
+    - Bow Hammer
+
+    Palace of Darkness - The Arena - Bridge:
+    - KeyPD 1
+    - Bow Hammer
+
+    Palace of Darkness - The Arena - Ledge:
+    - Bow
+    Palace of Darkness - Map Chest:
+    - Bow
+
+    Palace of Darkness - Compass Chest:
+    - Hammer Bow Lamp KeyPD 4
+    - KeyPD 3
+
+    Palace of Darkness - Harmless Hellway:
+    - HasKeyPD Hammer Bow Lamp KeyPD 4
+    - HasKeyPD KeyPD 3
+    - Hammer Bow Lamp KeyPD 6
+    - KeyPD 5
+
+    Palace of Darkness - Dark Basement - Left:
+    - Lamp Hammer Bow KeyPD 4
+    - Lamp KeyPD 3
+
+    Palace of Darkness - Dark Basement - Right:
+    - Lamp Hammer Bow KeyPD 4
+    - Lamp KeyPD 3
+
+    Palace of Darkness - Dark Maze - Top:
+    - Lamp Hammer Bow KeyPD 6
+    - Lamp KeyPD 5
+
+    Palace of Darkness - Dark Maze - Bottom:
+    - Lamp Hammer Bow KeyPD 6
+    - Lamp KeyPD 5
+
+    Palace of Darkness - Big Chest:
+    - BigKeyPD Lamp Hammer Bow KeyPD 6
+    - BigKeyPD Lamp KeyPD 5
+
+    Palace of Darkness - Helmasaur King:
+    - Lamp Hammer Bow BigKeyPD KeyPD 6
+
+Swamp Palace:
+
+  Enter:
+  - MoonPearl Mirror Flippers Cape Lamp KeyCT 2 Sword Hammer
+  - MoonPearl Mirror Flippers Lamp KeyCT 2 MasterSword Hammer
+  - MoonPearl Mirror Flippers Cape Lamp KeyCT 2 Sword Hookshot
+  - MoonPearl Mirror Flippers Lamp KeyCT 2 MasterSword Hookshot
+  - MoonPearl Mirror Flippers Morph PowerBomb Super Gravity SpeedBooster Hammer
+  - MoonPearl Mirror Flippers Morph PowerBomb Super Gravity SpeedBooster Hookshot
+  - MoonPearl Mirror Flippers Hammer Glove
+  - MoonPearl Mirror Flippers Mitt
+
+  Locations:
+
+    Swamp Palace - Entrance:
+
+    Swamp Palace - Map Chest:
+    - KeySP 1
+
+    Swamp Palace - Big Chest:
+    - BigKeySP KeySP 1 Hammer
+
+    Swamp Palace - Compass Chest:
+    - KeySP 1 Hammer
+    Swamp Palace - West Chest:
+    - KeySP 1 Hammer
+    Swamp Palace - Big Key Chest:
+    - KeySP 1 Hammer
+
+    Swamp Palace - Flooded Room - Left:
+    - KeySP 1 Hammer Hookshot
+    Swamp Palace - Flooded Room - Right:
+    - KeySP 1 Hammer Hookshot
+    Swamp Palace - Waterfall Room:
+    - KeySP 1 Hammer Hookshot
+
+    Swamp Palace - Arrghus:
+    - KeySP 1 Hammer Hookshot
+
+Skull Woods:
+  
+  Enter:
+  - MoonPearl Cape Lamp KeyCT 2 Sword Hookshot Flippers
+  - MoonPearl Lamp KeyCT 2 MasterSword Hookshot Flippers
+  - MoonPearl Cape Lamp KeyCT 2 Sword Hookshot Glove
+  - MoonPearl Lamp KeyCT 2 MasterSword Hookshot Glove
+  - MoonPearl Cape Lamp KeyCT 2 Sword Hookshot Hammer
+  - MoonPearl Lamp KeyCT 2 MasterSword Hookshot Hammer
+  - MoonPearl Morph PowerBomb Super Gravity SpeedBooster Flippers Hookshot
+  - MoonPearl Hammer Glove
+  - MoonPearl Mitt
+
+  Locations:
+
+    Skull Woods - Pot Prison:
+    Skull Woods - Compass Chest:
+
+    Skull Woods - Big Chest:
+    - BigKeySW
+
+    Skull Woods - Map Chest:
+    # Skipping "Skull Woods - Pinball Room" since it is always a key
+    Skull Woods - Big Key Chest:
+
+    Skull Woods - Bridge Room:
+    - Firerod
+
+    Skull Woods - Mothula:
+    - Firerod Sword KeySW 3
+
+Thieves' Town:
+
+  Enter:
+  - MoonPearl Cape Lamp KeyCT 2 Sword Hookshot Flippers
+  - MoonPearl Lamp KeyCT 2 MasterSword Hookshot Flippers
+  - MoonPearl Cape Lamp KeyCT 2 Sword Hookshot Glove
+  - MoonPearl Lamp KeyCT 2 MasterSword Hookshot Glove
+  - MoonPearl Cape Lamp KeyCT 2 Sword Hookshot Hammer
+  - MoonPearl Lamp KeyCT 2 MasterSword Hookshot Hammer
+  - MoonPearl Morph PowerBomb Super Gravity SpeedBooster Flippers Hookshot
+  - MoonPearl Hammer Glove
+  - MoonPearl Mitt
+
+  Locations:
+
+    Thieves' Town - Map Chest:
+    Thieves' Town - Ambush Chest:
+    Thieves' Town - Compass Chest:
+    Thieves' Town - Big Key Chest:
+
+    Thieves' Town - Attic:
+    - BigKeyTT KeyTT 1
+
+    Thieves' Town - Blind's Cell:
+    - BigKeyTT
+
+    Thieves' Town - Big Chest:
+    - HasKeyTT BigKeyTT Hammer
+    - BigKeyTT Hammer KeyTT 1
+
+    Thieves' Town - Blind:
+    - BigKeyTT KeyTT 1 Sword
+    - BigKeyTT KeyTT 1 Hammer
+    - BigKeyTT KeyTT 1 Somaria
+    - BigKeyTT KeyTT 1 Byrna
+
+Ice Palace:
+
+  Enter:
+  - MoonPearl Flippers Mitt Firerod
+  - MoonPearl Flippers Mitt Bombos Sword
+
+  Locations:
+    Ice Palace - Compass Chest:
+
+    Ice Palace - Spike Room:
+    - Hookshot
+    - KeyIP 1
+    - HasIn "Ice Palace - Map Chest" BigKeyIP KeyIP 1 BigKeyIP
+    - HasIn "Ice Palace - Big Key Chest" BigKeyIP KeyIP 1 BigKeyIP
+
+    Ice Palace - Map Chest:
+    - Hammer Glove Hookshot
+    - Hammer Glove KeyIP 1
+    - Hammer Glove HasIn "Ice Palace - Spike Room" BigKeyIP KeyIP 1 BigKeyIP
+    - Hammer Glove HasIn "Ice Palace - Big Key Chest" BigKeyIP KeyIP 1 BigKeyIP
+
+    Ice Palace - Big Key Chest:
+    - Hammer Glove Hookshot
+    - Hammer Glove KeyIP 1
+    - Hammer Glove HasIn "Ice Palace - Spike Room" BigKeyIP KeyIP 1 BigKeyIP
+    - Hammer Glove HasIn "Ice Palace - Map Chest" BigKeyIP KeyIP 1 BigKeyIP
+
+    Ice Palace - Iced T Room:
+    Ice Palace - Freezor Chest:
+
+    Ice Palace - Big Chest:
+    - BigKeyIP
+
+    Ice Palace - Kholdstare:
+    - BigKeyIP Hammer Glove Somaria KeyIP 1
+    - BigKeyIP Hammer Glove KeyIP 2
+
+Misery Mire:
+
+  Enter:
+  - Flute Mitt Ether Sword MoonPearl Boots
+  - Flute Mitt Ether Sword MoonPearl Hookshot
+  - Varia Super Gravity SpaceJump Morph PowerBomb Ether Sword MoonPearl Boots
+  - Varia Super Gravity SpaceJump Morph PowerBomb Ether Sword MoonPearl Hookshot
+
+  Locations:
+
+    Misery Mire - Main Lobby:
+    - BigKeyMM
+    - KeyMM 1
+
+    Misery Mire - Map Chest:
+    - BigKeyMM
+    - KeyMM 1
+
+    Misery Mire - Bridge Chest:
+    Misery Mire - Spike Chest:
+
+    Misery Mire - Compass Chest:
+    - Firerod HasIn "Misery Mire - Big Key Chest" BigKeyMM KeyMM 2
+    - Firerod KeyMM 3
+    - Lamp HasIn "Misery Mire - Big Key Chest" BigKeyMM KeyMM 2
+    - Lamp KeyMM 3
+
+    Misery Mire - Big Key Chest:
+    - Firerod HasIn "Misery Mire - Compass Chest" BigKeyMM KeyMM 2
+    - Firerod KeyMM 3
+    - Lamp HasIn "Misery Mire - Compass Chest" BigKeyMM KeyMM 2
+    - Lamp KeyMM 3
+
+    Misery Mire - Big Chest:
+    - BigKeyMM
+
+    Misery Mire - Vitreous:
+    - BigKeyMM Lamp Somaria
+
+Turtle Rock:
+
+  Enter:
+  - Quake Sword MoonPearl Mitt Hammer Somaria Flute Mirror
+  - Quake Sword MoonPearl Mitt Hammer Somaria Flute Hookshot
+  - Quake Sword MoonPearl Mitt Hammer Somaria Lamp Mirror
+  - Quake Sword MoonPearl Mitt Hammer Somaria Lamp Hookshot
+  - Quake Sword MoonPearl Mitt Hammer Somaria Morph Bombs Super Mirror
+  - Quake Sword MoonPearl Mitt Hammer Somaria Morph Bombs Super Hookshot
+  - Quake Sword MoonPearl Mitt Hammer Somaria Morph PowerBomb Super Mirror
+  - Quake Sword MoonPearl Mitt Hammer Somaria Morph PowerBomb Super Hookshot
+  - Quake Sword MoonPearl Mitt Hammer Somaria ScrewAttack Super Morph Mirror
+  - Quake Sword MoonPearl Mitt Hammer Somaria ScrewAttack Super Morph Hookshot
+  - Quake Sword MoonPearl Mitt Hammer Somaria SpeedBooster Super Morph Mirror
+  - Quake Sword MoonPearl Mitt Hammer Somaria SpeedBooster Super Morph Hookshot
+
+  Locations:
+
+    Turtle Rock - Compass Chest:
+
+    Turtle Rock - Roller Room - Left:
+    - Firerod
+    Turtle Rock - Roller Room - Right:
+    - Firerod
+
+    Turtle Rock - Chain Chomps:
+    - KeyTR 1
+
+    Turtle Rock - Big Key Chest:
+    - KeyTR 2
+
+    Turtle Rock - Big Chest:
+    - BigKeyTR KeyTR 2
+    Turtle Rock - Crystaroller Room:
+    - BigKeyTR KeyTR 2
+
+    Turtle Rock - Eye Bridge - Top Right:
+    - BigKeyTR KeyTR 3 Lamp Cape
+    - BigKeyTR KeyTR 3 Lamp Byrna
+    - BigKeyTR KeyTR 3 Lamp MirrorShield
+    Turtle Rock - Eye Bridge - Top Left:
+    - BigKeyTR KeyTR 3 Lamp Cape
+    - BigKeyTR KeyTR 3 Lamp Byrna
+    - BigKeyTR KeyTR 3 Lamp MirrorShield
+    Turtle Rock - Eye Bridge - Bottom Right:
+    - BigKeyTR KeyTR 3 Lamp Cape
+    - BigKeyTR KeyTR 3 Lamp Byrna
+    - BigKeyTR KeyTR 3 Lamp MirrorShield
+    Turtle Rock - Eye Bridge - Bottom Left:
+    - BigKeyTR KeyTR 3 Lamp Cape
+    - BigKeyTR KeyTR 3 Lamp Byrna
+    - BigKeyTR KeyTR 3 Lamp MirrorShield
+
+    Turtle Rock - Trinexx:
+    - BigKeyTR KeyTR 4 Lamp Firerod Icerod
+
+Ganon's Tower:
+
+  # Assumes prizes can be acquired
+  Enter:
+  - MoonPearl Mitt Flute Hammer Mirror
+  - MoonPearl Mitt Flute Hookshot
+  - MoonPearl Mitt Lamp Hammer Mirror
+  - MoonPearl Mitt Lamp Hookshot
+  - MoonPearl Mitt Morph Bombs Super Hammer Mirror
+  - MoonPearl Mitt Morph Bombs Super Hookshot
+  - MoonPearl Mitt Morph PowerBomb Super Hammer Mirror
+  - MoonPearl Mitt Morph PowerBomb Super Hookshot
+  - MoonPearl Mitt ScrewAttack Super Morph Hammer Mirror
+  - MoonPearl Mitt ScrewAttack Super Morph Hookshot
+  - MoonPearl Mitt SpeedBooster Super Morph Hammer Mirror
+  - MoonPearl Mitt SpeedBooster Super Morph Hookshot
+
+  Locations:
+
+    Ganon's Tower - Bob's Torch:
+    - Boots
+
+    Ganon's Tower - DMs Room - Top Left:
+    - Hammer Hookshot
+    Ganon's Tower - DMs Room - Top Right:
+    - Hammer Hookshot
+    Ganon's Tower - DMs Room - Bottom Left:
+    - Hammer Hookshot
+    Ganon's Tower - DMs Room - Bottom Right:
+    - Hammer Hookshot
+
+    Ganon's Tower - Map Chest:
+    - HasBigKeyGT Hammer Hookshot KeyGT 3
+    - HasBigKeyGT Hammer Boots KeyGT 3
+    - HasKeyGT Hammer Hookshot KeyGT 3
+    - HasKeyGT Hammer Boots KeyGT 3
+    - Hammer Hookshot KeyGT 4
+    - Hammer Boots KeyGT 4
+
+    Ganon's Tower - Firesnake Room:
+    - HasIn "Ganon's Tower - Randomizer Room - Top Left" BigKeyGT Hammer Hookshot KeyGT 2
+    - HasIn "Ganon's Tower - Randomizer Room - Top Right" BigKeyGT Hammer Hookshot KeyGT 2
+    - HasIn "Ganon's Tower - Randomizer Room - Bottom Left" BigKeyGT Hammer Hookshot KeyGT 2
+    - HasIn "Ganon's Tower - Randomizer Room - Bottom Right" BigKeyGT Hammer Hookshot KeyGT 2
+    - HasKeyGT Hammer Hookshot KeyGT 2
+    - Hammer Hookshot KeyGT 3
+
+    Ganon's Tower - Randomizer Room - Top Left:
+    - HasIn "Ganon's Tower - Randomizer Room - Top Right" BigKeyGT Hammer Hookshot KeyGT 3
+    - HasIn "Ganon's Tower - Randomizer Room - Bottom Left" BigKeyGT Hammer Hookshot KeyGT 3
+    - HasIn "Ganon's Tower - Randomizer Room - Bottom Right" BigKeyGT Hammer Hookshot KeyGT 3
+    - Hammer Hookshot KeyGT 4
+    Ganon's Tower - Randomizer Room - Top Right:
+    - HasIn "Ganon's Tower - Randomizer Room - Top Left" BigKeyGT Hammer Hookshot KeyGT 3
+    - HasIn "Ganon's Tower - Randomizer Room - Bottom Left" BigKeyGT Hammer Hookshot KeyGT 3
+    - HasIn "Ganon's Tower - Randomizer Room - Bottom Right" BigKeyGT Hammer Hookshot KeyGT 3
+    - Hammer Hookshot KeyGT 4
+    Ganon's Tower - Randomizer Room - Bottom Left:
+    - HasIn "Ganon's Tower - Randomizer Room - Top Right" BigKeyGT Hammer Hookshot KeyGT 3
+    - HasIn "Ganon's Tower - Randomizer Room - Top Left" BigKeyGT Hammer Hookshot KeyGT 3
+    - HasIn "Ganon's Tower - Randomizer Room - Bottom Right" BigKeyGT Hammer Hookshot KeyGT 3
+    - Hammer Hookshot KeyGT 4
+    Ganon's Tower - Randomizer Room - Bottom Right:
+    - HasIn "Ganon's Tower - Randomizer Room - Top Left" BigKeyGT Hammer Hookshot KeyGT 3
+    - HasIn "Ganon's Tower - Randomizer Room - Top Right" BigKeyGT Hammer Hookshot KeyGT 3
+    - HasIn "Ganon's Tower - Randomizer Room - Bottom Left" BigKeyGT Hammer Hookshot KeyGT 3
+    - Hammer Hookshot KeyGT 4
+
+    Ganon's Tower - Hope Room - Left:
+    Ganon's Tower - Hope Room - Right:
+
+    Ganon's Tower - Tile Room:
+    - Somaria
+
+    Ganon's Tower - Compass Room - Top Left:
+    - HasIn "Ganon's Tower - Compass Room - Top Right" BigKeyGT Somaria Firerod KeyGT 3
+    - HasIn "Ganon's Tower - Compass Room - Bottom Left" BigKeyGT Somaria Firerod KeyGT 3
+    - HasIn "Ganon's Tower - Compass Room - Bottom Right" BigKeyGT Somaria Firerod KeyGT 3
+    - Somaria Firerod KeyGT 4
+    Ganon's Tower - Compass Room - Top Right:
+    - HasIn "Ganon's Tower - Compass Room - Top Left" BigKeyGT Somaria Firerod KeyGT 3
+    - HasIn "Ganon's Tower - Compass Room - Bottom Left" BigKeyGT Somaria Firerod KeyGT 3
+    - HasIn "Ganon's Tower - Compass Room - Bottom Right" BigKeyGT Somaria Firerod KeyGT 3
+    - Somaria Firerod KeyGT 4
+    Ganon's Tower - Compass Room - Bottom Left:
+    - HasIn "Ganon's Tower - Compass Room - Top Left" BigKeyGT Somaria Firerod KeyGT 3
+    - HasIn "Ganon's Tower - Compass Room - Top Right" BigKeyGT Somaria Firerod KeyGT 3
+    - HasIn "Ganon's Tower - Compass Room - Bottom Right" BigKeyGT Somaria Firerod KeyGT 3
+    - Somaria Firerod KeyGT 4
+    Ganon's Tower - Compass Room - Bottom Right:
+    - HasIn "Ganon's Tower - Compass Room - Top Left" BigKeyGT Somaria Firerod KeyGT 3
+    - HasIn "Ganon's Tower - Compass Room - Top Right" BigKeyGT Somaria Firerod KeyGT 3
+    - HasIn "Ganon's Tower - Compass Room - Bottom Left" BigKeyGT Somaria Firerod KeyGT 3
+    - Somaria Firerod KeyGT 4
+
+    Ganon's Tower - Bob's Chest:
+    - KeyGT 3 Hammer Hookshot
+    - KeyGT 3 Somaria Firerod
+
+    Ganon's Tower - Big Chest:
+    - BigKeyGT KeyGT 3 Hammer Hookshot
+    - BigKeyGT KeyGT 3 Somaria Firerod
+
+    Ganon's Tower - Big Key Chest:
+    - KeyGT 3 Hammer Hookshot
+    - KeyGT 3 Sword Firerod Somaria
+    - KeyGT 3 Hammer Firerod Somaria
+    - KeyGT 3 Bow Firerod Somaria
+    - KeyGT 3 HalfMagic Firerod Somaria
+    - KeyGT 3 Bottle Firerod Somaria
+    Ganon's Tower - Big Key Room - Left:
+    - KeyGT 3 Hammer Hookshot
+    - KeyGT 3 Sword Firerod Somaria
+    - KeyGT 3 Hammer Firerod Somaria
+    - KeyGT 3 Bow Firerod Somaria
+    - KeyGT 3 HalfMagic Firerod Somaria
+    - KeyGT 3 Bottle Firerod Somaria
+    Ganon's Tower - Big Key Room - Right:
+    - KeyGT 3 Hammer Hookshot
+    - KeyGT 3 Sword Firerod Somaria
+    - KeyGT 3 Hammer Firerod Somaria
+    - KeyGT 3 Bow Firerod Somaria
+    - KeyGT 3 HalfMagic Firerod Somaria
+    - KeyGT 3 Bottle Firerod Somaria
+
+    Ganon's Tower - Mini Helmasaur Room - Left:
+    - BigKeyGT KeyGT 3 Bow Firerod
+    - BigKeyGT KeyGT 3 Bow Lamp
+    Ganon's Tower - Mini Helmasaur Room - Right:
+    - BigKeyGT KeyGT 3 Bow Firerod
+    - BigKeyGT KeyGT 3 Bow Lamp
+    Ganon's Tower - Pre-Moldorm Chest:
+    - BigKeyGT KeyGT 3 Bow Firerod
+    - BigKeyGT KeyGT 3 Bow Lamp
+
+    Ganon's Tower - Moldorm Chest:
+    - BigKeyGT KeyGT 4 Bow Firerod Sword Hookshot
+    - BigKeyGT KeyGT 4 Bow Firerod Hammer Hookshot
+    - BigKeyGT KeyGT 4 Bow Lamp Sword Hookshot
+    - BigKeyGT KeyGT 4 Bow Lamp Hammer Hookshot

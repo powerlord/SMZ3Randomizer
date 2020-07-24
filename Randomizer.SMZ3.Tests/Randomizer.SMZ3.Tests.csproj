@@ -5,11 +5,17 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Logic\Normal\Metroid.yaml" />
+    <None Remove="Logic\Normal\ZeldaDungeons.yaml" />
+    <None Remove="Logic\Normal\ZeldaOverworld.yaml" />
     <None Remove="TestData\ItemTexts.json" />
     <None Remove="TestData\StringTableData.txt" />
     <None Remove="TestData\StringTableEntries.json" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Logic\Normal\Metroid.yaml" />
+    <EmbeddedResource Include="Logic\Normal\ZeldaDungeons.yaml" />
+    <EmbeddedResource Include="Logic\Normal\ZeldaOverworld.yaml" />
     <EmbeddedResource Include="TestData\ItemTexts.json" />
     <EmbeddedResource Include="TestData\StringTableEntries.json" />
     <EmbeddedResource Include="TestData\StringTableData.txt" />
@@ -22,6 +28,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="SharpYaml" Version="1.6.6" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Randomizer.SMZ3\Randomizer.SMZ3.csproj" />

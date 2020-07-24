@@ -1,0 +1,728 @@
+﻿Crateria West:
+
+  Enter:
+  - Morph Bombs
+  - Morph PowerBomb
+  - ScrewAttack
+  - SpeedBooster
+
+  Locations:
+
+    Energy Tank, Terminator:
+
+    Energy Tank, Gauntlet:
+    - Morph Bombs ETank 1
+    - Morph SpaceJump TwoPowerBombs ETank 1
+    - Morph SpaceJump ScrewAttack ETank 1
+    - Morph SpeedBooster TwoPowerBombs ETank 1
+    - Morph SpeedBooster ScrewAttack ETank 1
+
+    Missile (Crateria gauntlet right):
+    - Morph Bombs ETank 2
+    - Morph SpaceJump TwoPowerBombs ETank 2
+    - Morph SpaceJump ScrewAttack PowerBomb ETank 2
+    - Morph SpeedBooster TwoPowerBombs ETank 2
+    - Morph SpeedBooster ScrewAttack PowerBomb ETank 2
+
+    Missile (Crateria gauntlet left):
+    - Morph Bombs ETank 2
+    - Morph SpaceJump TwoPowerBombs ETank 2
+    - Morph SpaceJump ScrewAttack PowerBomb ETank 2
+    - Morph SpeedBooster TwoPowerBombs ETank 2
+    - Morph SpeedBooster ScrewAttack PowerBomb ETank 2
+
+Crateria Central:
+
+  Enter:
+
+  Locations:
+
+    Power Bomb (Crateria surface):
+    - Morph PowerBomb SpeedBooster
+    - Morph PowerBomb SpaceJump
+    - Morph PowerBomb Bombs
+
+    Missile (Crateria middle):
+    - Morph Bombs
+    - Morph PowerBomb
+
+    Missile (Crateria bottom):
+    - Morph Bombs
+    - Morph PowerBomb
+    - ScrewAttack
+
+    Super Missile (Crateria):
+    - Morph PowerBomb ETank 2 SpeedBooster
+
+    Bombs:
+    - Morph Bombs Missile
+    - Morph Bombs Super
+    - Morph PowerBomb Missile
+    - Morph PowerBomb Super
+
+Crateria East:
+
+  Enter:
+  - Morph PowerBomb Super
+  - Flute Morph PowerBomb Ice
+  - Flute Morph PowerBomb HiJump
+  - Flute Morph PowerBomb SpaceJump
+  - Glove Lamp Morph PowerBomb Ice
+  - Glove Lamp Morph PowerBomb HiJump
+  - Glove Lamp Morph PowerBomb SpaceJump
+  - MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword Super Bombs
+  - MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword Super ScrewAttack
+  - MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword Super SpaceJump
+  - MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword Super SpeedBooster HiJump
+  - MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword Super Bombs
+  - MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword Super ScrewAttack
+  - MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword Super SpaceJump
+  - MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword Super SpeedBooster HiJump
+  - MoonPearl Flippers Gravity Morph Hammer Glove Super Bombs
+  - MoonPearl Flippers Gravity Morph Hammer Glove Super ScrewAttack
+  - MoonPearl Flippers Gravity Morph Hammer Glove Super SpaceJump
+  - MoonPearl Flippers Gravity Morph Hammer Glove Super SpeedBooster HiJump
+  - MoonPearl Flippers Gravity Morph Mitt Super Bombs
+  - MoonPearl Flippers Gravity Morph Mitt Super ScrewAttack
+  - MoonPearl Flippers Gravity Morph Mitt Super SpaceJump
+  - MoonPearl Flippers Gravity Morph Mitt Super SpeedBooster HiJump
+
+  Locations:
+
+    Missile (outside Wrecked Ship bottom):
+    - SpeedBooster
+    - Grapple
+    - SpaceJump
+    - Gravity SpaceJump
+    - Gravity Morph Bombs
+    - Gravity HiJump
+    - MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword
+    - MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword
+    - MoonPearl Flippers Gravity Morph Hammer Glove
+    - MoonPearl Flippers Gravity Morph Mitt
+
+    Missile (outside Wrecked Ship top):
+    - Morph Bombs Super SpeedBooster
+    - Morph Bombs Super Grapple
+    - Morph Bombs Super SpaceJump
+    - Morph Bombs Super Gravity
+    - Morph PowerBomb Super SpeedBooster
+    - Morph PowerBomb Super Grapple HiJump
+    - Morph PowerBomb Super SpaceJump
+    - Morph PowerBomb Super Gravity HiJump
+    - Morph Bombs MoonPearl Flippers Gravity Cape Lamp KeyCT 2 Sword
+    - Morph Bombs MoonPearl Flippers Gravity Lamp KeyCT 2 MasterSword
+    - Morph Bombs MoonPearl Flippers Gravity Hammer Glove
+    - Morph Bombs MoonPearl Flippers Gravity Mitt
+    - Morph PowerBomb MoonPearl Flippers Gravity Cape Lamp KeyCT 2 Sword HiJump
+    - Morph PowerBomb MoonPearl Flippers Gravity Cape Lamp KeyCT 2 Sword SpaceJump
+    - Morph PowerBomb MoonPearl Flippers Gravity Cape Lamp KeyCT 2 Sword SpeedBooster
+    - Morph PowerBomb MoonPearl Flippers Gravity Lamp KeyCT 2 MasterSword HiJump
+    - Morph PowerBomb MoonPearl Flippers Gravity Lamp KeyCT 2 MasterSword SpaceJump
+    - Morph PowerBomb MoonPearl Flippers Gravity Lamp KeyCT 2 MasterSword SpeedBooster
+    - Morph PowerBomb MoonPearl Flippers Gravity Hammer Glove HiJump
+    - Morph PowerBomb MoonPearl Flippers Gravity Hammer Glove SpaceJump
+    - Morph PowerBomb MoonPearl Flippers Gravity Hammer Glove SpeedBooster
+    - Morph PowerBomb MoonPearl Flippers Gravity Mitt HiJump
+    - Morph PowerBomb MoonPearl Flippers Gravity Mitt SpaceJump
+    - Morph PowerBomb MoonPearl Flippers Gravity Mitt SpeedBooster
+
+    Missile (outside Wrecked Ship middle):
+    - Morph Bombs Super SpeedBooster
+    - Morph Bombs Super Grapple
+    - Morph Bombs Super SpaceJump
+    - Morph Bombs Super Gravity
+    - Morph PowerBomb Super SpeedBooster
+    - Morph PowerBomb Super Grapple
+    - Morph PowerBomb Super SpaceJump
+    - Morph PowerBomb Super Gravity Bombs
+    - Morph PowerBomb Super Gravity HiJump
+    - Morph PowerBomb Super MoonPearl Flippers Gravity Cape Lamp KeyCT 2 Sword
+    - Morph PowerBomb Super MoonPearl Flippers Gravity Lamp KeyCT 2 MasterSword
+    - Morph PowerBomb Super MoonPearl Flippers Gravity Hammer Glove
+    - Morph PowerBomb Super MoonPearl Flippers Gravity Mitt
+
+    Missile (Crateria moat):
+
+Wrecked Ship:
+
+  Enter:
+  - Super Morph PowerBomb SpeedBooster
+  - Super Morph PowerBomb Grapple
+  - Super Morph PowerBomb SpaceJump
+  - Super Morph PowerBomb Gravity Bombs
+  - Super Morph PowerBomb Gravity HiJump
+  - Super MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword Bombs
+  - Super MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword PowerBomb
+  - Super MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword Bombs
+  - Super MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword PowerBomb
+  - Super MoonPearl Flippers Gravity Morph Hammer Glove Bombs
+  - Super MoonPearl Flippers Gravity Morph Hammer Glove PowerBomb
+  - Super MoonPearl Flippers Gravity Morph Mitt Bombs
+  - Super MoonPearl Flippers Gravity Morph Mitt PowerBomb
+
+  Locations:
+
+    Missile (Wrecked Ship middle):
+
+    Reserve Tank, Wrecked Ship:
+    - SpeedBooster Morph PowerBomb Grapple
+    - SpeedBooster Morph PowerBomb SpaceJump
+    - SpeedBooster Morph PowerBomb Varia ETank 2
+    - SpeedBooster Morph PowerBomb ETank 3
+
+    Missile (Gravity Suit):
+    - Grapple
+    - SpaceJump
+    - Varia ETank 2
+    - ETank 3
+
+    Missile (Wrecked Ship top):
+
+    Energy Tank, Wrecked Ship:
+    - HiJump
+    - SpaceJump
+    - SpeedBooster
+    - Gravity
+
+    Super Missile (Wrecked Ship left):
+    Right Super, Wrecked Ship:
+
+    Gravity Suit:
+    - Grapple
+    - SpaceJump
+    - Varia ETank 2
+    - ETank 3
+
+Brinstar Blue:
+
+  Enter:
+
+  Locations:
+
+    Morphing Ball:
+
+    Power Bomb (blue Brinstar):
+    - Morph PowerBomb
+
+    Missile (blue Brinstar middle):
+    - Morph
+
+    Energy Tank, Brinstar Ceiling:
+    - SpaceJump
+    - Morph Bombs
+    - HiJump
+    - SpeedBooster
+    - Ice
+
+    Missile (blue Brinstar bottom):
+    - Morph
+
+    Missile (blue Brinstar top):
+    - Morph PowerBomb
+    Missile (blue Brinstar behind missile):
+    - Morph PowerBomb
+
+Brinstar Green:
+
+  Enter:
+  - Morph Bombs
+  - Morph PowerBomb
+  - ScrewAttack
+  - SpeedBooster
+
+  Locations:
+
+    Power Bomb (green Brinstar bottom):
+    - Morph PowerBomb
+
+    Missile (green Brinstar below super missile):
+    - Morph Bombs Missile
+    - Morph Bombs Super
+    - Morph PowerBomb Missile
+    - Morph PowerBomb Super
+
+    Super Missile (green Brinstar top):
+    - Missile SpeedBooster
+    - Super SpeedBooster
+
+    Reserve Tank, Brinstar:
+    - Missile SpeedBooster
+    - Super SpeedBooster
+
+    Missile (green Brinstar behind missile):
+    - SpeedBooster Morph Bombs Missile
+    - SpeedBooster Morph Bombs Super
+    - SpeedBooster Morph PowerBomb Missile
+    - SpeedBooster Morph PowerBomb Super
+
+    Missile (green Brinstar behind reserve tank):
+    - SpeedBooster Missile Morph
+    - SpeedBooster Super Morph
+
+    Energy Tank, Etecoons:
+    - Morph PowerBomb
+
+    Super Missile (green Brinstar bottom):
+    - Morph PowerBomb Super
+
+Brinstar Pink:
+
+  Enter:
+  - Missile Morph Bombs
+  - Missile ScrewAttack
+  - Missile SpeedBooster
+  - Super Morph Bombs
+  - Super ScrewAttack
+  - Super SpeedBooster
+  - Morph PowerBomb
+  - Flute Morph Wave Ice
+  - Flute Morph Wave HiJump
+  - Flute Morph Wave SpaceJump
+  - Glove Lamp Morph Wave Ice
+  - Glove Lamp Morph Wave HiJump
+  - Glove Lamp Morph Wave SpaceJump
+
+  Locations:
+
+    Super Missile (pink Brinstar):
+    - Morph Bombs Super
+    - Morph PowerBomb Super
+
+    Missile (pink Brinstar top):
+    Missile (pink Brinstar bottom):
+
+    Charge Beam:
+    - Morph Bombs
+    - Morph PowerBomb
+
+    Power Bomb (pink Brinstar):
+    - Morph PowerBomb Super ETank 1
+
+    Missile (green Brinstar pipe):
+    - Morph PowerBomb
+    - Morph Super
+    - Morph Flute
+    - Morph Glove Lamp
+
+    Energy Tank, Waterway:
+    - Morph PowerBomb Missile SpeedBooster ETank 1
+    - Morph PowerBomb Missile SpeedBooster Gravity
+    - Morph PowerBomb Super SpeedBooster ETank 1
+    - Morph PowerBomb Super SpeedBooster Gravity
+
+    Energy Tank, Brinstar Gate:
+    - Morph PowerBomb Wave ETank 1
+
+Brinstar Red:
+
+  Enter:
+  - Morph Bombs Super
+  - Morph PowerBomb Super
+  - ScrewAttack Super Morph
+  - SpeedBooster Super Morph
+  - Flute Ice
+  - Flute HiJump
+  - Flute SpaceJump
+  - Glove Lamp Ice
+  - Glove Lamp HiJump
+  - Glove Lamp SpaceJump
+
+  Locations:
+
+    X-Ray Scope:
+    - Morph PowerBomb Missile Grapple
+    - Morph PowerBomb Missile SpaceJump
+    - Morph PowerBomb Super Grapple
+    - Morph PowerBomb Super SpaceJump
+
+    Power Bomb (red Brinstar sidehopper room):
+    - Morph PowerBomb Super
+
+    Power Bomb (red Brinstar spike room):
+    - Morph PowerBomb Super
+    - Ice Super
+
+    Missile (red Brinstar spike room):
+    - Morph PowerBomb Super
+
+    Spazer:
+    - Morph Bombs Super
+    - Morph PowerBomb Super
+
+Brinstar Kraid:
+
+  Enter:
+  - Super Morph Bombs
+  - Super Morph PowerBomb
+
+  Locations:
+
+    Energy Tank, Kraid:
+    Varia Suit:
+
+    Missile (Kraid):
+    - Morph PowerBomb
+
+Maridia Outer:
+
+  Enter:
+  - Gravity Morph PowerBomb Super
+  - Gravity Flute Morph PowerBomb
+  - Gravity Glove Lamp Morph PowerBomb
+  - Gravity MoonPearl Flippers Morph Cape Lamp KeyCT 2 Sword Bombs
+  - Gravity MoonPearl Flippers Morph Cape Lamp KeyCT 2 Sword PowerBomb
+  - Gravity MoonPearl Flippers Morph Cape Lamp KeyCT 2 Sword ScrewAttack
+  - Gravity MoonPearl Flippers Morph Lamp KeyCT 2 MasterSword Bombs
+  - Gravity MoonPearl Flippers Morph Lamp KeyCT 2 MasterSword PowerBomb
+  - Gravity MoonPearl Flippers Morph Lamp KeyCT 2 MasterSword ScrewAttack
+  - Gravity MoonPearl Flippers Morph Hammer Glove Bombs
+  - Gravity MoonPearl Flippers Morph Hammer Glove PowerBomb
+  - Gravity MoonPearl Flippers Morph Hammer Glove ScrewAttack
+  - Gravity MoonPearl Flippers Morph Mitt Bombs
+  - Gravity MoonPearl Flippers Morph Mitt PowerBomb
+  - Gravity MoonPearl Flippers Morph Mitt ScrewAttack
+
+  Locations:
+
+    Missile (green Maridia shinespark):
+    - SpeedBooster
+
+    Super Missile (green Maridia):
+
+    Energy Tank, Mama turtle:
+    - Missile SpaceJump
+    - Super SpaceJump
+    - Missile Morph Bombs
+    - Super Morph Bombs
+    - Missile SpeedBooster
+    - Super SpeedBooster
+    - Missile Grapple
+    - Super Grapple
+
+    Missile (green Maridia tatori):
+    - Missile
+    - Super
+
+Maridia Inner:
+
+  Enter:
+  - Gravity Morph PowerBomb Super SpaceJump
+  - Gravity Morph PowerBomb Super Bombs
+  - Gravity Morph PowerBomb Super SpeedBooster
+  - Gravity Morph PowerBomb Super Grapple
+  - Gravity MoonPearl Flippers Morph Cape Lamp KeyCT 2 Sword
+  - Gravity MoonPearl Flippers Morph Lamp KeyCT 2 MasterSword
+  - Gravity MoonPearl Flippers Morph Hammer Glove
+  - Gravity MoonPearl Flippers Morph Mitt
+
+  Locations:
+
+    Super Missile (yellow Maridia):
+    - Morph Bombs
+    - Morph PowerBomb
+    Missile (yellow Maridia super missile):
+    - Morph Bombs
+    - Morph PowerBomb
+    Missile (yellow Maridia false wall):
+    - Morph Bombs
+    - Morph PowerBomb
+
+    Plasma Beam:
+    - SpeedBooster Gravity HiJump ScrewAttack
+    - SpeedBooster Gravity HiJump Plasma
+    - SpeedBooster Gravity SpaceJump ScrewAttack
+    - SpeedBooster Gravity SpaceJump Plasma
+    - SpeedBooster Gravity Morph Bombs ScrewAttack
+    - SpeedBooster Gravity Morph Bombs Plasma
+    - MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword SpeedBooster HiJump ScrewAttack
+    - MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword SpeedBooster HiJump Plasma
+    - MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword SpaceJump ScrewAttack
+    - MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword SpaceJump Plasma
+    - MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword Bombs ScrewAttack
+    - MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword Bombs Plasma
+    - MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword SpeedBooster HiJump ScrewAttack
+    - MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword SpeedBooster HiJump Plasma
+    - MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword SpaceJump ScrewAttack
+    - MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword SpaceJump Plasma
+    - MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword Bombs ScrewAttack
+    - MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword Bombs Plasma
+    - MoonPearl Flippers Gravity Morph Hammer Glove SpeedBooster HiJump ScrewAttack
+    - MoonPearl Flippers Gravity Morph Hammer Glove SpeedBooster HiJump Plasma
+    - MoonPearl Flippers Gravity Morph Hammer Glove SpaceJump ScrewAttack
+    - MoonPearl Flippers Gravity Morph Hammer Glove SpaceJump Plasma
+    - MoonPearl Flippers Gravity Morph Hammer Glove Bombs ScrewAttack
+    - MoonPearl Flippers Gravity Morph Hammer Glove Bombs Plasma
+    - MoonPearl Flippers Gravity Morph Mitt SpeedBooster HiJump ScrewAttack
+    - MoonPearl Flippers Gravity Morph Mitt SpeedBooster HiJump Plasma
+    - MoonPearl Flippers Gravity Morph Mitt SpaceJump ScrewAttack
+    - MoonPearl Flippers Gravity Morph Mitt SpaceJump Plasma
+    - MoonPearl Flippers Gravity Morph Mitt Bombs ScrewAttack
+    - MoonPearl Flippers Gravity Morph Mitt Bombs Plasma
+
+    Missile (left Maridia sand pit room):
+    - Super Morph Bombs
+    - Super Morph PowerBomb
+    Reserve Tank, Maridia:
+    - Super Morph Bombs
+    - Super Morph PowerBomb
+
+    Missile (right Maridia sand pit room):
+    - Super
+    Power Bomb (right Maridia sand pit room):
+    - Super
+
+    Missile (pink Maridia):
+    - SpeedBooster
+    Super Missile (pink Maridia):
+    - SpeedBooster
+
+    Spring Ball:
+    - Super Grapple Morph PowerBomb SpaceJump
+    - Super Grapple Morph PowerBomb HiJump
+
+    Missile (Draygon):
+    - SpeedBooster
+    - MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword
+    - MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword
+    - MoonPearl Flippers Gravity Morph Hammer Glove
+    - MoonPearl Flippers Gravity Morph Mitt
+
+    Energy Tank, Botwoon:
+    - SpeedBooster
+    - MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword
+    - MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword
+    - MoonPearl Flippers Gravity Morph Hammer Glove
+    - MoonPearl Flippers Gravity Morph Mitt
+
+    Space Jump:
+    - SpeedBooster Gravity SpeedBooster HiJump
+    - SpeedBooster Gravity SpaceJump
+    - SpeedBooster Gravity Morph Bombs
+    - MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword SpeedBooster HiJump
+    - MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword SpaceJump
+    - MoonPearl Flippers Gravity Morph Cape Lamp KeyCT 2 Sword Morph Bombs
+    - MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword SpeedBooster HiJump
+    - MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword SpaceJump
+    - MoonPearl Flippers Gravity Morph Lamp KeyCT 2 MasterSword Morph Bombs
+    - MoonPearl Flippers Gravity Morph Hammer Glove SpeedBooster HiJump
+    - MoonPearl Flippers Gravity Morph Hammer Glove SpaceJump
+    - MoonPearl Flippers Gravity Morph Hammer Glove Morph Bombs
+    - MoonPearl Flippers Gravity Morph Mitt SpeedBooster HiJump
+    - MoonPearl Flippers Gravity Morph Mitt SpaceJump
+    - MoonPearl Flippers Gravity Morph Mitt Morph Bombs
+
+Norfair Upper West:
+
+  Enter:
+  - Morph Bombs Super
+  - Morph PowerBomb Super
+  - ScrewAttack Super Morph
+  - SpeedBooster Super Morph
+  - Flute
+  - Glove Lamp
+
+  Locations:
+
+    Ice Beam:
+    - Super Morph Bombs Varia SpeedBooster
+    - Super Morph PowerBomb Varia SpeedBooster
+
+    Missile (below Ice Beam):
+    - Super Morph PowerBomb Varia SpeedBooster
+
+    Hi-Jump Boots:
+    - Missile Morph Bombs
+    - Missile Morph PowerBomb
+    - Super Morph Bombs
+    - Super Morph PowerBomb
+
+    Missile (Hi-Jump Boots):
+    - Missile Morph
+    - Super Morph
+
+    Energy Tank (Hi-Jump Boots):
+    - Missile
+    - Super
+
+Norfair Upper East:
+
+  Enter:
+  - Morph Bombs Super Varia
+  - Morph PowerBomb Super Varia SpaceJump
+  - Morph PowerBomb Super Varia HiJump
+  - ScrewAttack Super Morph Varia SpaceJump
+  - ScrewAttack Super Morph Varia HiJump
+  - SpeedBooster Super Morph Varia
+  - Flute Varia Super SpaceJump
+  - Flute Varia Super HiJump
+  - Flute Varia Super SpeedBooster
+  - Glove Lamp Varia Super SpaceJump
+  - Glove Lamp Varia Super HiJump
+  - Glove Lamp Varia Super SpeedBooster
+
+  Locations:
+
+    Missile (lava room):
+    - Morph
+
+    Reserve Tank, Norfair:
+    - Morph SpaceJump
+    - Morph Bombs
+    - Morph Grapple SpeedBooster
+    - Morph Grapple PowerBomb
+    - Morph HiJump
+    - Morph Ice
+    Missile (Norfair Reserve Tank):
+    - Morph SpaceJump
+    - Morph Bombs
+    - Morph Grapple SpeedBooster
+    - Morph Grapple PowerBomb
+    - Morph HiJump
+    - Morph Ice
+
+    Missile (bubble Norfair green door):
+    - SpaceJump
+    - Morph Bombs
+    - Grapple Morph SpeedBooster
+    - Grapple Morph PowerBomb
+    - HiJump
+    - Ice
+
+    Missile (bubble Norfair):
+
+    Missile (Speed Booster):
+    - SpaceJump
+    - Morph Bombs
+    - Morph SpeedBooster
+    - Morph PowerBomb
+    - HiJump
+    - Ice
+
+    Speed Booster:
+    - SpaceJump
+    - Morph Bombs
+    - Morph SpeedBooster
+    - Morph PowerBomb
+    - HiJump
+    - Ice
+
+    Missile (Wave Beam):
+    - SpaceJump
+    - Morph Bombs
+    - Morph SpeedBooster
+    - Morph PowerBomb
+    - HiJump
+    - Ice
+
+    Wave Beam:
+    - Morph SpaceJump
+    - Morph Bombs
+    - Morph SpeedBooster
+    - Morph PowerBomb
+    - Morph HiJump
+    - Morph Ice
+
+Norfair Upper Crocomire:
+
+  Enter:
+  - Morph PowerBomb Super Varia SpeedBooster
+  - SpeedBooster Super Morph Varia Wave
+  - Flute Varia Super SpeedBooster Wave
+  - Glove Lamp Varia Super SpeedBooster Wave
+  - Morph Bombs Super Varia Gravity Wave
+  - Morph PowerBomb Super Varia SpaceJump Gravity Wave
+  - Morph PowerBomb Super Varia HiJump Gravity Wave
+  - ScrewAttack Super Morph Varia Gravity SpaceJump Wave
+  - ScrewAttack Super Morph Varia Gravity HiJump Wave
+  - Flute Varia Super Morph Gravity SpaceJump Wave
+  - Flute Varia Super Morph Gravity HiJump Wave
+  - Glove Lamp Varia Super Morph Gravity SpaceJump Wave
+  - Glove Lamp Varia Super Morph Gravity HiJump Wave
+
+  Locations:
+
+    Energy Tank, Crocomire:
+    - ETank 1
+    - SpaceJump
+    - Grapple
+
+    Missile (above Crocomire):
+    - SpaceJump
+    - Morph Bombs
+    - Grapple
+    - HiJump SpeedBooster
+
+    Power Bomb (Crocomire):
+    - SpaceJump
+    - Morph Bombs
+    - HiJump
+    - Grapple
+
+    Missile (below Crocomire):
+    - Morph
+
+    Missile (Grapple Beam):
+    - Morph SpaceJump
+    - Morph Bombs
+    - Morph SpeedBooster PowerBomb
+    Grapple Beam:
+    - Morph SpaceJump
+    - Morph Bombs
+    - Morph SpeedBooster PowerBomb
+
+Norfair Lower West:
+
+  Enter:
+  - Varia Morph PowerBomb Super SpaceJump Gravity
+  - Varia Flute Mitt Morph Bombs
+  - Varia Flute Mitt Morph PowerBomb
+  - Varia Flute Mitt ScrewAttack
+
+  Locations:
+
+    Missile (Gold Torizo):
+    - Morph PowerBomb SpaceJump Super
+
+    Super Missile (Gold Torizo):
+    - Morph Bombs Super Flute Mitt
+    - Morph Bombs Charge Flute Mitt
+    - Morph PowerBomb Super Flute Mitt
+    - Morph PowerBomb Charge Flute Mitt
+    - ScrewAttack Super Flute Mitt
+    - ScrewAttack Charge Flute Mitt
+    - Morph PowerBomb Super SpaceJump
+    - Morph PowerBomb Charge SpaceJump
+
+    Screw Attack:
+    - Morph Bombs Flute Mitt
+    - Morph Bombs Flute Mitt
+    - Morph PowerBomb Flute Mitt
+    - Morph PowerBomb Flute Mitt
+    - ScrewAttack Flute Mitt
+    - ScrewAttack Flute Mitt
+    - Morph PowerBomb SpaceJump
+    - Morph PowerBomb SpaceJump
+
+Norfair Lower East:
+
+  Enter:
+  - Varia Morph PowerBomb Super SpaceJump Gravity
+  - Varia Flute Mitt Morph PowerBomb Super SpaceJump
+  - Varia Flute Mitt Morph PowerBomb Super Bombs
+
+  Locations:
+
+      Missile (Mickey Mouse room):
+      Missile (lower Norfair above fire flea room):
+      Power Bomb (lower Norfair above fire flea room):
+
+      Power Bomb (Power Bombs of shame):
+      - Morph PowerBomb
+
+      Missile (lower Norfair near Wave Beam):
+
+      Energy Tank, Ridley:
+      - Morph PowerBomb Super
+
+      Energy Tank, Firefleas:
