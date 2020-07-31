@@ -5,6 +5,9 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Logic\Hard\Metroid.yaml" />
+    <None Remove="Logic\Hard\ZeldaDungeons.yaml" />
+    <None Remove="Logic\Hard\ZeldaOverworld.yaml" />
     <None Remove="Logic\Normal\Metroid.yaml" />
     <None Remove="Logic\Normal\ZeldaDungeons.yaml" />
     <None Remove="Logic\Normal\ZeldaOverworld.yaml" />
@@ -13,6 +16,9 @@
     <None Remove="TestData\StringTableEntries.json" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Logic\Hard\Metroid.yaml" />
+    <EmbeddedResource Include="Logic\Hard\ZeldaDungeons.yaml" />
+    <EmbeddedResource Include="Logic\Hard\ZeldaOverworld.yaml" />
     <EmbeddedResource Include="Logic\Normal\Metroid.yaml" />
     <EmbeddedResource Include="Logic\Normal\ZeldaDungeons.yaml" />
     <EmbeddedResource Include="Logic\Normal\ZeldaOverworld.yaml" />

@@ -12,15 +12,11 @@ namespace Randomizer.SMZ3.Tests.Logic {
 
     public partial class LogicTests {
 
-        static IEnumerable<TestCaseData> LogicTestCases(string path) {
-            using var stream = EmbeddedStream.For(path);
-            using var reader = new StreamReader(stream);
-
-            var nothing = Repeat("", 1);
-            foreach (var region in ExtractData(reader)) {
+        static IEnumerable<TestCaseData> LogicTestCases(params string[] paths) {
+            foreach (var region in MergeData(paths)) {
                 foreach (var location in region.Locations) {
-                    var instructions = from x in region.Enter ?? nothing
-                                       from y in location.Access ?? nothing
+                    var instructions = from x in region.Enter
+                                       from y in location.Access
                                        select $"{x} {y}".Trim();
                     foreach (var instruction in instructions) {
                         var list = Normalize(ParseInstruction(instruction));
@@ -31,21 +27,43 @@ namespace Randomizer.SMZ3.Tests.Logic {
             }
         }
 
-        static IEnumerable<RegionTestData> ExtractData(StreamReader reader) {
+        static IEnumerable<RegionTestData> MergeData(string [] paths) {
+            return paths.SelectMany(ParseData)
+                .GroupBy(x => x.Name).Select(regions => new RegionTestData {
+                    Name = regions.Key,
+                    Enter = regions.Last(x => x.Enter != null).Enter,
+                    Locations = regions.SelectMany(x => x.Locations)
+                        .GroupBy(x => x.Name).Select(locations => new LocationTestData {
+                            Name = locations.Key,
+                            Access = locations.Last().Access
+                        })
+                });
+        }
+
+        static IEnumerable<RegionTestData> ParseData(string path) {
+            using var stream = EmbeddedStream.For(path);
+            using var reader = new StreamReader(stream);
             var root = YamlStream.Load(reader).First().Contents;
             return from region in root as YamlMapping
                    select new RegionTestData {
                        Name = (region.Key as YamlValue).Value,
-                       Enter = SeqOrNull((region.Value as YamlMapping)["Enter"]),
-                       Locations = from location in (region.Value as YamlMapping)["Locations"] as YamlMapping
-                                   select new LocationTestData {
-                                       Name = (location.Key as YamlValue).Value,
-                                       Access = SeqOrNull(location.Value)
-                                   }
+                       Enter = CaseList((region.Value as YamlMapping)["Enter"]),
+                       Locations = LocationData((region.Value as YamlMapping)["Locations"]),
                    };
 
-            static IEnumerable<string> SeqOrNull(YamlElement element) {
-                return element is YamlSequence seq ? from x in seq select (x as YamlValue).Value : null;
+            static IEnumerable<LocationTestData> LocationData(YamlElement element) {
+                return element is null ? Empty<LocationTestData>() :
+                    from location in element as YamlMapping
+                    select new LocationTestData {
+                        Name = (location.Key as YamlValue).Value,
+                        Access = CaseList(location.Value)
+                    };
+            }
+
+            static IEnumerable<string> CaseList(YamlElement element) {
+                return element is null ? null
+                    : element is YamlSequence seq ? from x in seq select (x as YamlValue).Value
+                    : Repeat("", 1);
             }
         }
 

@@ -6,14 +6,12 @@ using static Randomizer.SMZ3.RewardType;
 
 namespace Randomizer.SMZ3.Tests.Logic {
 
-    [TestFixture]
     public partial class LogicTests {
 
         World world;
 
-        [SetUp]
-        public void Setup() {
-            world = new World(new Config(new Dictionary<string, string>()), "", 0, "");
+        internal void Setup(string smLogic) {
+            world = new World(new Config(new Dictionary<string, string> { ["smlogic"] = smLogic }), "", 0, "");
             (world.Regions.Single(x => x.Name == "Misery Mire") as MiseryMire).Medallion = ItemType.Ether;
             (world.Regions.Single(x => x.Name == "Turtle Rock") as TurtleRock).Medallion = ItemType.Quake;
             /* We cheat with non-Aga1 rewards by virtue of All() being true for an empty collection */
@@ -22,10 +20,49 @@ namespace Randomizer.SMZ3.Tests.Logic {
             }
         }
 
-        [TestCaseSource("ZeldaOverworld")]
-        [TestCaseSource("ZeldaDungeons")]
-        [TestCaseSource("Metroid")]
-        public void CanAccessLocation(string name, IEnumerable<Instruction> instructions) {
+        [TestFixture]
+        public class SMNormalLogic : LogicTests {
+
+            [SetUp]
+            public void Setup() => Setup("normal");
+
+            [TestCaseSource("ZeldaOverworld")]
+            [TestCaseSource("ZeldaDungeons")]
+            [TestCaseSource("Metroid")]
+            public void CanAccessLocation(string name, IEnumerable<Instruction> instructions) =>
+                AssertLocationAccess(name, instructions);
+
+            public static IEnumerable<TestCaseData> ZeldaOverworld =>
+                LogicTestCases("Logic.Normal.ZeldaOverworld.yaml");
+            public static IEnumerable<TestCaseData> ZeldaDungeons =>
+                LogicTestCases("Logic.Normal.ZeldaDungeons.yaml");
+            public static IEnumerable<TestCaseData> Metroid =>
+                LogicTestCases("Logic.Normal.Metroid.yaml");
+
+        }
+
+        [TestFixture]
+        public class SMHardLogic : LogicTests {
+
+            [SetUp]
+            public void Setup() => Setup("hard");
+
+            [TestCaseSource("ZeldaOverworld")]
+            [TestCaseSource("ZeldaDungeons")]
+            [TestCaseSource("Metroid")]
+            public void CanAccessLocation(string name, IEnumerable<Instruction> instructions) =>
+                AssertLocationAccess(name, instructions);
+
+            public static IEnumerable<TestCaseData> ZeldaOverworld =>
+                LogicTestCases("Logic.Normal.ZeldaOverworld.yaml", "Logic.Hard.ZeldaOverworld.yaml");
+            public static IEnumerable<TestCaseData> ZeldaDungeons =>
+                LogicTestCases("Logic.Normal.ZeldaDungeons.yaml", "Logic.Hard.ZeldaDungeons.yaml");
+            public static IEnumerable<TestCaseData> Metroid =>
+                LogicTestCases("Logic.Normal.Metroid.yaml", "Logic.Hard.Metroid.yaml");
+
+        }
+
+        void AssertLocationAccess(string name, IEnumerable<Instruction> instructions) {
             var location = world.Locations.Get(name);
 
             var inventory = Execute(instructions, world, name);
@@ -46,18 +83,6 @@ namespace Randomizer.SMZ3.Tests.Logic {
                 instruction.Execute(world, name, pool, skipOne: skip == index);
             }
             return new Progression(pool);
-        }
-
-        public static IEnumerable<TestCaseData> ZeldaOverworld() {
-            return LogicTestCases("Logic.Normal.ZeldaOverworld.yaml");
-        }
-
-        public static IEnumerable<TestCaseData> ZeldaDungeons() {
-            return LogicTestCases("Logic.Normal.ZeldaDungeons.yaml");
-        }
-
-        public static IEnumerable<TestCaseData> Metroid() {
-            return LogicTestCases("Logic.Normal.Metroid.yaml");
         }
 
     }
