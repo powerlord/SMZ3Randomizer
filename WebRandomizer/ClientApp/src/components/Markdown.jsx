@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import AdSense from 'react-adsense';
 import { createGlobalStyle } from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import classNames from 'classnames';
@@ -38,6 +39,13 @@ export default function Markdown(props) {
 
     return (
         <>
+            <AdSense.Google
+                client="ca-pub-1866012449449309"
+                slot="5723541378"
+                style={{ display: 'block' }}
+                format="auto"
+                responsive="true"
+            />
             <GlobalMarkdownStyle/>
             <ReactMarkdown
                 className={classNames('markdown', className)}

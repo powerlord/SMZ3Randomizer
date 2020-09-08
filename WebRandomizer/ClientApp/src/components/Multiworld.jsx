@@ -1,4 +1,5 @@
 ﻿import React, { useState, useEffect, useRef } from 'react';
+import AdSense from 'react-adsense';
 import { Row, Col } from 'reactstrap';
 import Seed from './Seed';
 import Patch from './Patch';
@@ -29,6 +30,7 @@ export default function Multiworld(props) {
             network.current.start();
             return () => network.current.stop();
         }
+
     }, []); /* eslint-disable-line react-hooks/exhaustive-deps */
 
     function onRegisterPlayer(clientGuid) {
@@ -69,6 +71,12 @@ export default function Multiworld(props) {
                 </Col>
             </Row>
         )}
+        <AdSense.Google
+            client="ca-pub-1866012449449309"
+            slot="1592724679"
+            style={{ display: 'inline-block', height: 90, width: 970 }}
+            format=''
+        />
         {clientData !== null && (
             <Row className="mb-3">
                 <Col>

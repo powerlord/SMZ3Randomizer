@@ -1,4 +1,5 @@
 ﻿import React, { useState, useEffect } from 'react';
+import AdSense from 'react-adsense';
 import { Container, Row, Col, Card, CardHeader, CardBody } from 'reactstrap';
 import { Button, Form, Input } from 'reactstrap';
 import InputGroup from './util/PrefixInputGroup';
@@ -177,6 +178,13 @@ export default function Configure(props) {
                                 </Form>
                             </CardBody>
                         </Card>
+                        <AdSense.Google
+                            client="ca-pub-1866012449449309"
+                            slot="5665855140"
+                            style={{ display: 'block' }}
+                            format="auto"
+                            responsive="true"
+                        />
                     </Col>
                 </Row>
 

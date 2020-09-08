@@ -1,4 +1,5 @@
 ﻿import React, { useState, useEffect } from 'react';
+import AdSense from 'react-adsense';
 import { Container, Row, Col, Card, CardHeader, CardBody } from 'reactstrap';
 import Patch from './Patch';
 import Spoiler from './Spoiler';
@@ -29,7 +30,8 @@ export default function Permalink(props) {
             } catch (error) {
                 setErrorMessage(error.toString());
             }
-        })
+        });
+
     }, []); /* eslint-disable-line react-hooks/exhaustive-deps */
 
     let content;
@@ -104,6 +106,12 @@ export default function Permalink(props) {
                     </Row>
                 </CardBody>
             </Card>
+            <AdSense.Google
+                client="ca-pub-1866012449449309"
+                slot="8541276401"
+                style={{ display: 'inline-block', height: 90, width: 970 }}
+                format=''
+            />
             <Spoiler seedData={seed} />
         </>);
     }

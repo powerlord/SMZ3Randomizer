@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Jumbotron, Container, Row, Col, Button } from 'reactstrap';
+import AdSense from 'react-adsense';
 
 export default function Home() {
     return (
@@ -13,6 +14,13 @@ export default function Home() {
                     <p>Travel between the two game can be done by using certain doors and entrances in either game</p>
                 </Container>
             </Jumbotron>
+            <AdSense.Google
+                client="ca-pub-1866012449449309"
+                slot="8154070079"
+                style={{ display: 'block' }}
+                format="auto"
+                responsive="true"
+            />
             <Container>
                 <Row>
                     <Col md="4">
